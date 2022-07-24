@@ -1,0 +1,122 @@
+.AddRoute {
+  margin-top: 7px;
+  width: 540px;
+  height: 43px;
+  background-color: rgba(50, 111, 196, 0.9);
+  border-color: rgba(74, 94, 114, 0.9);
+  color: rgb(255, 255, 255);
+  border: 1px solid transparent;
+  position: relative;
+  font-size: 28px;
+  line-height: 32px;
+  font-family: ReformaNarrowMedium;
+  font-weight: 400;
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 10px;
+  margin: 6px
+}
+
+.AddRoute:hover {
+  background: linear-gradient(90deg, #1574bc 0, #95aede);
+  /* background: linear-gradient(90deg, #1ed4da 0, #72ae7a); */
+  border-color: rgb(141, 151, 151);
+  color: rgb(233, 255, 255);
+
+}
+
+.icon {
+  font-size: 20px;
+  color: #057ad3;
+}
+
+.Actions {
+  display: flex;
+  justify-content: right;
+  background-color: rgba(74, 94, 114, 0.9);
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 57px;
+  transition: background-color .3s ease-out;
+  display: -ms-flexbox;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: start;
+}
+
+.Actions:hover {
+  background-color: rgba(89, 108, 133, 0.9);
+
+}
+
+.RouteName {
+  text-align: right;
+  border: none;
+  display: flex;
+  height: 30px;
+  width: 100%;
+  background-color: rgb(180, 180, 180);
+  border-color: rgb(180, 180, 180);
+  ;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  right: 0px;
+}
+
+#IPU {
+
+  left: 30px;
+  margin: 18px;
+  align-items: center;
+
+  /* height:20px; */
+  /* padding: 12px 20px; */
+  /* margin: 8px; */
+  /* box-sizing: border-box; */
+
+}
+
+.w3-input {
+  background-color: #d0d8d8;
+}
+
+#titleIPU {
+  margin: 10px;
+  padding: 20px;
+  width: auto;
+  height: 60px;
+  color: rgb(41, 61, 61);
+  border: 1px solid transparent;
+  font-size: 28px;
+  line-height: 32px;
+  font-family: ReformaNarrowMedium;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.pic {
+  text-align: right;
+
+}
+
+.custom-search {
+  position: relative;
+}
+
+.custom-search-input {
+  width: 100%;
+  padding-right: 100px;
+  font-size: xx-large;
+  box-sizing: border-box;
+
+}
+
+.custom-search-botton {
+
+  right: 3px;
+  top: 3px;
+  bottom: 3px;
+  line-height: 1 !important;
+  z-index: 4;
+}

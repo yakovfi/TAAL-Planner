@@ -1,0 +1,54 @@
+.showTasks {
+    display: flex;
+    margin: 20px;
+    background-color: rgb(211, 213, 231);
+    border-radius: 40px;
+    padding: 20px;
+    color: black;
+    border: rgb(180, 182, 196);
+    width: 240px;
+    text-align: center;
+
+}
+
+.showTasks:hover {
+    background-color: rgb(124, 127, 147);
+
+}
+
+.View_my_tasks {
+    width: 360px;
+    position: absolute;
+    background-color: rgb(234, 237, 247);
+    border-radius: 20px;
+    color: aliceblue;
+    text-align: center;
+    padding: 10px;
+    height: 430px;
+
+}
+
+.tasksList {
+    padding: 20px;
+    overflow: auto;
+    height: 266px;
+    background-color: rgb(181, 184, 210);
+    border-radius: 20px;
+
+}
+
+.Cover_view_my_tasks {
+    margin: 20px;
+}
+
+.Title_view_my_tasks {
+    background-color: rgb(234, 237, 247);
+    color: rgb(27, 26, 26);
+    width: 360px;
+    height: 40px;
+    border-radius: 1ch;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 15px;
+
+}

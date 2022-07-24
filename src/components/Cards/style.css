@@ -1,0 +1,13 @@
+.inputCover {
+    background-color: rgb(200 210 219 / 90%);
+    height: 70px;
+    height: 70px;
+    padding: 7px;
+
+
+}
+
+.inputCover:hover {
+    background-color: rgba(193, 202, 212, 0.9);
+
+}

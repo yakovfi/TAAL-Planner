@@ -1,0 +1,70 @@
+#containerCalc {
+    background-color: #f3eee7;
+    /* box-shadow: 40px 40px 25px 15px #111; */
+    border: 7px solid #6c6e83;
+    border-top-left-radius: 80% 30px;
+    border-top-right-radius: 80% 30px;
+    border-bottom-left-radius: 80% 50px;
+    border-bottom-right-radius: 80% 50px;
+    height: 103%;
+}
+
+#btns {
+    margin: 2.8%;
+    margin-bottom: 10px;
+    height: 60px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: rgb(86, 86, 91);
+    color: rgb(255, 255, 255);
+}
+
+#btns:hover {
+    background-color: rgb(52, 52, 55);
+}
+
+.btnRoute {
+    margin: 8.5%;
+    background-color: #e8edfc;
+    color: rgb(35, 53, 68);
+    /* box-shadow: 2px 2px 1px 1px #222 */
+}
+
+.btnRoute:hover {
+    background-color: #c7ced3;
+}
+
+#btnsOrange {
+    margin: 2.8%;
+    margin-bottom: 10px;
+    height: 60px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: #e7981e;
+}
+
+#btnsOrange:hover {
+    color: rgb(255, 255, 255);
+    background-color: #b47619;
+}
+
+.textview {
+    background-color: #c7c7b0;
+    border: 1.5px solid #b2b292;
+    border-radius: 10px;
+    height: 50px;
+    margin: 10%;
+    padding: 10%;
+    width: 80%;
+}
+
+.Task {
+
+    background-color: rgb(237, 234, 255);
+
+}
+
+#dataFromServerButton {
+    height: 255px;
+    overflow: auto;
+}

@@ -1,0 +1,72 @@
+.Stations {
+  background-color: rgb(255, 242, 234);
+  margin: -0.5px;
+  /* margin-right: 30px; */
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border-radius: 1.5ch;
+  height: 435px;
+  overflow: auto;
+}
+
+.addStationCover {
+  background-color: rgb(255, 242, 234);
+  margin: -0.5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.Station {
+  margin: 20px;
+}
+
+.Station,
+.AddStation {
+  display: flex;
+  width: 85%;
+  height: 18%;
+  margin: 20px;
+  padding: 20px;
+  justify-content: right;
+  justify-Content: 'space-between';
+  margin-right: 50;
+  border-radius: 1.5ch;
+  font-size: small;
+
+}
+
+.Station:focus {
+  background: linear-gradient(90deg, #fffbf7 0, #f5a55f);
+  /* font-size: medium; */
+  transition: 0.4s;
+}
+
+.AddStation {
+  background-color: rgb(253, 245, 241);
+  color: rgb(90, 107, 122);
+  border-style: dotted;
+  margin: 20px;
+}
+
+.Station:hover {
+  background: linear-gradient(90deg, #1ed4da 0, #72ae7a);
+  color: aliceblue
+}
+
+.AddStation:hover {
+  background: linear-gradient(90deg, #fff9f7 0, #fff1e5);
+  color: rgb(88, 59, 25)
+}
+
+.TitleStation {
+  background: linear-gradient(90deg, #e29e62 5%, rgb(255, 234, 220) 1%);
+  color: rgb(107, 102, 99);
+  height: 40px;
+  border-radius: 1ch;
+  margin-bottom: 15px;
+}
+
+.Cover_Stations {
+  padding: "1%";
+  margin-right: "2%";
+}

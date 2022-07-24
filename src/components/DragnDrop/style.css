@@ -1,0 +1,154 @@
+.Board {
+  margin: 30px;
+  height: auto;
+  width: 370px;
+  justify-content: left;
+  justify-self: unset;
+  background-color: rgb(234, 237, 247);
+  border-radius: 20px;
+  padding: 0.05%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+
+.Board:hover {
+  background-color: rgb(242, 245, 255);
+}
+
+.Cover_Tasks {
+  float: left;
+  padding: 1%;
+  margin-right: 2%;
+  font-size: small;
+
+
+}
+
+.TitleTasks {
+  background: linear-gradient(90deg, rgb(164, 190, 125) 5%, rgb(236, 245, 220) 1%);
+  color: rgb(88, 92, 81);
+  height: 40px;
+  border-radius: 1ch;
+  margin-bottom: 15px;
+  font-size: small;
+}
+
+.TasksCover {
+  background-color: rgb(236, 245, 220);
+  margin: -0.5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  overflow: auto;
+  height: 518px;
+  width: 320px;
+}
+
+.addTaskCover {
+  background-color: rgb(236, 245, 220);
+  margin: -0.5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 320px;
+}
+
+.MediaCover {
+  float: right;
+  margin: 10%;
+}
+
+.AddTasks {
+  display: flex;
+  width: 85%;
+  height: 90px;
+  margin: 20px;
+  padding: 20px;
+  justify-content: right;
+  justify-Content: 'space-between';
+  margin-right: 50px;
+  border-radius: 1.5ch;
+  color: rgb(90, 107, 122);
+  border-style: dotted;
+  background-color: rgb(240, 247, 229);
+}
+
+.AddTasks:hover {
+  background: linear-gradient(90deg, #f1fae7 0, #deecd5);
+}
+
+.MyTasks {
+  margin: 10px;
+  height: 340px;
+  width: 350px;
+  overflow: auto;
+  background-color: rgb(198, 204, 225);
+  border-radius: 20px;
+  border: 0.05px solid rgb(181, 184, 210);
+}
+
+.blink {
+  position: relative;
+  left: 95px;
+  margin: 10px;
+  padding: 20px;
+  width: auto;
+  height: 60px;
+  color: rgb(41, 61, 61);
+  border: 1px solid transparent;
+  font-size: 28px;
+  font-family: ReformaNarrowMedium;
+  font-weight: 800px;
+  justify-content: right;
+}
+
+span {
+
+  position: relative;
+
+  /* justify-content: right; */
+  font-family: cursive;
+  color: rgb(185, 168, 197);
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  99.9999% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: .999;
+  }
+}
+
+.txt {
+  position: relative;
+  left: 60px;
+  margin: 10px;
+  padding: 20px;
+  width: auto;
+  height: 60px;
+  color: rgb(43, 41, 61);
+  border: 1px solid transparent;
+  font-size: 28px;
+  /* line-height: 32px; */
+  font-family: ReformaNarrowMedium;
+  font-weight: 800px;
+  justify-content: right;
+}
+
+.helpBtn {
+  background-color: rgba(49, 70, 90, 0.9);
+  border-radius: 20px;
+  color: #ffffff;
+  font-family: ReformaNarrowMedium;
+  font-size: 18px;
+  font-weight: 400;
+  height: 40px;
+}
+
+.helpBtn:hover {
+  background-color: rgba(79, 113, 145, 0.9);
+  /* font-size: x-large;
+  transition: 0.4s; */
+}

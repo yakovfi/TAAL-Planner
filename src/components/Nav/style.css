@@ -1,0 +1,52 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 20vh;
+    color: white;
+    background-color: rgba(49, 70, 90, 0.9);
+    /* background-color: rgba(37,47,57,.9); */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 72px;
+    transition: background-color .3s ease-out;
+    display: -ms-flexbox;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-pack: start;
+}
+
+nav:hover {
+    /* background-color: rgba(24, 31, 37, 0.9); */
+    background-color: rgba(38, 54, 69, 0.9);
+
+
+}
+
+.logo {
+    height: 10vh;
+    width: 20vh;
+}
+
+.nav-links {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.link :hover {
+    color: #7ec287;
+    text-decoration: none;
+}
+
+.UserIcon {
+    font-size: 40px;
+}

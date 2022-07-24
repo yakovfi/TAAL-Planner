@@ -1,0 +1,13 @@
+.images {
+  display: flex;
+  width: 340px;
+  height: 100px;
+}
+
+img {
+
+  width: 600px;
+  height: 140px;
+  margin: 2%;
+  padding: 2%;
+}

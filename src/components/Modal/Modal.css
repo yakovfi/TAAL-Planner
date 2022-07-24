@@ -1,0 +1,348 @@
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainerMessage {
+  z-index: 10;
+  border: 2.5px solid rgb(86, 160, 225);
+  border-radius: 5px;
+  margin-right: auto;
+  width: 575px;
+  height: 550px;
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex-direction: column;
+  padding: 25px;
+  position: fixed;
+  /* border: 3px solid green; */
+  box-shadow: rgb(136 136 136) 1px 2px;
+  margin-top: -80px;
+}
+
+.modalContainer {
+  border-radius: 5px;
+  margin-left: 35%;
+  margin-right: auto;
+  width: 500px;
+  height: 400px;
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  position: fixed;
+  border: 2.5px solid rgb(86, 160, 225);
+  box-shadow: rgb(136 136 136) 1px 2px;
+  z-index: 10;
+}
+
+.modalMyTasksContainer {
+  border: 2.5px solid rgb(86, 160, 225);
+  border-radius: 5px;
+  margin-top: -25vh;
+  margin-left: 34%;
+  margin-right: auto;
+  width: 500px;
+  height: 650px;
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  position: fixed;
+  /* border: 3px solid green; */
+  box-shadow: rgb(136 136 136) 1px 2px;
+  z-index: 10;
+
+}
+
+.bodyTasks {
+  padding: 23px;
+  height: 400px;
+  overflow: auto;
+  text-align: right;
+  background-color: rgb(204, 228, 248);
+}
+
+.modalContainerCalculator {
+  border-radius: 5px;
+  border: 2.5px solid rgb(86, 160, 225);
+  margin-right: auto;
+  width: 575px;
+  height: 650px;
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex-direction: column;
+  padding: 25px;
+  position: fixed;
+  box-shadow: rgb(136 136 136) 1px 2px;
+  margin-top: -180px;
+  z-index: 10;
+
+}
+
+.modalContainerStudent {
+  border: 2.5px solid rgb(86, 160, 225);
+  border-radius: 5px;
+  width: 575px;
+  height: 570px;
+  background-color: aliceblue;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  flex-direction: column;
+  padding: 25px;
+  position: fixed;
+  /* border: 3px solid green; */
+  box-shadow: rgb(136 136 136) 1px 2px;
+  margin-top: -100px;
+  z-index: 10;
+  margin-left: 30%;
+}
+
+.modalContainerStudentPrint {
+
+  width: 575px;
+  height: 620px;
+  flex-direction: column;
+  position: fixed;
+  margin-top: 120px;
+  z-index: 10;
+
+
+}
+
+.modalContainerLoading {
+  background-color: aliceblue;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  flex-direction: column;
+  position: fixed;
+  margin-top: -90px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modalContainerLittleLoading {
+  background-color: #728596;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+  flex-direction: column;
+  position: fixed;
+  margin-top: -390px;
+  margin-left: 140px;
+  z-index: 10;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  padding: 30px;
+}
+
+.modalContainerHelpPlanner {
+  border: 2.5px solid rgb(86, 160, 225);
+  border-radius: 5px;
+  margin-right: auto;
+  width: 575px;
+  height: 450px;
+  background-color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  flex-direction: column;
+  padding: 25px;
+  position: fixed;
+  /* border: 3px solid green; */
+  box-shadow: rgb(136 136 136) 1px 2px;
+  margin-top: -120px;
+  margin-left: 450px;
+  border-radius: 2%;
+  z-index: 10;
+}
+
+.modalContainer .Planner {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(90, 90, 90, 0.5);
+  z-index: 9999;
+}
+
+.modalContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modalContainer .body {
+
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.footer button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.continueBtn {
+  background-color: cornflowerblue;
+
+}
+
+.continueBtn:hover {
+  background-color: rgb(59, 86, 138);
+
+}
+
+.cancelBtn {
+  background-color: crimson;
+  float: right;
+}
+
+.cancelBtn:hover {
+  background-color: rgb(116, 12, 32);
+}
+
+#cancelBtn:hover {
+  background-color: rgb(131, 14, 37);
+}
+
+
+.RouteName {
+  text-align: right;
+  border: none;
+  display: flex;
+  height: 30px;
+  width: 100%;
+  background-color: rgb(180, 180, 180);
+  border-color: rgb(180, 180, 180);
+  ;
+  color: rgb(255, 255, 255);
+  position: absolute;
+  right: 0px;
+}
+
+.w3-input {
+  background-color: #d0d8d8;
+}
+
+.BackgroundPlases {
+  background-color: aliceblue;
+  border: 2.5px solid rgb(86, 160, 225);
+  border-radius: 5px;
+  /* border: 3px solid green; */
+  box-shadow: rgb(136 136 136) 1px 2px;
+  position: fixed;
+  z-index: 10;
+  width: 500px;
+  height: -200px;
+  /* margin: -25% auto; */
+  margin: -190px;
+  margin-left: 500px;
+  padding: 10px;
+  width: 520px;
+  height: 635px;
+  /* overflow: scroll; */
+  text-align: right;
+  align-self: center;
+}
+
+.BackgroundTasks {
+  border: 2.5px solid rgb(86, 160, 225);
+  border-radius: 5px;
+  background-color: aliceblue;
+  /* border: 3px solid green; */
+  box-shadow: rgb(136 136 136) 1px 2px;
+  position: fixed;
+  width: 500px;
+  height: -200px;
+  /* margin: -28% auto; */
+  margin: -210px;
+  margin-left: 500px;
+  padding: 10px;
+  width: 520px;
+  text-align: right;
+  align-self: center;
+  z-index: 10;
+
+}
+
+.allTasks {
+  height: 135px;
+  overflow: scroll;
+}
+
+.allStudent {
+  height: 635px;
+  overflow: scroll;
+}
+
+.BackgroundPlasesNoClick {
+  border: 2.5px solid rgb(86, 160, 225);
+  border-radius: 5px;
+  background-color: aliceblue;
+  /* border: 3px solid green; */
+  box-shadow: rgb(136 136 136) 1px 2px;
+  z-index: 10;
+  position: fixed;
+  width: 500px;
+  /* margin: -25% auto; */
+  margin: -190px;
+  margin-left: 500px;
+  padding: 10px;
+  width: 520px;
+  height: 335px;
+  text-align: right;
+  align-self: center;
+}
+
+.OK {
+  background-color: rgb(95, 95, 230);
+  width: 50%;
+  /* border: 3px solid green; */
+  box-shadow: rgb(136 136 136) 1px 2px;
+  margin: 20px;
+  margin-right: 46px;
+}
+
+.OK:hover {
+  background-color: rgb(60, 60, 148);
+}
+
+.printStudent {
+  background-color: rgb(255, 255, 255);
+  border-color: #d0d8d8;
+}
+
+.printStudent:hover {
+  background-color: rgb(255, 255, 255);
+  border-color: #53b0b0;
+}

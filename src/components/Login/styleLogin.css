@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #292929;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header {
+
+  justify-content: space-between;
+  color: #FFFF;
+  background-color: #777777;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+nav {
+  color: #FFFF;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+input {
+  margin: 0.5rem;
+  padding: .8em;
+  border-radius: 5px;
+}
+
+
+
+input[type=submit] {
+  padding: .8em 0;
+  font-size: large;
+  font-weight: 800;
+  background-color: skyblue;
+  border: unset;
+  margin-top: 1em;
+  width: 80%;
+}
+
+input[type=submit]:hover {
+  background: linear-gradient(90deg, #1ed4da 0, #72ae7a);
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+
+  /* text-align: left; */
+}
+
+.App-logo {
+  height: auto;
+}
+
+.App-header {
+  background-color: #292929;
+  height: auto;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(255, 255, 255);
+  justify-content: center;
+}
+
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
