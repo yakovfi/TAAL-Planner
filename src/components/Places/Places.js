@@ -121,7 +121,10 @@ const Places = (props) => {
                         padding: "1%",
                         marginRight: "2%"
                     }}>
-                        <div className='TitlePlaces'><h3>{props.sites}</h3></div>
+                        <div className='TitlePlaces' style={{
+                            background: props.titlePlacesCss
+
+                        }}><h3>{props.sites}</h3></div>
                         <div className='addPlaceCover'>
                             <button
                                 className='AddPlace'
@@ -132,7 +135,7 @@ const Places = (props) => {
                                     width: "85px",
                                     height: "30px"
                                 }} />
-                                <h6>Add site</h6>
+                                <h6>{props.addSite}</h6>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </button>
@@ -171,7 +174,10 @@ const Places = (props) => {
 
                         </div>
                     </div>
-                    <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation} language={props} stationsName={props.stations} myTasks={props.myTasks} />
+                    <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
+                        language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
+                        addStation={props.addStation} addMyTask={props.addMyTask}
+                        titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} />
                 </>
             }
         </>

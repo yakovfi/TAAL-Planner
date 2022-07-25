@@ -10,7 +10,9 @@ const Tasks_comp = (props) => {
     return (
         <>
             <DndProvider backend={HTML5Backend}>
-                <DragnDrop propDataTask={props.propsDataTask} allStations={props.allStations} language={props.language} myTasks={props.myTasks} />
+                <DragnDrop propDataTask={props.propsDataTask} allStations={props.allStations}
+                    language={props.language} myTasks={props.myTasks} drag={props.drag} addMyTask={props.addMyTask}
+                    titleTaskCss={props.titleTaskCss} />
             </DndProvider >
         </>
     );

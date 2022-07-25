@@ -81,7 +81,11 @@ function DragnDrop(props) {
                 marginRight: "2%",
                 fontSize: "small"
             }}>
-                <div className='TitleTasks'><h3>{props.myTasks}</h3></div>
+                <div className='TitleTasks' style={{
+
+                    //   background: linear-gradient(90deg, rgb(164, 190, 125) 5%, rgb(236, 245, 220) 1%);
+                    background: props.titleTaskCss
+                }}><h3>{props.myTasks}</h3></div>
                 <div className='addTaskCover' style={{
                     borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
                 }}>
@@ -96,7 +100,7 @@ function DragnDrop(props) {
                             width: "85px",
                             height: "30px"
                         }} />
-                        <h6 >Add task</h6>
+                        <h6 >{props.addMyTask}</h6>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </button>
@@ -118,7 +122,7 @@ function DragnDrop(props) {
                     </div>
                     <Audios id={thisId} data={myTask} />
 
-                    <div className='txt'> Drag a task here:&nbsp;&nbsp;
+                    <div className='txt'> {props.drag}&nbsp;&nbsp;
                         <button className="helpBtn" onClick={() => {
                             help()
                         }} >help</button>

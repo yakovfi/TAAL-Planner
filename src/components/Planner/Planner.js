@@ -16,8 +16,21 @@ const Planner = () => {
     const [language, setLanguage] = useState("עברית");
     const [floatLan, setFloatLan] = useState("left");
     const [sites, setSites] = useState("Sites");
+    const [addSite, setAddSite] = useState("Add sites");
     const [stations, setStations] = useState("Stations");
-    const [myTasks, setTasks] = useState("Tasks")
+    const [addStation, setAddStation] = useState("add stations");
+    const [myTasks, setTasks] = useState("Tasks");
+    const [addMyTask, setAddTask] = useState("Add tasks");
+
+    const [saveButton, setSaveButton] = useState("Save route");
+    const [routeWrite, setRouteWrite] = useState("Write down the name of the route");
+    const [drag, setRDrag] = useState("Drag a task here:");
+    const [titlePlacesCss, setTitlePlacesCss] = useState("linear-gradient(90deg, rgb(161, 147, 229) 5%, rgb(237, 234, 255) 1%)");
+    const [titleStationCss, setTitleStationCss] = useState("linear-gradient(90deg, #e29e62 5%, rgb(255, 234, 220) 1%)");
+    const [titleTaskCss, setTitleTaskCss] = useState("linear-gradient(90deg, rgb(164, 190, 125) 5%, rgb(236, 245, 220) 1%)");
+
+
+
 
 
 
@@ -47,6 +60,17 @@ const Planner = () => {
         setSites("Sites");
         setStations("Stations");
         setTasks("Tasks");
+        setSaveButton("Save route");
+        setRouteWrite("Write down the name of the route");
+        setRDrag("Drag a task here:");
+        setAddSite("Add sites");
+        setAddStation("add stations");
+        setAddTask("Add tasks");
+        setTitlePlacesCss("linear-gradient(90deg, rgb(161, 147, 229) 5%, rgb(237, 234, 255) 1%)");
+        setTitleStationCss("linear-gradient(90deg, #e29e62 5%, rgb(255, 234, 220) 1%)");
+        setTitleTaskCss("linear-gradient(90deg, rgb(164, 190, 125) 5%, rgb(236, 245, 220) 1%)")
+
+
     }
     const english = () => {
         setHebrew(false);
@@ -56,6 +80,17 @@ const Planner = () => {
         setSites("אתרים");
         setStations("תחנות");
         setTasks("משימות");
+        setSaveButton("שמור מסלול");
+        setRouteWrite("רשום את שם המסלול");
+        setRDrag(":גרור משימות לכאן");
+        setAddSite("הוסף אתר");
+        setAddStation("הוסף תחנה");
+        setAddTask("הוסף משימה");
+        setTitlePlacesCss("linear-gradient(90deg, rgb(237, 234, 255) 95%, rgb(161, 147, 229) 1%)");
+        setTitleStationCss("linear-gradient(90deg, rgb(255, 234, 220) 95%, #e29e62 1%)");
+        setTitleTaskCss("linear-gradient(90deg, rgb(236, 245, 220) 95%, rgb(164, 190, 125) 1%)")
+
+
     }
     return (
         <>
@@ -71,7 +106,7 @@ const Planner = () => {
                             overflow: "hidden",
                         }}>
                             <div className="Actions">
-                                <input type="text" className="form-control custom-search-input" onChange={getName} placeholder="Write down the name of the route"
+                                <input type="text" className="form-control custom-search-input" onChange={getName} placeholder={routeWrite}
                                     style={{ fontSize: "x-large" }}>
 
                                 </input>
@@ -80,8 +115,9 @@ const Planner = () => {
                                         setModalOpen(true);
                                     }}
                                 >
-                                    <FcOk className='icon' />   &nbsp;&nbsp;
-                                    Save route
+                                    <FcOk className='icon' />
+                                    &nbsp;&nbsp;
+                                    {saveButton}
                                 </button>
 
                                 <button
@@ -95,13 +131,14 @@ const Planner = () => {
 
                             {modalOpen && <Modal setOpenModal={setModalOpen} setText={get_Name} />}
                             <div>
-                                <Places setFloatLang={floatLan} sites={sites} stations={stations} myTasks={myTasks} />
+                                <Places setFloatLang={floatLan} sites={sites} stations={stations} myTasks={myTasks} drag={drag}
+                                    addSite={addSite} addStation={addStation} addMyTask={addMyTask} titlePlacesCss={titlePlacesCss}
+                                    titleStationCss={titleStationCss} titleTaskCss={titleTaskCss} />
                             </div>
                         </div>
                     )}
                 </>
             }
-
         </>
     );
 }

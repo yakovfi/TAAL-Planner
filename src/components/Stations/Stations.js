@@ -113,7 +113,11 @@ const Stations = (props) => {
                         marginRight: "2%",
                         padding: "1%"
                     }}>
-                        <div className='TitleStation'><h3>{props.stationsName}</h3></div>
+                        <div className='TitleStation' style={{
+
+                            background: props.titleStationCss
+                            //   background: linear-gradient(90deg, rgb(255, 234, 220) 95%, #e29e62 1%);
+                        }}><h3>{props.stationsName}</h3></div>
                         <div className='addStationCover'>
                             <button
                                 className='AddStation'
@@ -124,7 +128,7 @@ const Stations = (props) => {
                                     width: "85px",
                                     height: "30px"
                                 }} />
-                                <h6>Add station</h6>
+                                <h6>{props.addStation}</h6>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </button>
@@ -161,7 +165,9 @@ const Stations = (props) => {
                                 })}
                         </div>
                     </div>
-                    <Tasks_comp propsDataTask={tasks} allStations={props.allStations} language={props.language.setFloatLang} myTasks={props.myTasks} />
+                    <Tasks_comp propsDataTask={tasks} allStations={props.allStations} language={props.language.setFloatLang}
+                        myTasks={props.myTasks} drag={props.drag}
+                        addMyTask={props.addMyTask} titleTaskCss={props.titleTaskCss} />
                 </>
             )}
         </>
