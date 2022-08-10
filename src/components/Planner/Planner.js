@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import { FcOk } from "react-icons/fc";
+import { AiFillCheckCircle } from "react-icons/ai";
 import Places from '../Places/Places';
 import 'reactjs-popup/dist/index.css';
 import Modal from '../Modal/Modal';
 
 //-------------------------
+let marginHebrew = '0px';
 const Planner = () => {
-
     const [get_logged_in, setLogged_in] = useState(false);// for TextView
     const [get_Name, setName] = useState(null);// for TextView
     const [loading, setLoading] = useState(false);
@@ -21,17 +21,15 @@ const Planner = () => {
     const [addStation, setAddStation] = useState("add stations");
     const [myTasks, setTasks] = useState("Tasks");
     const [addMyTask, setAddTask] = useState("Add tasks");
-
     const [saveButton, setSaveButton] = useState("Save route");
     const [routeWrite, setRouteWrite] = useState("Write down the name of the route");
-    const [drag, setRDrag] = useState("Drag a task here:");
-    const [titlePlacesCss, setTitlePlacesCss] = useState("linear-gradient(90deg, rgb(161, 147, 229) 5%, rgb(237, 234, 255) 1%)");
-    const [titleStationCss, setTitleStationCss] = useState("linear-gradient(90deg, #e29e62 5%, rgb(255, 234, 220) 1%)");
-    const [titleTaskCss, setTitleTaskCss] = useState("linear-gradient(90deg, rgb(164, 190, 125) 5%, rgb(236, 245, 220) 1%)");
+    const [drag, setRDrag] = useState("route view");
 
-
-
-
+    const [titlePlacesCss, setTitlePlacesCss] = useState("linear-gradient(90deg, #7A78B7  5%, #7A78B71F 1%)");
+    const [titleStationCss, setTitleStationCss] = useState("linear-gradient(90deg, #F2AE69 5%, #FEF5ED 1%)");
+    const [titleTaskCss, setTitleTaskCss] = useState("linear-gradient(90deg, #C4CE9C 5%, #F8F9F3 1%)");
+    const [inputSide, setInputSide] = useState("left");
+    const [flagHebrew, setflagHebrew] = useState(false);
 
 
     useEffect(() => {
@@ -49,9 +47,9 @@ const Planner = () => {
     }, []);
 
     //-------------------input-------------------------
-    function getName(val) {
-        setName(val.target.value)
-    }
+    // function getName(val) {
+    //     setName(val.target.value)
+    // }
     const hebrew = () => {
         setHebrew(true);
         setLanguage("עברית");
@@ -62,15 +60,16 @@ const Planner = () => {
         setTasks("Tasks");
         setSaveButton("Save route");
         setRouteWrite("Write down the name of the route");
-        setRDrag("Drag a task here:");
+        setRDrag("route view");
         setAddSite("Add sites");
         setAddStation("add stations");
         setAddTask("Add tasks");
-        setTitlePlacesCss("linear-gradient(90deg, rgb(161, 147, 229) 5%, rgb(237, 234, 255) 1%)");
-        setTitleStationCss("linear-gradient(90deg, #e29e62 5%, rgb(255, 234, 220) 1%)");
-        setTitleTaskCss("linear-gradient(90deg, rgb(164, 190, 125) 5%, rgb(236, 245, 220) 1%)")
-
-
+        setTitlePlacesCss("linear-gradient(90deg, #7A78B7  5%, #7A78B71F 1%)");
+        setTitleStationCss("linear-gradient(90deg,#F2AE69 5%, #FEF5ED 1%)");
+        setTitleTaskCss("linear-gradient(90deg, #C4CE9C 5%, #F8F9F3 1%)");
+        setInputSide("left");
+        setflagHebrew(true);
+        marginHebrew = '1330px';
     }
     const english = () => {
         setHebrew(false);
@@ -82,19 +81,20 @@ const Planner = () => {
         setTasks("משימות");
         setSaveButton("שמור מסלול");
         setRouteWrite("רשום את שם המסלול");
-        setRDrag(":גרור משימות לכאן");
+        setRDrag("תצוגת המסלול");
         setAddSite("הוסף אתר");
         setAddStation("הוסף תחנה");
         setAddTask("הוסף משימה");
-        setTitlePlacesCss("linear-gradient(90deg, rgb(237, 234, 255) 95%, rgb(161, 147, 229) 1%)");
-        setTitleStationCss("linear-gradient(90deg, rgb(255, 234, 220) 95%, #e29e62 1%)");
-        setTitleTaskCss("linear-gradient(90deg, rgb(236, 245, 220) 95%, rgb(164, 190, 125) 1%)")
-
+        setTitlePlacesCss("linear-gradient(90deg,  #7A78B71F 95%, #7A78B7 1%)");
+        setTitleStationCss("linear-gradient(90deg, #FEF5ED 95%, #F2AE69 1%)");
+        setTitleTaskCss("linear-gradient(90deg, #F8F9F3 95%, #C4CE9C 1%)");
+        setInputSide("right");
+        setflagHebrew(false);
+        marginHebrew = 0;
 
     }
     return (
         <>
-
             {!get_logged_in ? <div style={{ color: "white" }}>Please connect properly !</div> :
                 <>
 
@@ -102,25 +102,43 @@ const Planner = () => {
                     {!loading && (
 
                         <div className="Planner" style={{
-                            backgroundColor: 'rgb(213, 221, 228)',
+                            backgroundColor: '#FFFFFF',
                             overflow: "hidden",
                         }}>
-                            <div className="Actions">
-                                <input type="text" className="form-control custom-search-input" onChange={getName} placeholder={routeWrite}
-                                    style={{ fontSize: "x-large" }}>
+                            <div className="Actions" >
+                                {flagHebrew ?
+                                    <>
+                                        <button className="AddRoute" type="submit"
+                                            onClick={() => {
+                                                setModalOpen(true);
+                                            }}
+                                        >
+                                            <AiFillCheckCircle className='icon' />
+                                            &nbsp;&nbsp;
+                                            {saveButton}
+                                        </button>
+                                    </> :
+                                    <>
+                                        <button className="AddRoute" type="submit" style={{
+                                            position: 'absolute',
+                                            right: '70px',
 
-                                </input>
-                                <button className="AddRoute" type="submit"
-                                    onClick={() => {
-                                        setModalOpen(true);
-                                    }}
-                                >
-                                    <FcOk className='icon' />
-                                    &nbsp;&nbsp;
-                                    {saveButton}
-                                </button>
+                                        }}
+                                            onClick={() => {
+                                                setModalOpen(true);
+                                            }}
+                                        >
+                                            {saveButton}
+                                            &nbsp;&nbsp;
+                                            <AiFillCheckCircle className='icon' />
+                                        </button>
+                                        {/* <input type="text" className="form-control custom-search-input" onChange={getName} placeholder={routeWrite}
+                                            style={{ fontSize: "x-large", textAlign: inputSide }}>
 
-                                <button
+                                        </input> */}
+                                    </>}
+
+                                <button style={{ marginLeft: marginHebrew }}
                                     onClick={() => {
                                         if (Hebrew === false)
                                             hebrew();
@@ -133,7 +151,7 @@ const Planner = () => {
                             <div>
                                 <Places setFloatLang={floatLan} sites={sites} stations={stations} myTasks={myTasks} drag={drag}
                                     addSite={addSite} addStation={addStation} addMyTask={addMyTask} titlePlacesCss={titlePlacesCss}
-                                    titleStationCss={titleStationCss} titleTaskCss={titleTaskCss} />
+                                    titleStationCss={titleStationCss} titleTaskCss={titleTaskCss} flagHebrew={flagHebrew} />
                             </div>
                         </div>
                     )}

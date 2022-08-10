@@ -2,6 +2,11 @@
   display: flex;
   width: 340px;
   height: 100px;
+  width: 256px;
+  height: 139px;
+  margin: -1%;
+  padding: 3%;
+  margin-left: 56px;
 }
 
 img {

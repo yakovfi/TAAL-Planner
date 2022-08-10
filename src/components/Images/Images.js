@@ -12,7 +12,11 @@ const Images = ({ id, data }) => {
 
     return (
         <>
-            {image !== "" ? <><div className="images">
+            {image !== "" ? <><div className="images" style={{
+
+
+
+            }}>
                 <Image
                     src={image}
                     alt="new"

@@ -5,9 +5,10 @@ import { FcLink } from "react-icons/fc";
 import { BsExclamationLg } from "react-icons/bs";
 import Modal_Loading from "./Modal_Loading";
 import { baseUrl } from "../../config";
+import { RiAsterisk } from "react-icons/ri";
 
 //--------------------------
-let obj = { tasks: [], users: [] }
+let obj = { tasks: [], users: [], mySite: [] }
 let student = [];
 let myStudents = [];
 let myStudentsChoice = [];
@@ -24,6 +25,7 @@ function Modal({ setOpenModal, setText }) {
     const [, setMyStudents] = useState([])
     const [, setMyStudentsChoice] = useState([])
     const [, setFlagClickOK] = useState(false);
+    const [get_Name, setName] = useState(null);// for TextView
 
     useEffect(() => {
         const fetchData = async () => {
@@ -59,10 +61,10 @@ function Modal({ setOpenModal, setText }) {
 
         setFlagClickOK(flagClickOK = true)
         resultMyArrayStudent()
-        if (setText === null || setText === "") {
-            alert('Please give the Route a title !')
-            return
-        }
+        // if (setText === null || setText === "") {
+        //     alert('Please give the Route a title !')
+        //     return
+        // }
 
         if (JSON.parse(localStorage.getItem('New_Routes')) === null) {
             alert('Route is empty ! ');
@@ -70,9 +72,13 @@ function Modal({ setOpenModal, setText }) {
         }
         else {
             set_obj(obj.tasks = JSON.parse(localStorage.getItem('New_Routes')));
+            console.log("obj.tasks:", obj.tasks);
+            set_obj(obj.mySite = JSON.parse(localStorage.getItem('MySite')));
+            console.log("obj.mySite:", obj.mySite.id);
+
+
             // console.log("obj : ", obj)
             // console.log("obj.tasks : ", obj.tasks)
-
             let url_post = `${baseUrl}/wp-json/wp/v2/routes/`
             fetch(url_post, {
                 method: "POST",
@@ -81,7 +87,7 @@ function Modal({ setOpenModal, setText }) {
                     'Authorization': `Bearer ${sessionStorage.getItem('jwt')}`,
                 },
                 body: JSON.stringify({
-                    title: setText,
+                    title: get_Name,
                     status: 'publish',
                     fields: {
                         tasks: obj.tasks.map((e) => {
@@ -90,10 +96,10 @@ function Modal({ setOpenModal, setText }) {
                         }),
                         users: {
                             ID: myStudentsChoice.map((e) => {
-                                // console.log("e.id2:", e)
                                 return e.id
-                            }),
-                        }
+                            })
+                        },
+                        my_site: obj.mySite.id
                     },
                 })
             }).then(function (response) {
@@ -109,24 +115,27 @@ function Modal({ setOpenModal, setText }) {
     }
     const saveCheckbox = (val) => {
         setMyStudents(myStudents.push(val))
-        sortById()
+        if (myStudents.length > 1)
+            sortById()
+        console.log("myStudents", myStudents)
         // console.log("myStudents:", myStudents);
     }
     const sortById = () => {
-        if (myStudents.length > 1)
-            for (let i = 0; i < myStudents.length; i++) {
-                let min = myStudents[i];
-                for (let j = i; j < myStudents.length; j++) {
-                    // console.log(j, ",", myStudents[j].id)
-                    if (myStudents[j].id < min.id) {
-                        setMyStudents(myStudents[i] = myStudents[j])
-                        setMyStudents(myStudents[j] = min)
-                        min = myStudents[j].id
-                    }
+
+        for (let i = 0; i < myStudents.length; i++) {
+            let min = myStudents[i];
+            for (let j = i; j < myStudents.length; j++) {
+                // console.log(j, ",", myStudents[j].id)
+                if (myStudents[j].id < min.id) {
+                    setMyStudents(myStudents[i] = myStudents[j])
+                    setMyStudents(myStudents[j] = min)
+                    min = myStudents[j].id
                 }
             }
+        }
     }
     const resultMyArrayStudent = () => {
+        console.log("myStudents:", myStudents)
         if (myStudents.length > 1)
             for (let i = 0; i < myStudents.length; i++) {
                 let index = i;
@@ -140,90 +149,106 @@ function Modal({ setOpenModal, setText }) {
                 if (count % 2 !== 0) {
                     setMyStudentsChoice(myStudentsChoice.push(myStudents[index]))
                 }
+
                 // console.log("myStudentsChoice:", myStudentsChoice)
             }
+        setMyStudentsChoice(myStudentsChoice.push(myStudents[0]))
+
+    }
+    function getName(val) {
+        setName(val.target.value)
     }
     return (
         <>
-            {setText === null || setText === "" ? <>
-                <div className="Background">
-                    <div className="modalContainer">
-                        <div className="titleCloseBtn">
-                            <button
-                                onClick={() => {
-                                    setOpenModal(false);
-                                }}
-                            >
-                                X
-                            </button>
-                        </div>
-                        <div className="title">
-                            <h3> Please type in the route name</h3>
-                            <BsExclamationLg style={{ color: "red", fontSize: "80px" }} />
-                        </div>
-                        <div className="body">
+            {
+                false
+                    // setText === null || setText === "" 
+                    ? <>
+                        <div className="Background">
+                            <div className="modalContainer">
+                                <div className="titleCloseBtn">
+                                    <button
+                                        onClick={() => {
+                                            setOpenModal(false);
+                                        }}
+                                    >
+                                        X
+                                    </button>
+                                </div>
+                                <div className="title">
+                                    <h3> Please type in the route name</h3>
+                                    <BsExclamationLg style={{ color: "red", fontSize: "80px" }} />
+                                </div>
+                                <div className="body">
 
+                                </div>
+                                <div className="footer">
+                                    <button className='cancelBtn'
+                                        onClick={() => {
+                                            setOpenModal(false);
+                                        }}
+                                    >
+                                        closed
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div className="footer">
-                            <button className='cancelBtn'
-                                onClick={() => {
-                                    setOpenModal(false);
-                                }}
-                            >
-                                closed
-                            </button>
+                    </>
+                    :
+                    <div className="Background">
+                        <div className="modalContainer">
+                            <div className="titleCloseBtn">
+                                <button
+                                    onClick={() => {
+                                        setOpenModal(false);
+                                    }}
+                                >
+                                    X
+                                </button>
+                            </div>
+                            <form id="IPU" className="w3-container">
+                                <h6 style={{ textAlign: 'right' }}> :רשום את שם המסלול <RiAsterisk style={{ color: 'red' }} /></h6>
+                                <p><input required={true} type="text" onChange={getName} style={{
+                                    textAlign: 'right',
+                                    width: '390px',
+                                    height: '35px'
+                                }}></input></p>
+                            </form>
+                            <h6 ><FcLink className='icon' />&nbsp;&nbsp;Select employees:</h6>
+                            <div className='allStudent' >
+                                {student.map((value, index) => {
+                                    return (
+                                        <label key={index} className="list-group-item" >
+
+                                            <input onChange={() => saveCheckbox(value)} className="form-check-input me-1" type="checkbox" id={value.name} name={value.name} value=""></input>
+                                            {value.name}
+
+                                        </label>
+                                    )
+                                })}
+                            </div>
+                            <div className="body">
+                                <h5>Are you sure?</h5>
+                            </div>
+                            <div className="footer">
+
+                                <button className='continueBtn'
+                                    onClick={Post_Route}
+                                > Yes
+                                </button>
+                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+
+                                <button className='cancelBtn'
+                                    onClick={() => {
+                                        setOpenModal(false);
+                                    }}
+                                >No
+                                </button>
+                                {flagClickOK ? <><Modal_Loading props={false} /></> : <></>}
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </>
-                :
-                <div className="Background">
-                    <div className="modalContainer">
-                        <div className="titleCloseBtn">
-                            <button
-                                onClick={() => {
-                                    setOpenModal(false);
-                                }}
-                            >
-                                X
-                            </button>
-                        </div>
-
-                        <h6 ><FcLink className='icon' />&nbsp;&nbsp;Select employees:</h6>
-                        <div className='allStudent' >
-                            {student.map((value, index) => {
-                                return (
-                                    <label key={index} className="list-group-item" >
-
-                                        <input onChange={() => saveCheckbox(value)} className="form-check-input me-1" type="checkbox" id={value.name} name={value.name} value=""></input>
-                                        {value.name}
-
-                                    </label>
-                                )
-                            })}
-                        </div>
-                        <div className="body">
-                            <h5>Are you sure?</h5>
-                        </div>
-                        <div className="footer">
-
-                            <button className='continueBtn'
-                                onClick={Post_Route}
-                            > Yes
-                            </button>
-                            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-
-                            <button className='cancelBtn'
-                                onClick={() => {
-                                    setOpenModal(false);
-                                }}
-                            >No
-                            </button>
-                            {flagClickOK ? <><Modal_Loading props={false} /></> : <></>}
-
-                        </div>
-                    </div>
-                </div>
             }
         </>
     );

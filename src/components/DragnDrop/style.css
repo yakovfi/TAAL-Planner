@@ -1,19 +1,11 @@
 .Board {
-  margin: 30px;
-  height: auto;
-  width: 370px;
-  justify-content: left;
-  justify-self: unset;
-  background-color: rgb(234, 237, 247);
-  border-radius: 20px;
-  padding: 0.05%;
-  display: inline-block;
-  margin-left: 5px;
-}
-
-
-.Board:hover {
-  background-color: rgb(242, 245, 255);
+  top: 204px;
+  left: 0px;
+  width: 400px;
+  height: 534px;
+  background: #F5F5F5 0% 0% no-repeat padding-box;
+  opacity: 1;
+  margin-top: 4px;
 }
 
 .Cover_Tasks {
@@ -21,34 +13,36 @@
   padding: 1%;
   margin-right: 2%;
   font-size: small;
-
-
 }
 
 .TitleTasks {
   color: rgb(88, 92, 81);
   height: 40px;
   border-radius: 1ch;
-  margin-bottom: 15px;
+  margin-bottom: 26px;
   font-size: small;
+  width: 290px;
+  height: 65px
 }
 
 .TasksCover {
-  background-color: rgb(236, 245, 220);
+  background-color: #F8F9F3;
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
   overflow: auto;
-  height: 518px;
-  width: 320px;
+  height: 246px;
+  width: 290px;
+
+
 }
 
 .addTaskCover {
-  background-color: rgb(236, 245, 220);
+  background-color: #F8F9F3;
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
-  width: 320px;
+  width: 290px
 }
 
 .MediaCover {
@@ -69,6 +63,7 @@
   color: rgb(90, 107, 122);
   border-style: dotted;
   background-color: rgb(240, 247, 229);
+
 }
 
 .AddTasks:hover {
@@ -76,17 +71,20 @@
 }
 
 .MyTasks {
-  margin: 10px;
-  height: 340px;
-  width: 350px;
+  top: 313px;
+  left: 73px;
+  width: 300px;
+  height: 360px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #6A6865;
+  border-radius: 6px 0px 6px 6px;
+  opacity: 1;
+  margin-left: 43px;
   overflow: auto;
-  background-color: rgb(198, 204, 225);
-  border-radius: 20px;
-  border: 0.05px solid rgb(181, 184, 210);
 }
 
 .blink {
-  position: relative;
   left: 95px;
   margin: 10px;
   padding: 20px;
@@ -121,19 +119,16 @@ span {
 }
 
 .txt {
-  position: relative;
-  left: 60px;
-  margin: 10px;
-  padding: 20px;
-  width: auto;
-  height: 60px;
-  color: rgb(43, 41, 61);
-  border: 1px solid transparent;
-  font-size: 28px;
-  /* line-height: 32px; */
-  font-family: ReformaNarrowMedium;
-  font-weight: 800px;
-  justify-content: right;
+  top: 272px;
+  left: 117px;
+  width: 343px;
+  height: 30px;
+  /* UI Properties */
+  text-align: right;
+  font: normal normal 600 23px/30px Assistant;
+  letter-spacing: 0px;
+  color: #505050;
+  opacity: 1;
 }
 
 .helpBtn {

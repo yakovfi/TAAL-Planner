@@ -131,6 +131,7 @@ const Cards = () => {
                     per_page: 99, 'Cache-Control': 'no-cache'
                 }
             }).then(res => {
+                console.log("res:", res)
                 setDone(true)
                 size = res.length / number;
 

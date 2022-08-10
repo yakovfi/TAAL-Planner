@@ -1,16 +1,37 @@
 .Places {
-  background-color: rgb(237, 234, 255);
+  background-color: #7A78B71F;
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
-  border-radius: 1.5ch;
-  height: 435px;
+  /* border-radius: 1.5ch; */
+  height: 163px;
   overflow: auto;
+  width: 287px;
 
 }
 
+.MyTitle {
+  top: 301px;
+  height: 34px;
+  font: normal normal bold 26px/34px Assistant;
+  letter-spacing: 0px;
+  color: #505050;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+
+.threeDotsVertical {
+  width: 352px;
+  height: 34px;
+  opacity: 1;
+  margin-left: -181px;
+  margin-top: 15px;
+}
+
+
 .addPlaceCover {
-  background-color: rgb(237, 234, 255);
+  background-color: #7A78B71F;
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
@@ -19,13 +40,23 @@
 
 .Place {
   margin: 20px;
+  top: 412px;
+  left: 1471px;
+  width: 301px;
+  height: 64px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 2px #00000080;
+  border: 1px solid #D8D8D8;
+  border-radius: 8px;
+  opacity: 1;
 }
 
 .Place,
 .AddPlace {
   display: flex;
   width: 85%;
-  height: 18%;
+  height: 68px;
   margin: 20px;
   padding: 20px;
   justify-content: right;
@@ -33,6 +64,7 @@
   margin-right: 50;
   border-radius: 1.5ch;
   font-size: small;
+
 }
 
 .Place:focus {
@@ -41,10 +73,28 @@
 }
 
 .AddPlace {
-  background-color: rgb(243, 241, 255);
-  color: rgb(90, 107, 122);
-  border-style: dotted;
+  top: 588px;
+  height: 64px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 10px #00000033;
+  border: 2px dashed #9B9B9B;
+  border-radius: 8px;
+  opacity: 1;
   margin: 20px;
+}
+
+.plus {
+  top: 585px;
+  left: 1609px;
+  width: 93px;
+  height: 24px;
+  /* UI Properties */
+  text-align: left;
+  font: normal normal normal 49px/64px Assistant;
+  letter-spacing: 0px;
+  color: #9B9B9B;
+  opacity: 1;
 }
 
 .Place:hover {
@@ -57,12 +107,25 @@
 
 }
 
-.TitlePlaces {
+.TitlePlacesCover {
+  top: 287px;
+  left: 1447px;
+  height: 65px;
+  /* UI Properties */
+  background: #7A78B71F 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  opacity: 1;
+  margin-bottom: 26px;
+}
 
-  color: rgb(94, 92, 104);
-  height: 40px;
-  border-radius: 1ch;
-  margin-bottom: 15px;
+.TitlePlaces {
+  top: 301px;
+  height: 34px;
+
+  font: normal normal bold 26px/34px Assistant;
+  letter-spacing: 0px;
+  color: #505050;
+  opacity: 1;
 }
 
 h3 {
@@ -73,11 +136,25 @@ h3 {
 
 
 .dot {
-  height: 25px;
-  width: 25px;
-  background-color: black;
+  top: 524px;
+  left: 1736px;
+  width: 14px;
+  height: 14px;
+  /* UI Properties */
+  background: black;
+  opacity: 1;
   border-radius: 50%;
-  display: inline-block;
+}
+
+.nameOfSite {
+  top: 432px;
+  left: 1635px;
+  width: 89px;
+  height: 24px;
+  font: normal normal bold 15px/20px Assistant;
+  letter-spacing: 0px;
+  color: #505050;
+  opacity: 1;
 }
 
 .loading {

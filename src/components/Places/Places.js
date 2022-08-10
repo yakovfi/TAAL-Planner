@@ -8,6 +8,11 @@ import Modal_Places from '../Modal/Model_Places'
 import Modal_Loading from '../Modal/Modal_Loading'
 import TextField from "@mui/material/TextField";
 import { baseUrl } from "../../config";
+import { AiOutlinePlus } from "react-icons/ai";
+import Dot from "../Dot/Dot";
+import { BsThreeDotsVertical } from "react-icons/bs"
+
+
 // const { baseUrl } = require
 //-----------------------
 let places = [];
@@ -17,10 +22,11 @@ let Places_and_their_stations = [];
 let thisIdTask = 0;
 let filteredData = []
 let inputText = ""
+let mySite = { name: '', id: '' }
 
 //-----------------------
 const Places = (props) => {
-    console.log("setFloatLan:", props.setFloatLang)
+    // console.log("setFloatLan:", props.setFloatLang)
     const [done, setDone] = useState(false);
     const [, setLoading] = useState(false);
     const [, setStateStation] = useState([]);
@@ -30,6 +36,9 @@ const Places = (props) => {
     const [, setPlaces] = useState([]);
     const [, setFilteredData] = useState([]);
     const [, setInputText] = useState("");
+    const [, setMySite] = useState(null);
+    const [get_logged_in, setLogged_in] = useState(false);// for TextView
+
 
     let inputHandler = (e) => {
         //convert input text to lower case
@@ -52,7 +61,9 @@ const Places = (props) => {
         const fetchData = async () => {
             setLoading(true);
             try {
+                // setLogged_in(sessionStorage.getItem('logged_in'));
                 getData();
+
             } catch (error) {
                 console.error(error.message);
             }
@@ -63,7 +74,7 @@ const Places = (props) => {
     const getData = async () => {
         await get(`${baseUrl}/wp-json/wp/v2/places/`, {
             params: {
-                per_page: 99, 'Cache-Control': 'no-cache'
+                per_page: 99
             }
         }).then(res => {
             // console.log("res: ", res)
@@ -95,6 +106,8 @@ const Places = (props) => {
         if (stationArray.length > 0) {
             stationArray = [];
         }
+        setMySite(mySite.name = e.name)
+        setMySite(mySite.id = e.id)
         // console.log("val:", e);
         Places_and_their_stations.forEach(element => {
             if (element.parent.id === e.id) {
@@ -121,27 +134,21 @@ const Places = (props) => {
                         padding: "1%",
                         marginRight: "2%"
                     }}>
-                        <div className='TitlePlaces' style={{
+                        <div className='TitlePlacesCover' style={{
                             background: props.titlePlacesCss
 
-                        }}><h3>{props.sites}</h3></div>
-                        <div className='addPlaceCover'>
-                            <button
-                                className='AddPlace'
-                                onClick={() => {
-                                    setModalOpen(true);
-                                }}>
-                                <FcAddDatabase style={{
-                                    width: "85px",
-                                    height: "30px"
-                                }} />
-                                <h6>{props.addSite}</h6>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </button>
+                        }}><h3 className='TitlePlaces'>
+
+                                <BsThreeDotsVertical className='threeDotsVertical' />
+
+                                <div className='MyTitle'>{props.sites}</div>
+                            </h3>
+
+
                         </div>
+
                         <div className="search" style={{
-                            backgroundColor: "rgb(237, 234, 255)", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
+                            backgroundColor: "#7A78B71F", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
                         }}>
                             <TextField
                                 dir="rtl"
@@ -162,22 +169,34 @@ const Places = (props) => {
                                         onClick={() => Display_The_Stations(value)}
                                         key={index}>
 
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                                        {value.name}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                        <div className='nameOfSite'>{value.name}</div>
                                         {/* <Dot color="rgb(161, 147, 229)" /> */}
-                                        <MdOutlineAdsClick style={{ fontSize: "25px", color: "rgb(161, 147, 229)" }} />
+                                        <Dot color={'#7A78B7 '} />
                                     </button>
                                 )
                             })}
 
                         </div>
+                        <div className='addPlaceCover'>
+                            <button
+                                className='AddPlace'
+                                onClick={() => {
+                                    setModalOpen(true);
+                                }}>
+                                <AiOutlinePlus className='plus' />
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </button>
+                        </div>
                     </div>
+
                     <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
                         language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
                         addStation={props.addStation} addMyTask={props.addMyTask}
-                        titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} />
+                        titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} mySite={mySite} flagHebrew={props.flagHebrew} />
                 </>
             }
         </>

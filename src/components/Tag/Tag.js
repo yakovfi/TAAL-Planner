@@ -1,8 +1,8 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 import { RiDragMove2Line } from "react-icons/ri";
-import Dot from '../Dot/Dot'
 import "./style.css";
+import Dot from "../Dot/Dot"
 
 
 function Tag({ title, id, show }) {
@@ -16,11 +16,12 @@ function Tag({ title, id, show }) {
     return (
         <>
 
-            <button className='Tasks' ref={drag} src={title}>{title}
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {/* <Dot color="rgb(164, 190, 125)" />   */}
-                <RiDragMove2Line style={{ fontSize: "25px", color: "rgb(164, 190, 125)" }} />
+            <button className='Tasks' ref={drag} src={title}>
+                <div className={'nameOfTask'}> {title}</div>
+
+
+                <Dot color="#C4CE9C" />
+                {/* <RiDragMove2Line style={{ fontSize: "25px", color: "rgb(164, 190, 125)" }} /> */}
 
             </button>
 

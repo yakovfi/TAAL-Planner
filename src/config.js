@@ -3,3 +3,4 @@ module.exports = {
 }
 
         //'https://taal.tech' // prodaction
+        //https://lzo.3ce.myftpupload.com/

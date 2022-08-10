@@ -1,15 +1,18 @@
 .Tasks {
   display: flex;
-  /* min-width: 250px;
-   width:auto; */
-  width: 250.14px;
-  height: 70px;
+  width: 230px;
   margin: 20px;
   padding: 20px;
   justify-content: right;
-  justify-Content: 'space-between';
-  margin-right: 50px;
-  border-radius: 1.5ch;
+  top: 500px;
+  left: 1088px;
+  height: 64px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 2px #00000080;
+  border: 1px solid #D8D8D8;
+  border-radius: 8px;
+  opacity: 1;
 }
 
 .Tasks:hover {
@@ -18,10 +21,13 @@
 
 }
 
-.addPlaceCover {
-  background-color: rgb(237, 234, 255);
-  margin: -0.5px;
-  padding-top: 1px;
-  padding-bottom: 1px;
-
+.nameOfTask {
+  top: 432px;
+  left: 1635px;
+  width: 89px;
+  height: 24px;
+  font: normal normal bold 15px/20px Assistant;
+  letter-spacing: 0px;
+  color: #505050;
+  opacity: 1;
 }

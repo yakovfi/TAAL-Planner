@@ -4,7 +4,7 @@ nav {
     align-items: center;
     min-height: 20vh;
     color: white;
-    background-color: rgba(49, 70, 90, 0.9);
+    background-color: #256FA1;
     /* background-color: rgba(37,47,57,.9); */
     padding: 0;
     margin: 0;
@@ -19,7 +19,7 @@ nav {
 
 nav:hover {
     /* background-color: rgba(24, 31, 37, 0.9); */
-    background-color: rgba(38, 54, 69, 0.9);
+    background-color: #1f618d;
 
 
 }
