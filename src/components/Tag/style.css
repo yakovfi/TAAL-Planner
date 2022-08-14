@@ -21,6 +21,16 @@
 
 }
 
+.dotBoard {
+  top: 547px;
+  left: 356px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #C4CE9C;
+  opacity: 1;
+  border-radius: 200%;
+}
+
 .nameOfTask {
   top: 432px;
   left: 1635px;
@@ -30,4 +40,25 @@
   letter-spacing: 0px;
   color: #505050;
   opacity: 1;
+}
+
+
+
+.kav {
+  display: -webkit-inline-box;
+  border-left: 2px solid #c2bfbf;
+  height: 84px;
+  position: relative;
+  margin-top: -47.5px;
+  left: 72px;
+  float: inherit;
+
+}
+
+.kavTop {
+  border-top: 2px solid #c2bfbf;
+  width: 31px;
+  position: relative;
+  margin-top: 35px;
+  left: 47px;
 }

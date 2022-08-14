@@ -5,11 +5,13 @@ import "./style.css";
 import Images from "../Images/Images";
 import Audios from "../Audios/Audios";
 import { RiDragMove2Line } from "react-icons/ri";
-import { FcAddDatabase } from "react-icons/fc";
-import { MdOutlineLiveHelp } from "react-icons/md";
+// import { FcAddDatabase } from "react-icons/fc";
+// import { MdOutlineLiveHelp } from "react-icons/md";
 import Modal_Tasks from '../Modal/Modal_Tasks';
 import { AiOutlinePlus } from "react-icons/ai";
-import { BsThreeDotsVertical } from "react-icons/bs"
+import { BsThreeDotsVertical } from "react-icons/bs";
+import Dot from "../Dot/Dot";
+
 
 //-------------------------
 let Route = [];
@@ -22,7 +24,7 @@ let helpFlag = false;
 
 //-------------------------
 function DragnDrop(props) {
-    // console.log("mySite drag:", props.mySite)
+    console.log("mySite drag:", props.mySite.name)
     // console.log("Task AllStation in:", props.allStations)
     console.log("Task AllStation in:", props.language)
 
@@ -93,18 +95,23 @@ function DragnDrop(props) {
                 marginRight: "2%",
                 fontSize: "small"
             }}>
-                <div className='TitleTasks' style={{
+                {!props.flagHebrew ?
+                    <><div className='TitleTasks' style={{
+                        background: props.titleTaskCss
+                    }}><h3>
+                            <BsThreeDotsVertical className='threeDotsVertical' />
 
-                    //   background: linear-gradient(90deg, rgb(164, 190, 125) 5%, rgb(236, 245, 220) 1%);
-                    background: props.titleTaskCss
-                }}><h3>
+                            <div className='MyTitle'>{props.myTasks}</div>
 
-                        <BsThreeDotsVertical className='threeDotsVertical' />
+                        </h3></div></> : <> <div className='TitleTasks' style={{
+                            background: props.titleTaskCss
+                        }}><h3>
+                                &nbsp;
+                                <div className='MyTitle'>{props.myTasks}</div>
+                                <BsThreeDotsVertical className='threeDotsVerticalEng' />
 
-                        <div className='MyTitle'>{props.myTasks}</div>
-
-                    </h3></div>
-
+                            </h3></div>
+                    </>}
                 <div className='TasksCover'>
                     {dndArray.length === 0 ? null : dndArray.map((tag) => {
                         return <Tag title={tag.title} id={tag.id} key={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} />;
@@ -125,6 +132,7 @@ function DragnDrop(props) {
             <>
                 {props.flagHebrew ?
                     <div className="Board" style={{ marginLeft: "1119px" }} ref={drop} >
+
                         <i className="bi bi-dash-square">
                             <div style={{
                                 position: "relative",
@@ -138,36 +146,45 @@ function DragnDrop(props) {
                                 {/* <button className="helpBtn" onClick={() => {
                             help()
                         }} >help</button> */}
-                                <div className="blink" style={{ fontSize: "35px", left: "185px" }}><span><RiDragMove2Line /></span></div>
+                                <div style={{ fontSize: "20px", left: "185px" }}><span><RiDragMove2Line /></span></div>
                                 {/* &nbsp;<RiDragMove2Line /> */}
                             </div>
                         </i>
                         <div className='MyTasks'>
+                            {props.mySite.name}
+
                             {board.map((tag, keyCount) => {
-                                return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} />;
+
+                                return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} flagBoard={true} />;
                             })}
+
                         </div>
                     </div> : <div className="Board" ref={drop} >
+
                         <i className="bi bi-dash-square">
                             <div style={{
                                 position: "relative",
                                 left: "13px"
                             }}>
-                                <Images id={thisId} data={saveProps.propDataTask} />
                             </div>
                             <Audios id={thisId} data={myTask} />
 
                             <div className='txt'> {props.drag}&nbsp;&nbsp;
-
-                                <div className="blink" style={{ fontSize: "35px", left: "185px" }}><span><RiDragMove2Line /></span></div>
-
+                                <div style={{ fontSize: "20px", left: "185px" }}><span><RiDragMove2Line /></span></div>
                             </div>
+
                         </i>
+                        {/* sadeasdased */}
                         <div className='MyTasks'>
+                            {props.mySite.name ? <> <div className='mySiteChois'> {props.mySite.name}&nbsp;&nbsp;<Dot color={"#4A2C6E"} /> &nbsp;&nbsp; </div></> : <></>}
+
+
                             {board.map((tag, keyCount) => {
-                                return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} />;
+                                return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} flagBoard={true} />;
                             })}
                         </div>
+                        <Images id={thisId} data={saveProps.propDataTask} />
+
                     </div>}
 
             </>

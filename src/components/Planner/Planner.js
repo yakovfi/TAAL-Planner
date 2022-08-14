@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import { AiFillCheckCircle } from "react-icons/ai";
+import { MdHelpOutline } from "react-icons/md";
 import Places from '../Places/Places';
 import 'reactjs-popup/dist/index.css';
 import Modal from '../Modal/Modal';
@@ -13,7 +14,7 @@ const Planner = () => {
     const [loading, setLoading] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [Hebrew, setHebrew] = useState(false);
-    const [language, setLanguage] = useState("עברית");
+    const [language, setLanguage] = useState("English");
     const [floatLan, setFloatLan] = useState("left");
     const [sites, setSites] = useState("Sites");
     const [addSite, setAddSite] = useState("Add sites");
@@ -43,6 +44,7 @@ const Planner = () => {
             }
             setLoading(false);
         }
+        english();
         fetchData();
     }, []);
 
@@ -51,7 +53,7 @@ const Planner = () => {
     //     setName(val.target.value)
     // }
     const hebrew = () => {
-        setHebrew(true);
+        setHebrew(false);
         setLanguage("עברית");
         console.log(Hebrew)
         setFloatLan("left");
@@ -72,7 +74,7 @@ const Planner = () => {
         marginHebrew = '1330px';
     }
     const english = () => {
-        setHebrew(false);
+        setHebrew(true);
         setLanguage("English");
         console.log(Hebrew);
         setFloatLan("right");
@@ -117,6 +119,18 @@ const Planner = () => {
                                             &nbsp;&nbsp;
                                             {saveButton}
                                         </button>
+                                        {/* &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;
+                                        <button className="AddRoute" type="submit"
+                                            onClick={() => {
+                                                setModalOpen(true);
+                                            }}
+                                        >
+                                            <MdHelpOutline className='icon' />
+                                            &nbsp;&nbsp;
+                                            Help
+                                        </button> */}
+
+
                                     </> :
                                     <>
                                         <button className="AddRoute" type="submit" style={{
@@ -132,15 +146,11 @@ const Planner = () => {
                                             &nbsp;&nbsp;
                                             <AiFillCheckCircle className='icon' />
                                         </button>
-                                        {/* <input type="text" className="form-control custom-search-input" onChange={getName} placeholder={routeWrite}
-                                            style={{ fontSize: "x-large", textAlign: inputSide }}>
-
-                                        </input> */}
                                     </>}
 
                                 <button style={{ marginLeft: marginHebrew }}
                                     onClick={() => {
-                                        if (Hebrew === false)
+                                        if (Hebrew !== false)
                                             hebrew();
                                         else
                                             english();

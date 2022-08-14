@@ -123,7 +123,8 @@ const Stations = (props) => {
                         marginRight: "2%",
                         padding: "1%"
                     }}>
-                        <div className='TitleStation' style={{
+
+                        {!props.flagHebrew ? <><div className='TitleStation' style={{
 
                             background: props.titleStationCss
                             //   background: linear-gradient(90deg, rgb(255, 234, 220) 95%, #e29e62 1%);
@@ -131,7 +132,24 @@ const Stations = (props) => {
 
                                 <BsThreeDotsVertical className='threeDotsVertical' />
 
-                                <div className='MyTitle'> {props.stationsName}</div></h3></div>
+                                <div className='MyTitle'> {props.stationsName}</div></h3></div></> : <>
+                            <div className='TitleStation' style={{
+
+                                background: props.titleStationCss
+                                //   background: linear-gradient(90deg, rgb(255, 234, 220) 95%, #e29e62 1%);
+                            }}><h3>
+                                    &nbsp;&nbsp;&nbsp;
+
+                                    <div className='MyTitle'> {props.stationsName}</div>
+
+                                    <BsThreeDotsVertical className='threeDotsVerticalEngStation' />
+                                </h3>
+
+
+                            </div></>}
+
+
+
 
                         <div className="search" style={{
                             backgroundColor: "rgb(255, 242, 234)", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
@@ -156,7 +174,8 @@ const Stations = (props) => {
                                         <button className='Station'
                                             onClick={() => Display_The_Tasks(value)}
                                             key={index}>
-
+                                            <div className='penIcon' ></div>
+                                            <div className='eyeIcon' ></div>
                                             <div className={"nameOfStation"}>{value.name}</div>
 
                                             <Dot color="#F2AE69" />

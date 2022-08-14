@@ -5,7 +5,8 @@ import "./style.css";
 import Dot from "../Dot/Dot"
 
 
-function Tag({ title, id, show }) {
+function Tag({ title, id, flagBoard }) {
+    console.log("how am i:", flagBoard)
     const [, drag] = useDrag(() => ({
         type: "image",
         item: { id: id },
@@ -17,12 +18,13 @@ function Tag({ title, id, show }) {
         <>
 
             <button className='Tasks' ref={drag} src={title}>
+                <div className='penIcon' ></div>
+                <div className='eyeIcon' ></div>
                 <div className={'nameOfTask'}> {title}</div>
 
+                {flagBoard ? <> <div className="dotBoard" />  <div className='kav'></div><div className='kavTop'></div>   </> : <> <Dot color="#C4CE9C" /></>}
 
-                <Dot color="#C4CE9C" />
                 {/* <RiDragMove2Line style={{ fontSize: "25px", color: "rgb(164, 190, 125)" }} /> */}
-
             </button>
 
         </>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { get } from "../../api/api";
 import './style.css';
-import { MdOutlineAdsClick } from "react-icons/md";
+// import { MdOutlineAdsClick } from "react-icons/md";
 import { FcAddDatabase, FcSearch } from "react-icons/fc";
 import Stations from '../Stations/Stations'
 import Modal_Places from '../Modal/Model_Places'
@@ -134,7 +134,11 @@ const Places = (props) => {
                         padding: "1%",
                         marginRight: "2%"
                     }}>
-                        <div className='TitlePlacesCover' style={{
+
+
+
+
+                        {!props.flagHebrew ? <> <div className='TitlePlacesCover' style={{
                             background: props.titlePlacesCss
 
                         }}><h3 className='TitlePlaces'>
@@ -145,7 +149,21 @@ const Places = (props) => {
                             </h3>
 
 
-                        </div>
+                        </div></> : <>
+                            <div className='TitlePlacesCover' style={{
+                                background: props.titlePlacesCss
+
+                            }}><h3 className='TitlePlaces'>
+                                    &nbsp;&nbsp;&nbsp;
+
+                                    <div className='MyTitle'>{props.sites}</div>
+
+                                    <BsThreeDotsVertical className='threeDotsVerticalEng' />
+                                </h3>
+
+
+                            </div></>}
+
 
                         <div className="search" style={{
                             backgroundColor: "#7A78B71F", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
@@ -169,6 +187,8 @@ const Places = (props) => {
                                         onClick={() => Display_The_Stations(value)}
                                         key={index}>
 
+                                        <div className='penIcon' ></div>
+                                        <div className='eyeIcon' ></div>
 
 
                                         <div className='nameOfSite'>{value.name}</div>

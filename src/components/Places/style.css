@@ -20,6 +20,24 @@
   margin-top: 14px;
 }
 
+.eyeIcon {
+  top: 440px;
+  width: 66px;
+  height: 13px;
+  /* UI Properties */
+  background: transparent url('../../Pictures/ic_eye.svg') 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.penIcon {
+  top: 523px;
+  left: 1497px;
+  width: 30px;
+  height: 16px;
+  /* UI Properties */
+  background: transparent url('../../Pictures/Ic_pen.svg') 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
 
 .threeDotsVertical {
   width: 352px;
@@ -29,6 +47,22 @@
   margin-top: 15px;
 }
 
+.threeDotsVerticalEng {
+  width: 34px;
+  height: 34px;
+  opacity: 1;
+  margin-left: 160px;
+  margin-top: 15px;
+}
+
+
+.threeDotsVerticalEngStation {
+  width: 274px;
+  height: 34px;
+  opacity: 1;
+  margin-right: -124px;
+  margin-top: 15px;
+}
 
 .addPlaceCover {
   background-color: #7A78B71F;
@@ -108,15 +142,12 @@
 }
 
 .TitlePlacesCover {
-  top: 287px;
-  left: 1447px;
   height: 65px;
-  /* UI Properties */
-  background: #7A78B71F 0% 0% no-repeat padding-box;
   border-radius: 6px;
   opacity: 1;
   margin-bottom: 26px;
 }
+
 
 .TitlePlaces {
   top: 301px;
