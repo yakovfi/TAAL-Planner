@@ -8,8 +8,9 @@ import Modal_Stations from '../Modal/Modal_Stations'
 import TextField from "@mui/material/TextField";
 import { baseUrl } from "../../config";
 import { AiOutlinePlus } from "react-icons/ai";
-import Dot from "../Dot/Dot"
+// import Dot from "../Dot/Dot"
 import { BsThreeDotsVertical } from "react-icons/bs"
+import { CgSearch } from "react-icons/cg";
 
 
 //-----------------------
@@ -120,8 +121,8 @@ const Stations = (props) => {
                     {modalOpen && <Modal_Stations setOpenModalPlaces={setModalOpen} idTasks={props.idTask} />}
                     <div className='Cover_Stations' style={{
                         float: props.language.setFloatLang,
-                        marginRight: "2%",
-                        padding: "1%"
+                        marginRight: "-2%",
+                        padding: "2%"
                     }}>
 
                         {!props.flagHebrew ? <><div className='TitleStation' style={{
@@ -155,17 +156,11 @@ const Stations = (props) => {
                             backgroundColor: "rgb(255, 242, 234)", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
 
                         }}>
-                            <TextField
+                            <input className='searchButton'
                                 dir="rtl"
-                                style={{
-                                    backgroundColor: "#fff", right: "10%", margin: "10px"
-                                }}
-                                id="outlined-basic"
-                                variant="outlined"
-
-                                label={<FcSearch style={{ fontSize: "x-large" }} />}
+                                label={<CgSearch style={{ fontSize: "x-large", }} />}
                                 onChange={inputHandler}
-                            />
+                            ></input>
                         </div>
                         <div className='Stations'>
                             {
@@ -178,7 +173,7 @@ const Stations = (props) => {
                                             <div className='eyeIcon' ></div>
                                             <div className={"nameOfStation"}>{value.name}</div>
 
-                                            <Dot color="#F2AE69" />
+                                            {/* <Dot color="#F2AE69" /> */}
                                         </button>
                                     )
                                 })}
@@ -199,7 +194,7 @@ const Stations = (props) => {
                     </div>
                     <Tasks_comp propsDataTask={tasks} allStations={props.allStations} language={props.language.setFloatLang}
                         myTasks={props.myTasks} drag={props.drag}
-                        addMyTask={props.addMyTask} titleTaskCss={props.titleTaskCss} mySite={props.mySite} flagHebrew={props.flagHebrew} />
+                        addMyTask={props.addMyTask} titleTaskCss={props.titleTaskCss} mySite={props.mySite} flagHebrew={props.flagHebrew} tasksOfRoutes={props.tasksOfRoutes} />
                 </>
             )}
         </>

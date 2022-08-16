@@ -10,6 +10,17 @@
 
 }
 
+.routs {
+  background-color: #256FA11F;
+  margin: -0.5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  /* border-radius: 1.5ch; */
+  height: 163px;
+  overflow: auto;
+  width: 287px;
+}
+
 .MyTitle {
   top: 301px;
   height: 34px;
@@ -18,6 +29,11 @@
   color: #505050;
   opacity: 1;
   margin-top: 14px;
+}
+
+.MyRoutesTitle {
+  margin-top: 15px;
+  margin-left: 25px;
 }
 
 .eyeIcon {
@@ -146,8 +162,19 @@
   border-radius: 6px;
   opacity: 1;
   margin-bottom: 26px;
+  width: 286px;
 }
 
+.name_of_site_title {
+  color: #7A78B7;
+
+
+  font: normal normal bold 26px/34px Assistant;
+  letter-spacing: 0px;
+
+  opacity: 1;
+  margin-top: 14px;
+}
 
 .TitlePlaces {
   top: 301px;
@@ -196,4 +223,77 @@ h3 {
 
 .search {
   text-align: right;
+
+}
+
+.searchRoute {
+  top: 322px;
+  left: 1468px;
+  width: 300px;
+  height: 35px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 2px #00000080;
+  border-radius: 21px;
+  opacity: 1;
+}
+
+.searchButton {
+  top: 322px;
+  left: 1468px;
+  width: 260px;
+  height: 28px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 2px 2px #00000080;
+  border-radius: 21px;
+  opacity: 1;
+  border: #dde2fa;
+  margin-right: 17px;
+  background-image: url('../../Pictures/Search.svg');
+  background-position: 220px 4px;
+  padding: 12px 50px 12px 40px;
+  font-size: 12px;
+
+
+
+
+}
+
+
+
+
+.force-overflow {
+  min-height: 450px;
+}
+
+.Places::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: #dadbe2;
+}
+
+.Places::-webkit-scrollbar {
+  width: 10px;
+}
+
+.Places::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #bfc4ce;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.routs::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: #dadbe2;
+  border-radius: 10px;
+}
+
+.routs::-webkit-scrollbar {
+  width: 10px;
+}
+
+.routs::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #bfc4ce;
+  border: 1px solid rgb(235, 235, 235);
 }

@@ -221,7 +221,7 @@ const Calculator = () => {
             setObjTasks(val.myTasks.map((value) => {
                 return objTasks.push(value)
             }))
-            // console.log("objTasks1:", objTasks)
+            console.log("objTasks1:", objTasks)
             // console.log("value.post_title:", arrayNameTasks)
             setActionFlag(actionFlag = false);
         }

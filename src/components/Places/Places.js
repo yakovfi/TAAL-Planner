@@ -2,27 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { get } from "../../api/api";
 import './style.css';
 // import { MdOutlineAdsClick } from "react-icons/md";
-import { FcAddDatabase, FcSearch } from "react-icons/fc";
+// import { FcAddDatabase, FcSearch } from "react-icons/fc";
 import Stations from '../Stations/Stations'
 import Modal_Places from '../Modal/Model_Places'
 import Modal_Loading from '../Modal/Modal_Loading'
 import TextField from "@mui/material/TextField";
 import { baseUrl } from "../../config";
 import { AiOutlinePlus } from "react-icons/ai";
-import Dot from "../Dot/Dot";
+// import Dot from "../Dot/Dot";
 import { BsThreeDotsVertical } from "react-icons/bs"
+import { CgSearch } from "react-icons/cg";
+
 
 
 // const { baseUrl } = require
 //-----------------------
 let places = [];
+let myRoutes = [];
 let onlyAllStation = [];
 let stationArray = [];
 let Places_and_their_stations = [];
 let thisIdTask = 0;
 let filteredData = []
+let filteredDataRouts = []
 let inputText = ""
+let inputTextRouts = ""
+
 let mySite = { name: '', id: '' }
+let flagRoute = false;
+let tasksOfRoutes = [];
 
 //-----------------------
 const Places = (props) => {
@@ -34,13 +42,23 @@ const Places = (props) => {
     const [, setThisIdTask] = useState(0)
     const [, setOnlyAllStation] = useState([]);
     const [, setPlaces] = useState([]);
+    const [, setRoutes] = useState([]);
     const [, setFilteredData] = useState([]);
+    const [, setFilteredDataRouts] = useState([]);
+
     const [, setInputText] = useState("");
+    const [, setInputTextRouts] = useState("");
+
     const [, setMySite] = useState(null);
     const [get_logged_in, setLogged_in] = useState(false);// for TextView
+    const [, setFlagRoute] = useState(false);
+    const [, setTasksOfRoutes] = useState([]);
+
 
 
     let inputHandler = (e) => {
+        console.log("eeeeeeeeeeeeeeee:", e.target.value)
+
         //convert input text to lower case
         setInputText(inputText = e.target.value.toLowerCase());
 
@@ -53,6 +71,24 @@ const Places = (props) => {
             //return the item which contains the user input
             else {
                 return el.name.toLowerCase().includes(inputText)
+            }
+        }))
+    };
+
+    let inputHandlerRoutes = (e) => {
+        console.log("eeeeeeeeeeeeeeee:", e.target.value)
+        //convert input text to lower case
+        setInputTextRouts(inputTextRouts = e.target.value.toLowerCase());
+
+        setFilteredDataRouts(filteredDataRouts = myRoutes.filter((el) => {
+            // setInputText(lowerCase);
+
+            if (inputTextRouts === '') {
+                return el;
+            }
+            //return the item which contains the user input
+            else {
+                return el.title.rendered.toLowerCase().includes(inputTextRouts)
             }
         }))
     };
@@ -71,6 +107,8 @@ const Places = (props) => {
         }
         fetchData();
     }, []);
+
+
     const getData = async () => {
         await get(`${baseUrl}/wp-json/wp/v2/places/`, {
             params: {
@@ -97,12 +135,25 @@ const Places = (props) => {
                     return el.name.toLowerCase().includes(inputText)
                 }
             }))
+
         });
         setDone(true)
         // setData_Loaded(true)
+
+
+
+    }
+    const DisplayTasks = (e) => {
+        setTasksOfRoutes(tasksOfRoutes = e)
+        console.log("check value:", tasksOfRoutes)
+
+
+
     }
     const Display_The_Stations = (e) => {
-        setThisIdTask(thisIdTask = e.id)
+
+        setFlagRoute(flagRoute = true);
+        setThisIdTask(thisIdTask = e.id);
         if (stationArray.length > 0) {
             stationArray = [];
         }
@@ -118,6 +169,29 @@ const Places = (props) => {
             }
         });
         setStateStation({ data: stationArray })
+
+        get(`${baseUrl}/wp-json/wp/v2/routes/`, {
+            params: {
+                per_page: 99
+            }
+        }).then(res => {
+            // console.log("resssssssssss ", res)
+            // console.log("mySite.id:", mySite.id)
+            setRoutes(myRoutes = res.filter((item) => item.acf.my_site == mySite.id))
+            console.log("myRoutesssssssssssss:", myRoutes);
+
+            setFilteredDataRouts(filteredDataRouts = myRoutes.filter((el) => {
+
+                if (inputTextRouts === '') {
+                    return el;
+                }
+                //return the item which contains the user input
+                else {
+                    return el.title.rendered.toLowerCase().includes(inputTextRouts)
+                }
+            }))
+        })
+
     }
     //----------------------------------------------------------------------
     return (
@@ -127,96 +201,163 @@ const Places = (props) => {
             </>
                 :
                 <>
-                    {modalOpen && <Modal_Places setOpenModalPlaces={setModalOpen} />}
+                    {!flagRoute ? <>
+                        {modalOpen && <Modal_Places setOpenModalPlaces={setModalOpen} />}
 
-                    <div className='Cover_Places' style={{
-                        float: props.setFloatLang,
-                        padding: "1%",
-                        marginRight: "2%"
-                    }}>
-
-
-
-
-                        {!props.flagHebrew ? <> <div className='TitlePlacesCover' style={{
-                            background: props.titlePlacesCss
-
-                        }}><h3 className='TitlePlaces'>
-
-                                <BsThreeDotsVertical className='threeDotsVertical' />
-
-                                <div className='MyTitle'>{props.sites}</div>
-                            </h3>
+                        <div className='Cover_Places' style={{
+                            float: props.setFloatLang,
+                            padding: "2%",
+                            marginRight: "7%"
+                            // marginleft: "7%"
+                        }}>
 
 
-                        </div></> : <>
-                            <div className='TitlePlacesCover' style={{
+                            {!props.flagHebrew ? <> <div className='TitlePlacesCover' style={{
                                 background: props.titlePlacesCss
 
                             }}><h3 className='TitlePlaces'>
-                                    &nbsp;&nbsp;&nbsp;
 
+                                    <BsThreeDotsVertical className='threeDotsVertical' />
                                     <div className='MyTitle'>{props.sites}</div>
-
-                                    <BsThreeDotsVertical className='threeDotsVerticalEng' />
                                 </h3>
 
 
-                            </div></>}
+                            </div></> : <>
+                                <div className='TitlePlacesCover' style={{
+                                    background: props.titlePlacesCss
+
+                                }}><h3 className='TitlePlaces'>
+                                        &nbsp;&nbsp;&nbsp;
+
+                                        <div className='MyTitle'>{props.sites}</div>
+
+                                        <BsThreeDotsVertical className='threeDotsVerticalEng' />
+                                    </h3>
+                                </div></>}
+                            <div className="search" style={{
+                                backgroundColor: "#7A78B71F", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
+                            }}>
+                                <input className='searchButton'
+                                    dir="rtl"
+                                    label={<CgSearch style={{ fontSize: "x-large", }} />}
+                                    onChange={inputHandler}
+                                ></input>
+                            </div>
+                            <div className='Places'>
+                                {filteredData.map((value, index) => {
+                                    return (
+                                        <button
+                                            className='Place'
+                                            onClick={() => Display_The_Stations(value)}
+                                            key={index}>
+
+                                            <div className='penIcon' ></div>
+                                            <div className='eyeIcon' ></div>
 
 
-                        <div className="search" style={{
-                            backgroundColor: "#7A78B71F", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
+                                            <div className='nameOfSite'>{value.name}</div>
+                                            {/* <Dot color="rgb(161, 147, 229)" /> */}
+                                            {/* <Dot color={'#7A78B7 '} /> */}
+                                        </button>
+                                    )
+                                })}
+
+                            </div>
+                            <div className='addPlaceCover'>
+                                <button
+                                    className='AddPlace'
+                                    onClick={() => {
+                                        setModalOpen(true);
+                                    }}>
+                                    <AiOutlinePlus className='plus' />
+
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </button>
+                            </div>
+                        </div>
+
+                        <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
+                            language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
+                            addStation={props.addStation} addMyTask={props.addMyTask}
+                            titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} mySite={mySite} flagHebrew={props.flagHebrew} />
+                    </> : <>
+                        {/* routs */}
+                        {modalOpen && <Modal_Places setOpenModalPlaces={setModalOpen} />}
+
+                        <div className='Cover_Places' style={{
+                            float: props.setFloatLang,
+                            padding: "2%",
+                            marginRight: "7%"
                         }}>
-                            <TextField
-                                dir="rtl"
-                                style={{
-                                    backgroundColor: "#fff", right: "10%", margin: "10px"
-                                }}
-                                id="outlined-basic"
-                                variant="outlined"
-                                label={<FcSearch style={{ fontSize: "x-large" }} />}
-                                onChange={inputHandler}
-                            />
+
+
+                            {!props.flagHebrew ? <> <div className='TitlePlacesCover' style={{
+                                background: "linear-gradient(90deg,  #256FA11F  95%, #679abd 1%)"
+
+                            }}><h3 className='TitlePlaces'>
+                                    <div className='MyRoutesTitle'>מסלולים ב <span className='name_of_site_title'>{mySite.name}</span></div>
+                                </h3>
+                            </div></> : <>
+                                <div className='TitlePlacesCover' style={{
+                                    background: props.titlePlacesCss
+                                }}><h3 className='TitlePlaces'>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <div className='MyTitle'>{props.sites}</div>
+                                    </h3>
+                                </div></>}
+
+                            <div className="search" style={{
+                                backgroundColor: "#256FA11F", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
+                            }}>
+                                <input className='searchButton'
+                                    dir="rtl"
+                                    label={<CgSearch style={{ fontSize: "x-large", }} />}
+                                    onChange={inputHandlerRoutes}
+                                ></input>
+                            </div>
+                            <div className='routs'>
+                                {filteredDataRouts.map((value, index) => {
+                                    return (
+                                        <button
+                                            className='Place'
+                                            onClick={() => DisplayTasks(value)}
+                                            key={index}>
+
+                                            <div className='penIcon' ></div>
+                                            <div className='eyeIcon' ></div>
+
+
+                                            <div className='nameOfSite'>{value.title.rendered.replace("&#8211;", "-").replace("&#8217;", "'")}</div>
+                                            {/* <Dot color="rgb(161, 147, 229)" /> */}
+                                            {/* <Dot color={'#7A78B7 '} /> */}
+                                        </button>
+                                    )
+                                })}
+
+                            </div>
+                            <div className='addPlaceCover' style={{ background: '#256FA11F' }}>
+                                <button
+                                    className='AddPlace'
+                                    onClick={() => {
+                                        setModalOpen(true);
+                                    }}>
+                                    <AiOutlinePlus className='plus' />
+
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </button>
+                            </div>
                         </div>
-                        <div className='Places'>
-                            {filteredData.map((value, index) => {
-                                return (
-                                    <button
-                                        className='Place'
-                                        onClick={() => Display_The_Stations(value)}
-                                        key={index}>
 
-                                        <div className='penIcon' ></div>
-                                        <div className='eyeIcon' ></div>
+                        <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
+                            language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
+                            addStation={props.addStation} addMyTask={props.addMyTask}
+                            titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} mySite={mySite} flagHebrew={props.flagHebrew} tasksOfRoutes={tasksOfRoutes} />
 
 
-                                        <div className='nameOfSite'>{value.name}</div>
-                                        {/* <Dot color="rgb(161, 147, 229)" /> */}
-                                        <Dot color={'#7A78B7 '} />
-                                    </button>
-                                )
-                            })}
+                    </>}
 
-                        </div>
-                        <div className='addPlaceCover'>
-                            <button
-                                className='AddPlace'
-                                onClick={() => {
-                                    setModalOpen(true);
-                                }}>
-                                <AiOutlinePlus className='plus' />
-
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </button>
-                        </div>
-                    </div>
-
-                    <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
-                        language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
-                        addStation={props.addStation} addMyTask={props.addMyTask}
-                        titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} mySite={mySite} flagHebrew={props.flagHebrew} />
                 </>
             }
         </>

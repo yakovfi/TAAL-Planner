@@ -117,3 +117,26 @@
   color: #9B9B9B;
   opacity: 1;
 }
+
+
+
+
+.force-overflow {
+  min-height: 450px;
+}
+
+.Stations::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: #dadbe2;
+  border-radius: 10px;
+}
+
+.Stations::-webkit-scrollbar {
+  width: 10px;
+}
+
+.Stations::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #bfc4ce;
+  border: 1px solid rgb(235, 235, 235);
+}

@@ -32,25 +32,25 @@ const Nav = () => {
     })
     return (
         <nav>
-            <div className='user'>
-                <FaUser className='UserIcon' />
-            </div>
-            {complete_name}
             <ul className="nav-links">
-                <Link to="/planner" className='link'>
-                    <li><FcPlus style={{ fontSize: '24px' }} /> &nbsp;&nbsp;Adding a route </li>
-                </Link>
-
-                <Link to="/routes_cards" className='link'>
-                    <li><FaRoute style={{ fontSize: '24px' }} />&nbsp;&nbsp;Routes </li>
+                <Link to="/Calculator" className='link'>
+                    <li><FcCalculator style={{ fontSize: '24px' }} />&nbsp;&nbsp; פעולות נוספות</li>
                 </Link>
                 <Link to="/student" className='link'>
-                    <li><FaAddressCard style={{ fontSize: '24px' }} />&nbsp;&nbsp;employees </li>
+                    <li><FaAddressCard style={{ fontSize: '24px' }} />&nbsp;&nbsp;עובדים </li>
                 </Link>
-                <Link to="/Calculator" className='link'>
-                    <li><FcCalculator style={{ fontSize: '24px' }} />&nbsp;&nbsp; Additional actions </li>
+                <Link to="/routes_cards" className='link'>
+                    <li><FaRoute style={{ fontSize: '24px' }} />&nbsp;&nbsp;מסלולים </li>
+                </Link>
+                <Link to="/planner" className='link'>
+                    <li><FcPlus style={{ fontSize: '24px' }} /> &nbsp;&nbsp;הוסך מסלול </li>
                 </Link>
             </ul>
+            {complete_name}
+            <div className='user'>
+                <div className='myUser'></div>
+                {/* <FaUser className='UserIcon' /> */}
+            </div>
 
         </nav>
     );

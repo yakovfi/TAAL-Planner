@@ -50,3 +50,12 @@ nav:hover {
 .UserIcon {
     font-size: 40px;
 }
+
+.myUser {
+    margin-top: 20px;
+    left: 1816px;
+    width: 67px;
+    height: 136px;
+    background: transparent url('../../Pictures/logo_Taal.svg') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
