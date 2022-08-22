@@ -31,7 +31,7 @@ const Nav = () => {
             });
     })
     return (
-        <nav>
+        <div className='nav'>
             <ul className="nav-links">
                 <Link to="/Calculator" className='link'>
                     <li><FcCalculator style={{ fontSize: '24px' }} />&nbsp;&nbsp; פעולות נוספות</li>
@@ -43,16 +43,14 @@ const Nav = () => {
                     <li><FaRoute style={{ fontSize: '24px' }} />&nbsp;&nbsp;מסלולים </li>
                 </Link>
                 <Link to="/planner" className='link'>
-                    <li><FcPlus style={{ fontSize: '24px' }} /> &nbsp;&nbsp;הוסך מסלול </li>
+                    <li><FcPlus style={{ fontSize: '24px' }} /> &nbsp;&nbsp;הוסף מסלול </li>
                 </Link>
             </ul>
-            {complete_name}
-            <div className='user'>
-                <div className='myUser'></div>
-                {/* <FaUser className='UserIcon' /> */}
-            </div>
+            <div className='userName'>{complete_name}</div>
+            <div className='myUser'></div>
 
-        </nav>
+
+        </div>
     );
 }
 export default Nav;

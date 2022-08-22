@@ -13,8 +13,10 @@ const Tasks_comp = (props) => {
         <>
             <DndProvider backend={HTML5Backend}>
                 <DragnDrop propDataTask={props.propsDataTask} allStations={props.allStations}
-                    language={props.language} myTasks={props.myTasks} drag={props.drag} addMyTask={props.addMyTask}
-                    titleTaskCss={props.titleTaskCss} mySite={props.mySite} flagHebrew={props.flagHebrew} tasksOfRoutes={props.tasksOfRoutes} />
+                    language={props.language} myTasks={props.myTasks} drag={props.drag}
+                    addMyTask={props.addMyTask} titleTaskCss={props.titleTaskCss} mySite={props.mySite}
+                    flagHebrew={props.flagHebrew} tasksOfRoutes={props.tasksOfRoutes} myStation={props.myStation}
+                    myStations={props.myStations} />
             </DndProvider >
         </>
     );

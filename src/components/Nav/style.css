@@ -1,23 +1,12 @@
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 20vh;
+.nav {
+
     color: white;
     background-color: #256FA1;
+    height: 74px;
     /* background-color: rgba(37,47,57,.9); */
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 72px;
-    transition: background-color .3s ease-out;
-    display: -ms-flexbox;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-pack: start;
 }
 
-nav:hover {
+.nav:hover {
     /* background-color: rgba(24, 31, 37, 0.9); */
     background-color: #1f618d;
 
@@ -35,6 +24,8 @@ nav:hover {
     justify-content: space-around;
     align-items: center;
     list-style: none;
+    /* margin: 48px; */
+    margin-top: -71px;
 }
 
 .link {
@@ -52,10 +43,17 @@ nav:hover {
 }
 
 .myUser {
-    margin-top: 20px;
-    left: 1816px;
     width: 67px;
     height: 136px;
     background: transparent url('../../Pictures/logo_Taal.svg') 0% 0% no-repeat padding-box;
     opacity: 1;
+    position: relative;
+    bottom: 18px;
+    left: 79px;
+}
+
+.userName {
+    position: relative;
+    top: 14px;
+    left: 67px;
 }

@@ -12,9 +12,6 @@ import { AiOutlinePlus } from "react-icons/ai";
 // import Dot from "../Dot/Dot";
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { CgSearch } from "react-icons/cg";
-
-
-
 // const { baseUrl } = require
 //-----------------------
 let places = [];
@@ -27,7 +24,6 @@ let filteredData = []
 let filteredDataRouts = []
 let inputText = ""
 let inputTextRouts = ""
-
 let mySite = { name: '', id: '' }
 let flagRoute = false;
 let tasksOfRoutes = [];
@@ -45,19 +41,15 @@ const Places = (props) => {
     const [, setRoutes] = useState([]);
     const [, setFilteredData] = useState([]);
     const [, setFilteredDataRouts] = useState([]);
-
     const [, setInputText] = useState("");
     const [, setInputTextRouts] = useState("");
-
     const [, setMySite] = useState(null);
     const [get_logged_in, setLogged_in] = useState(false);// for TextView
     const [, setFlagRoute] = useState(false);
     const [, setTasksOfRoutes] = useState([]);
 
-
-
     let inputHandler = (e) => {
-        console.log("eeeeeeeeeeeeeeee:", e.target.value)
+        // console.log("eeeeeeeeeeeeeeee:", e.target.value)
 
         //convert input text to lower case
         setInputText(inputText = e.target.value.toLowerCase());
@@ -74,9 +66,8 @@ const Places = (props) => {
             }
         }))
     };
-
     let inputHandlerRoutes = (e) => {
-        console.log("eeeeeeeeeeeeeeee:", e.target.value)
+        // console.log("eeeeeeeeeeeeeeee:", e.target.value)
         //convert input text to lower case
         setInputTextRouts(inputTextRouts = e.target.value.toLowerCase());
 
@@ -92,7 +83,6 @@ const Places = (props) => {
             }
         }))
     };
-
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
@@ -107,15 +97,13 @@ const Places = (props) => {
         }
         fetchData();
     }, []);
-
-
     const getData = async () => {
         await get(`${baseUrl}/wp-json/wp/v2/places/`, {
             params: {
                 per_page: 99
             }
         }).then(res => {
-            // console.log("res: ", res)
+            console.log("res: ", res)
             setPlaces(places = res.filter((item) => item.parent === 0))
             setOnlyAllStation(onlyAllStation = res.filter((item) => item.parent > 0))
 
@@ -139,16 +127,10 @@ const Places = (props) => {
         });
         setDone(true)
         // setData_Loaded(true)
-
-
-
     }
     const DisplayTasks = (e) => {
         setTasksOfRoutes(tasksOfRoutes = e)
-        console.log("check value:", tasksOfRoutes)
-
-
-
+        console.log("check value:", tasksOfRoutes);
     }
     const Display_The_Stations = (e) => {
 
@@ -178,7 +160,7 @@ const Places = (props) => {
             // console.log("resssssssssss ", res)
             // console.log("mySite.id:", mySite.id)
             setRoutes(myRoutes = res.filter((item) => item.acf.my_site == mySite.id))
-            console.log("myRoutesssssssssssss:", myRoutes);
+            // console.log("myRoutesssssssssssss:", myRoutes);
 
             setFilteredDataRouts(filteredDataRouts = myRoutes.filter((el) => {
 
@@ -191,7 +173,10 @@ const Places = (props) => {
                 }
             }))
         })
+    }
+    const foo = () => {
 
+        alert("בדיקת כפתור")
     }
     //----------------------------------------------------------------------
     return (
@@ -210,8 +195,6 @@ const Places = (props) => {
                             marginRight: "7%"
                             // marginleft: "7%"
                         }}>
-
-
                             {!props.flagHebrew ? <> <div className='TitlePlacesCover' style={{
                                 background: props.titlePlacesCss
 
@@ -261,7 +244,6 @@ const Places = (props) => {
                                         </button>
                                     )
                                 })}
-
                             </div>
                             <div className='addPlaceCover'>
                                 <button
@@ -270,13 +252,11 @@ const Places = (props) => {
                                         setModalOpen(true);
                                     }}>
                                     <AiOutlinePlus className='plus' />
-
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </button>
                             </div>
                         </div>
-
                         <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
                             language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
                             addStation={props.addStation} addMyTask={props.addMyTask}
@@ -290,14 +270,13 @@ const Places = (props) => {
                             padding: "2%",
                             marginRight: "7%"
                         }}>
-
-
                             {!props.flagHebrew ? <> <div className='TitlePlacesCover' style={{
                                 background: "linear-gradient(90deg,  #256FA11F  95%, #679abd 1%)"
 
                             }}><h3 className='TitlePlaces'>
                                     <div className='MyRoutesTitle'>מסלולים ב <span className='name_of_site_title'>{mySite.name}</span></div>
                                 </h3>
+
                             </div></> : <>
                                 <div className='TitlePlacesCover' style={{
                                     background: props.titlePlacesCss
@@ -306,7 +285,6 @@ const Places = (props) => {
                                         <div className='MyTitle'>{props.sites}</div>
                                     </h3>
                                 </div></>}
-
                             <div className="search" style={{
                                 backgroundColor: "#256FA11F", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
                             }}>
@@ -323,11 +301,10 @@ const Places = (props) => {
                                             className='Place'
                                             onClick={() => DisplayTasks(value)}
                                             key={index}>
-
-                                            <div className='penIcon' ></div>
-                                            <div className='eyeIcon' ></div>
-
-
+                                            <div className='penIcon' onClick={foo}></div>
+                                            <div className='linkIcon' ></div>
+                                            <div className='duplicateIcon'></div>
+                                            <div className="shareIcon"></div>
                                             <div className='nameOfSite'>{value.title.rendered.replace("&#8211;", "-").replace("&#8217;", "'")}</div>
                                             {/* <Dot color="rgb(161, 147, 229)" /> */}
                                             {/* <Dot color={'#7A78B7 '} /> */}
@@ -349,15 +326,12 @@ const Places = (props) => {
                                 </button>
                             </div>
                         </div>
-
                         <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
                             language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
                             addStation={props.addStation} addMyTask={props.addMyTask}
-                            titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} mySite={mySite} flagHebrew={props.flagHebrew} tasksOfRoutes={tasksOfRoutes} />
-
-
+                            titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss}
+                            mySite={mySite} flagHebrew={props.flagHebrew} tasksOfRoutes={tasksOfRoutes} />
                     </>}
-
                 </>
             }
         </>

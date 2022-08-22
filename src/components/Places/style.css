@@ -3,11 +3,9 @@
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
-  /* border-radius: 1.5ch; */
-  height: 163px;
+  height: 300px;
   overflow: auto;
   width: 287px;
-
 }
 
 .routs {
@@ -15,8 +13,7 @@
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
-  /* border-radius: 1.5ch; */
-  height: 163px;
+  height: 300px;
   overflow: auto;
   width: 287px;
 }
@@ -37,23 +34,54 @@
 }
 
 .eyeIcon {
-  top: 440px;
   width: 66px;
-  height: 13px;
-  /* UI Properties */
-  background: transparent url('../../Pictures/ic_eye.svg') 0% 0% no-repeat padding-box;
+  height: 24px;
+  background: transparent url('../../Pictures/ic_duplicate.svg') 0% 0% no-repeat padding-box;
   opacity: 1;
+  position: relative;
+  top: 2px;
+  right: 15px;
+
+
+
+}
+
+.linkIcon {
+  width: 66px;
+  height: 32px;
+  background: transparent url('../../Pictures/ic_link.svg') 0% 0% no-repeat padding-box;
+  opacity: 1;
+  top: 0px;
+  position: relative;
 }
 
 .penIcon {
-  top: 523px;
-  left: 1497px;
   width: 30px;
   height: 16px;
-  /* UI Properties */
   background: transparent url('../../Pictures/Ic_pen.svg') 0% 0% no-repeat padding-box;
   opacity: 1;
+  position: relative;
+  right: 10px;
+  top: 4px;
 }
+
+.duplicateIcon {
+  width: 60px;
+  height: 24px;
+  background: transparent url('../../Pictures/ic_duplicate.svg') 0% 0% no-repeat padding-box;
+  opacity: 1;
+  position: relative;
+  top: 1px;
+}
+
+.shareIcon {
+  width: 60px;
+  height: 24px;
+  background: transparent url('../../Pictures/ic_share.svg') 0% 0% no-repeat padding-box;
+  opacity: 1;
+  position: relative;
+}
+
 
 .threeDotsVertical {
   width: 352px;
@@ -71,7 +99,6 @@
   margin-top: 15px;
 }
 
-
 .threeDotsVerticalEngStation {
   width: 274px;
   height: 34px;
@@ -85,7 +112,6 @@
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
-
 }
 
 .Place {
@@ -94,7 +120,6 @@
   left: 1471px;
   width: 301px;
   height: 64px;
-  /* UI Properties */
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 2px #00000080;
   border: 1px solid #D8D8D8;
@@ -106,8 +131,9 @@
 .AddPlace {
   display: flex;
   width: 85%;
-  height: 68px;
-  margin: 20px;
+  height: 59px;
+  margin: 13px;
+  margin-left: 24px;
   padding: 20px;
   justify-content: right;
   justify-Content: 'space-between';
@@ -117,15 +143,14 @@
 
 }
 
-.Place:focus {
+/* .Place:focus {
   background: linear-gradient(90deg, #f6f5ff 0, #bb98f3);
   transition: 0.4s;
-}
+} */
 
 .AddPlace {
   top: 588px;
   height: 64px;
-  /* UI Properties */
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 4px 10px #00000033;
   border: 2px dashed #9B9B9B;
@@ -139,7 +164,6 @@
   left: 1609px;
   width: 93px;
   height: 24px;
-  /* UI Properties */
   text-align: left;
   font: normal normal normal 49px/64px Assistant;
   letter-spacing: 0px;
@@ -148,12 +172,15 @@
 }
 
 .Place:hover {
-  background: linear-gradient(90deg, #1ed4da 0, #72ae7a);
-  color: rgb(232, 238, 237)
+  /* background: linear-gradient(90deg, #1ed4da 0, #72ae7a); */
+  background-color: #fbfbfb;
+  /* color: rgb(232, 238, 237) */
 }
 
 .AddPlace:hover {
-  background: linear-gradient(90deg, #f6f5ff 0, #dde2fa);
+  /* background: linear-gradient(90deg, #f6f5ff 0, #dde2fa); */
+  background-color: #fbfbfb;
+
 
 }
 
@@ -161,7 +188,7 @@
   height: 65px;
   border-radius: 6px;
   opacity: 1;
-  margin-bottom: 26px;
+  margin-bottom: 17px;
   width: 286px;
 }
 
@@ -198,7 +225,6 @@ h3 {
   left: 1736px;
   width: 14px;
   height: 14px;
-  /* UI Properties */
   background: black;
   opacity: 1;
   border-radius: 50%;
@@ -207,7 +233,7 @@ h3 {
 .nameOfSite {
   top: 432px;
   left: 1635px;
-  width: 89px;
+  width: 113px;
   height: 24px;
   font: normal normal bold 15px/20px Assistant;
   letter-spacing: 0px;
@@ -231,7 +257,6 @@ h3 {
   left: 1468px;
   width: 300px;
   height: 35px;
-  /* UI Properties */
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 2px #00000080;
   border-radius: 21px;
@@ -243,7 +268,6 @@ h3 {
   left: 1468px;
   width: 260px;
   height: 28px;
-  /* UI Properties */
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 2px #00000080;
   border-radius: 21px;
@@ -254,14 +278,7 @@ h3 {
   background-position: 220px 4px;
   padding: 12px 50px 12px 40px;
   font-size: 12px;
-
-
-
-
 }
-
-
-
 
 .force-overflow {
   min-height: 450px;
@@ -270,6 +287,7 @@ h3 {
 .Places::-webkit-scrollbar-track {
   padding: 2px 0;
   background-color: #dadbe2;
+  border-radius: 10px;
 }
 
 .Places::-webkit-scrollbar {

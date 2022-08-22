@@ -2,18 +2,18 @@ import React, { useState, useEffect, } from 'react';
 import Tag from "../Tag/Tag.js";
 import { useDrop } from "react-dnd";
 import "./style.css";
-import Images from "../Images/Images";
 import Audios from "../Audios/Audios";
-// import { RiDragMove2Line } from "react-icons/ri";
-// import { FcAddDatabase } from "react-icons/fc";
-// import { MdOutlineLiveHelp } from "react-icons/md";
 import Modal_Tasks from '../Modal/Modal_Tasks';
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs";
-// import Dot from "../Dot/Dot";
 import { CgSearch } from "react-icons/cg";
-
-import View_my_tasks from '../View_my_tasks/View_my_tasks';
+// import Images from "../Images/Images";
+// import { RiDragMove2Line } from "react-icons/ri";
+// import { FcAddDatabase } from "react-icons/fc";
+// import { MdOutlineLiveHelp } from "react-icons/md";
+// import Dot from "../Dot/Dot";
+// import MyStations from '../Stations/MyStation.js';
+// import View_my_tasks from '../View_my_tasks/View_my_tasks';
 //-------------------------
 
 let Route = [];
@@ -25,15 +25,22 @@ let myTask = {};
 let helpFlag = false;
 let inputText = '';
 let filteredData = [];
-
+let flagFirst = true;
+let count = 0;
 //-------------------------
 function DragnDrop(props) {
+
+    console.log("propsDataTask:", props.propDataTask)
+
+
+    const [, setFlagFirst] = useState(true)
     const [, setLoading] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [, setHelpFlag] = useState(false);
     const [board, setBoard] = useState([]);
     const [, setInputText] = useState("");
     const [, setFilteredData] = useState([]);
+    const [, setCount] = useState(0);
 
     let inputHandler = (e) => {
         console.log("eeeeeeeeeeeeeeee:", e.target.value)
@@ -72,12 +79,14 @@ function DragnDrop(props) {
         return {
             id: element.id,
             title: element.title.rendered.replace("&#8211;", "-").replace("&#8217;", "' "),
-            mySite: props.mySite
+            mySite: props.mySite,
+            myStation: props.myStation.name
         }
     })
     console.log("dndArray:", dndArray);
     //---------------------------------------------------------
     const [, drop] = useDrop(() => ({
+
         accept: "image",
         drop: (item) => addImageToBoard(item.id),
         collect: (monitor) => ({
@@ -86,6 +95,10 @@ function DragnDrop(props) {
     }));
     //---------------------------------------------------------
     const addImageToBoard = (id) => {
+
+        setCount(count++)
+        // alert(count)
+        setFlagFirst(flagFirst = false)
         thisId = id;
         Route = dndArray.filter((tag) => id === tag.id);
         setBoard((board) => [...board, Route[0]]);
@@ -137,7 +150,6 @@ function DragnDrop(props) {
                             background: props.titleTaskCss
                         }}><h3>
                                 &nbsp;
-
                                 <div className='MyTitle'>{props.myTasks}</div>
                                 <BsThreeDotsVertical className='threeDotsVerticalEng' />
 
@@ -154,7 +166,7 @@ function DragnDrop(props) {
                     </>}
                 <div className='TasksCover'>
                     {dndArray.length === 0 ? null : dndArray.map((tag) => {
-                        return <Tag title={tag.title} id={tag.id} key={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} />;
+                        return <Tag title={tag.title} id={tag.id} key={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} myStation={tag.myStation} />;
                     })}
                 </div>
 
@@ -188,6 +200,7 @@ function DragnDrop(props) {
                         }} >help</button> */}
                                 <div style={{ fontSize: "20px", left: "185px" }}>
                                     {/* <span><RiDragMove2Line /></span> */}
+                                    {/* <div className='kavTop'></div> */}
                                 </div>
                                 {/* &nbsp;<RiDragMove2Line /> */}
                             </div>
@@ -197,12 +210,11 @@ function DragnDrop(props) {
 
                             {board.map((tag, keyCount) => {
 
-                                return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} flagBoard={true} />;
+                                return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} flagBoard={true} myStation={tag.myStation} myMarginTop={'-68px'} />;
                             })}
-
-
                         </div>
-                    </div> : <div className="Board" ref={drop} >
+                    </div> :
+                    <div className="Board" ref={drop} >
 
                         <i className="bi bi-dash-square">
                             <div style={{
@@ -217,25 +229,21 @@ function DragnDrop(props) {
                                     {/* <span><RiDragMove2Line /></span> */}
                                 </div>
                             </div>
-
                         </i>
-                        {/* sadeasdased */}
+
                         <div className='MyTasks'>
-                            {props.mySite.name ? <> <div className='mySiteChois'> {props.mySite.name}&nbsp;&nbsp;
+                            <div className='kavT'></div>
+
+                            {props.mySite.name ? <> <div className='mySiteChois'>
+                                {props.mySite.name}
+
                                 &nbsp;&nbsp; </div></> : <></>}
 
                             {board.map((tag, keyCount) => {
-                                return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} flagBoard={true} />;
-                            })}
-                            {/* {props.tasksOfRoutes !== undefined && props.tasksOfRoutes.length !== 0 ? <>
-                                {board.map((tag, keyCount) => {
-                                    return <Tag key={keyCount} />
-                                })}
-                            </> : <></>} */}
-                            {/*  if (props.tasksOfRoutes !== undefined && props.tasksOfRoutes.length !== 0)
 
-      
-            console.log("tasksOfRoutes2:", props.tasksOfRoutes.acf.tasks.map((e) => { return e.post_title })) */}
+                                return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} flagBoard={true} myStation={tag.myStation} myMarginTop={'-68px'} count={count} />;
+                            })}
+                            <div className='kavB'></div>
 
                         </div>
                         {/* <Images id={thisId} data={saveProps.propDataTask} /> */}

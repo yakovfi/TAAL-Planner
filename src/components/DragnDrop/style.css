@@ -2,7 +2,7 @@
   top: 204px;
   left: 0px;
   width: 400px;
-  height: 534px;
+  height: 604px;
   background: #F5F5F5 0% 0% no-repeat padding-box;
   opacity: 1;
   margin-top: 4px;
@@ -20,7 +20,7 @@
 .TitleTasks {
   color: rgb(88, 92, 81);
   border-radius: 6px;
-  margin-bottom: 26px;
+  margin-bottom: 17px;
   width: 290px;
   height: 65px;
 }
@@ -33,7 +33,7 @@
   padding-top: 1px;
   padding-bottom: 1px;
   overflow: auto;
-  height: 164px;
+  height: 300px;
   width: 290px;
 }
 
@@ -67,7 +67,9 @@
 }
 
 .AddTasks:hover {
-  background: linear-gradient(90deg, #f1fae7 0, #deecd5);
+  /* background: linear-gradient(90deg, #f1fae7 0, #deecd5); */
+  background-color: #fbfbfb;
+
 }
 
 .MyTasks {
@@ -82,6 +84,7 @@
 }
 
 .mySiteChois {
+  left: 24px;
   margin-top: 20px;
   width: 171px;
   text-align: -7px;
@@ -90,6 +93,8 @@
   color: #4A2C6E;
   opacity: 1;
   margin-left: auto;
+  position: relative;
+  top: 6px;
 }
 
 /* span {
@@ -114,9 +119,8 @@
 .txt {
   top: 272px;
   left: 117px;
-  width: 343px;
+  width: 368px;
   height: 30px;
-  /* UI Properties */
   text-align: right;
   font: normal normal 600 23px/30px Assistant;
   letter-spacing: 0px;
@@ -158,6 +162,27 @@
 }
 
 .TasksCover::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #bfc4ce;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+
+.force-overflow {
+  min-height: 450px;
+}
+
+.MyTasks::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: #dadbe2;
+  border-radius: 10px;
+}
+
+.MyTasks::-webkit-scrollbar {
+  width: 10px;
+}
+
+.MyTasks::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #bfc4ce;
   border: 1px solid rgb(235, 235, 235);

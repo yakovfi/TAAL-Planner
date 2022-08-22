@@ -19,12 +19,15 @@ let tasks = [];
 let filteredData = []
 let inputText = ""
 let flagFirstTime = true;
+let myStation = { name: '', id: '' }
 
 //-----------------------
 
 const Stations = (props) => {
-    console.log("station:", props.language.setFloatLang)
-    console.log("mySite:", props.mySite)
+    // console.log("station:", props.language.setFloatLang)
+    console.log("mySite:", props.mySite);
+    console.log("propsDataStations:", props.propsData);
+
 
     // console.log(" props.allStations:", props.allStations)
     // console.log(" props.idTask:", props.idTask)
@@ -35,6 +38,7 @@ const Stations = (props) => {
     const [, setFilteredData] = useState([]);
     const [, setInputText] = useState("");
     const [, setFlagFirstTime] = useState(false);
+    const [, setMyStation] = useState(null);
 
 
     if (flagFirstTime === true) {
@@ -87,10 +91,14 @@ const Stations = (props) => {
             });
     }
     const Display_The_Tasks = (e) => {
+        setMyStation(myStation.name = e.name)
+        setMyStation(myStation.id = e.id)
+
+        // console.log("console myStat myStation:", myStation)
+
         if (tasks.length > 0) {
             tasks = [];
         }
-
 
         allTasks.forEach(element => {
             for (let i = 0; i < element.places.length; i++) {
@@ -98,6 +106,8 @@ const Stations = (props) => {
                     tasks.push(element)
                 }
             }
+            console.log("Display_The_Tasks", tasks)
+
         })
 
         setFilteredData(filteredData = props.propsData.filter((el) => {
@@ -145,13 +155,7 @@ const Stations = (props) => {
 
                                     <BsThreeDotsVertical className='threeDotsVerticalEngStation' />
                                 </h3>
-
-
                             </div></>}
-
-
-
-
                         <div className="search" style={{
                             backgroundColor: "rgb(255, 242, 234)", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
 
@@ -188,13 +192,11 @@ const Stations = (props) => {
 
                             </button>
                         </div>
-
-
-
                     </div>
                     <Tasks_comp propsDataTask={tasks} allStations={props.allStations} language={props.language.setFloatLang}
                         myTasks={props.myTasks} drag={props.drag}
-                        addMyTask={props.addMyTask} titleTaskCss={props.titleTaskCss} mySite={props.mySite} flagHebrew={props.flagHebrew} tasksOfRoutes={props.tasksOfRoutes} />
+                        addMyTask={props.addMyTask} titleTaskCss={props.titleTaskCss} mySite={props.mySite} myStation={myStation}
+                        flagHebrew={props.flagHebrew} tasksOfRoutes={props.tasksOfRoutes} myStations={props.propsData} />
                 </>
             )}
         </>
