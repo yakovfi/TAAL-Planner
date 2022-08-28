@@ -80,7 +80,7 @@ const Planner = () => {
         setFloatLan("right");
         setSites("אתרים");
         setStations("תחנות");
-        setTasks("משימות");
+        setTasks(" משימות");
         setSaveButton("שמור מסלול");
         setRouteWrite("רשום את שם המסלול");
         setRDrag("תצוגת המסלול");
@@ -100,6 +100,7 @@ const Planner = () => {
             {!get_logged_in ? <div style={{ color: "white" }}>Please connect properly !</div> :
                 <>
 
+
                     {loading && <div>Loading</div>}
                     {!loading && (
 
@@ -110,7 +111,7 @@ const Planner = () => {
                             <div className="Actions" >
                                 {flagHebrew ?
                                     <>
-                                        <button className="AddRoute" type="submit"
+                                        {/* <button className="AddRoute" type="submit"
                                             onClick={() => {
                                                 setModalOpen(true);
                                             }}
@@ -118,7 +119,8 @@ const Planner = () => {
                                             <AiFillCheckCircle className='icon' />
                                             &nbsp;&nbsp;
                                             {saveButton}
-                                        </button>
+                                        </button> */}
+
                                         {/* &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;
                                         <button className="AddRoute" type="submit"
                                             onClick={() => {
@@ -132,7 +134,7 @@ const Planner = () => {
 
                                     </> :
                                     <>
-                                        <button className="AddRoute" type="submit" style={{
+                                        {/* <button className="AddRoute" type="submit" style={{
                                             position: 'absolute',
                                             right: '70px',
 
@@ -144,10 +146,10 @@ const Planner = () => {
                                             {saveButton}
                                             &nbsp;&nbsp;
                                             <AiFillCheckCircle className='icon' />
-                                        </button>
+                                        </button> */}
                                     </>}
 
-                                <button style={{ marginLeft: marginHebrew }}
+                                <button className="language" style={{ marginLeft: marginHebrew }}
                                     onClick={() => {
                                         if (Hebrew !== false)
                                             hebrew();

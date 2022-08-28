@@ -3,9 +3,11 @@
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
-  height: 300px;
+  height: 345px;
   overflow: auto;
-  width: 287px;
+  width: 272px;
+  scrollbar-color: #bfc4ce #dadbe2 !important;
+  scrollbar-width: thin !important;
 }
 
 .routs {
@@ -13,24 +15,28 @@
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
-  height: 300px;
+  height: 345px;
   overflow: auto;
-  width: 287px;
+  width: 272px;
+  scrollbar-color: #bfc4ce #dadbe2 !important;
+  scrollbar-width: thin !important;
 }
 
 .MyTitle {
-  top: 301px;
-  height: 34px;
   font: normal normal bold 26px/34px Assistant;
-  letter-spacing: 0px;
-  color: #505050;
-  opacity: 1;
-  margin-top: 14px;
+  margin-top: 6px;
+  position: relative;
+  left: 83px;
+  font-size: 23px;
 }
+
 
 .MyRoutesTitle {
   margin-top: 15px;
   margin-left: 25px;
+  position: relative;
+  bottom: 10px;
+  font-size: 23px
 }
 
 .eyeIcon {
@@ -85,23 +91,29 @@
 
 .threeDotsVertical {
   width: 352px;
-  height: 34px;
+
   opacity: 1;
   margin-left: -181px;
   margin-top: 15px;
 }
 
 .threeDotsVerticalEng {
-  width: 34px;
-  height: 34px;
   opacity: 1;
-  margin-left: 160px;
-  margin-top: 15px;
+  position: relative;
+  left: -65px;
+  font-size: 18px;
 }
+
+.threeDotsVerticalTasks {
+  opacity: 1;
+  position: relative;
+  left: -85px;
+  font-size: 18px;
+}
+
 
 .threeDotsVerticalEngStation {
   width: 274px;
-  height: 34px;
   opacity: 1;
   margin-right: -124px;
   margin-top: 15px;
@@ -112,6 +124,16 @@
   margin: -0.5px;
   padding-top: 1px;
   padding-bottom: 1px;
+}
+
+.Cover_Places {
+  flex: 1 1 auto;
+  margin: 0 4px;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0 4px;
+  z-index: 1;
 }
 
 .Place {
@@ -149,14 +171,14 @@
 } */
 
 .AddPlace {
-  top: 588px;
-  height: 64px;
+  height: 56px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 4px 10px #00000033;
   border: 2px dashed #9B9B9B;
   border-radius: 8px;
   opacity: 1;
-  margin: 20px;
+  /* margin: 20px; */
+  width: 236px;
 }
 
 .plus {
@@ -185,22 +207,20 @@
 }
 
 .TitlePlacesCover {
-  height: 65px;
+  height: 50px;
   border-radius: 6px;
   opacity: 1;
   margin-bottom: 17px;
-  width: 286px;
+  width: 272px;
 }
 
 .name_of_site_title {
   color: #7A78B7;
-
-
   font: normal normal bold 26px/34px Assistant;
   letter-spacing: 0px;
-
   opacity: 1;
   margin-top: 14px;
+  font-size: 20px;
 }
 
 .TitlePlaces {
@@ -249,6 +269,7 @@ h3 {
 
 .search {
   text-align: right;
+  width: 272px;
 
 }
 
@@ -266,8 +287,8 @@ h3 {
 .searchButton {
   top: 322px;
   left: 1468px;
-  width: 260px;
-  height: 28px;
+  width: 233px;
+  height: 29px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 2px #00000080;
   border-radius: 21px;
@@ -275,7 +296,7 @@ h3 {
   border: #dde2fa;
   margin-right: 17px;
   background-image: url('../../Pictures/Search.svg');
-  background-position: 220px 4px;
+  background-position: 202px 5px;
   padding: 12px 50px 12px 40px;
   font-size: 12px;
 }

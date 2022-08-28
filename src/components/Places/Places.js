@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { get } from "../../api/api";
 import './style.css';
+import Tag from "../Tag/Tag.js";
+
 // import { MdOutlineAdsClick } from "react-icons/md";
 // import { FcAddDatabase, FcSearch } from "react-icons/fc";
 import Stations from '../Stations/Stations'
-import Modal_Places from '../Modal/Model_Places'
-import Modal_Loading from '../Modal/Modal_Loading'
-import TextField from "@mui/material/TextField";
+import ModalPlaces from '../Modal/Model_Places'
+import ModalLoading from '../Modal/Modal_Loading'
+// import TextField from "@mui/material/TextField";
 import { baseUrl } from "../../config";
 import { AiOutlinePlus } from "react-icons/ai";
 // import Dot from "../Dot/Dot";
@@ -26,6 +28,7 @@ let inputText = ""
 let inputTextRouts = ""
 let mySite = { name: '', id: '' }
 let flagRoute = false;
+// let flagButtonRoute = false;
 let tasksOfRoutes = [];
 
 //-----------------------
@@ -44,8 +47,9 @@ const Places = (props) => {
     const [, setInputText] = useState("");
     const [, setInputTextRouts] = useState("");
     const [, setMySite] = useState(null);
-    const [get_logged_in, setLogged_in] = useState(false);// for TextView
+    // const [get_logged_in, setLogged_in] = useState(false);// for TextView
     const [, setFlagRoute] = useState(false);
+    const [, setFlagButtonRoute] = useState(false);
     const [, setTasksOfRoutes] = useState([]);
 
     let inputHandler = (e) => {
@@ -103,7 +107,7 @@ const Places = (props) => {
                 per_page: 99
             }
         }).then(res => {
-            console.log("res: ", res)
+            console.log("res places: ", res)
             setPlaces(places = res.filter((item) => item.parent === 0))
             setOnlyAllStation(onlyAllStation = res.filter((item) => item.parent > 0))
 
@@ -129,8 +133,10 @@ const Places = (props) => {
         // setData_Loaded(true)
     }
     const DisplayTasks = (e) => {
-        setTasksOfRoutes(tasksOfRoutes = e)
-        console.log("check value:", tasksOfRoutes);
+        setTasksOfRoutes(tasksOfRoutes = e);
+        setFlagButtonRoute(flagRoute = true);
+
+        console.log("check value routes:", tasksOfRoutes);
     }
     const Display_The_Stations = (e) => {
 
@@ -174,20 +180,20 @@ const Places = (props) => {
             }))
         })
     }
-    const foo = () => {
+    // const foo = () => {
 
-        alert("בדיקת כפתור")
-    }
+    //     alert("בדיקת כפתור")
+    // }
     //----------------------------------------------------------------------
     return (
         <>
             {!done ? <>
-                {<Modal_Loading />}
+                {<ModalLoading />}
             </>
                 :
                 <>
                     {!flagRoute ? <>
-                        {modalOpen && <Modal_Places setOpenModalPlaces={setModalOpen} />}
+                        {modalOpen && <ModalPlaces setOpenModalPlaces={setModalOpen} />}
 
                         <div className='Cover_Places' style={{
                             float: props.setFloatLang,
@@ -200,7 +206,7 @@ const Places = (props) => {
 
                             }}><h3 className='TitlePlaces'>
 
-                                    <BsThreeDotsVertical className='threeDotsVertical' />
+                                    {/* <BsThreeDotsVertical className='threeDotsVertical' /> */}
                                     <div className='MyTitle'>{props.sites}</div>
                                 </h3>
 
@@ -214,7 +220,7 @@ const Places = (props) => {
 
                                         <div className='MyTitle'>{props.sites}</div>
 
-                                        <BsThreeDotsVertical className='threeDotsVerticalEng' />
+                                        {/* <BsThreeDotsVertical className='threeDotsVerticalEng' /> */}
                                     </h3>
                                 </div></>}
                             <div className="search" style={{
@@ -222,6 +228,7 @@ const Places = (props) => {
                             }}>
                                 <input className='searchButton'
                                     dir="rtl"
+                                    placeholder="חפש אתר"
                                     label={<CgSearch style={{ fontSize: "x-large", }} />}
                                     onChange={inputHandler}
                                 ></input>
@@ -234,8 +241,9 @@ const Places = (props) => {
                                             onClick={() => Display_The_Stations(value)}
                                             key={index}>
 
-                                            <div className='penIcon' ></div>
-                                            <div className='eyeIcon' ></div>
+                                            {/* <div className='penIcon' ></div>
+                                            <div className='eyeIcon' ></div> */}
+                                            <BsThreeDotsVertical className='threeDotsVerticalEng' />
 
 
                                             <div className='nameOfSite'>{value.name}</div>
@@ -263,7 +271,7 @@ const Places = (props) => {
                             titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} mySite={mySite} flagHebrew={props.flagHebrew} />
                     </> : <>
                         {/* routs */}
-                        {modalOpen && <Modal_Places setOpenModalPlaces={setModalOpen} />}
+                        {modalOpen && <ModalPlaces setOpenModalPlaces={setModalOpen} />}
 
                         <div className='Cover_Places' style={{
                             float: props.setFloatLang,
@@ -290,6 +298,8 @@ const Places = (props) => {
                             }}>
                                 <input className='searchButton'
                                     dir="rtl"
+                                    placeholder="חפש מסלול"
+
                                     label={<CgSearch style={{ fontSize: "x-large", }} />}
                                     onChange={inputHandlerRoutes}
                                 ></input>
@@ -301,10 +311,12 @@ const Places = (props) => {
                                             className='Place'
                                             onClick={() => DisplayTasks(value)}
                                             key={index}>
-                                            <div className='penIcon' onClick={foo}></div>
+                                            <BsThreeDotsVertical className='threeDotsVerticalEng' />
+
+                                            {/* <div className='penIcon' onClick={foo}></div>
                                             <div className='linkIcon' ></div>
                                             <div className='duplicateIcon'></div>
-                                            <div className="shareIcon"></div>
+                                            <div className="shareIcon"></div> */}
                                             <div className='nameOfSite'>{value.title.rendered.replace("&#8211;", "-").replace("&#8217;", "'")}</div>
                                             {/* <Dot color="rgb(161, 147, 229)" /> */}
                                             {/* <Dot color={'#7A78B7 '} /> */}
@@ -313,6 +325,15 @@ const Places = (props) => {
                                 })}
 
                             </div>
+                            {flagRoute && tasksOfRoutes.length > 1 ? <>
+                                {tasksOfRoutes.acf.tasks.for((tag, keyCount) => {
+
+                                    return <Tag />;
+
+                                })}
+
+
+                            </> : <></>}
                             <div className='addPlaceCover' style={{ background: '#256FA11F' }}>
                                 <button
                                     className='AddPlace'
@@ -338,3 +359,14 @@ const Places = (props) => {
     );
 }
 export default Places;
+
+
+
+
+// {dndArray.map((tag, keyCount) => {
+
+//     return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} flagBoard={true} myLastStation={props.myStation.name} myStation={tag.myStation} myMarginTop={'-68px'} count={count} />;
+
+// })}
+//זה בשביל להציג את המסלול
+//נ.ב צריך להוסיף למערך את המסלול

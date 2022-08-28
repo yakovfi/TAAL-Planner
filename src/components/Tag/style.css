@@ -1,6 +1,6 @@
 .Tasks {
   display: flex;
-  width: 249px;
+  width: 225px;
   margin: 20px;
   padding: 20px;
   justify-content: right;
@@ -64,7 +64,7 @@
   letter-spacing: 0px;
   color: #505050;
   opacity: 1;
-  bottom: 37px;
+  bottom: 42px;
   right: 185px;
   text-align-last: end;
 }
@@ -91,44 +91,89 @@
   top: -13px;
 }
 
+.titleStat1 {
+  width: 89px;
+  height: 24px;
+  font: normal normal bold 15px/20px Assistant;
+  letter-spacing: 0px;
+  color: #505050;
+  opacity: 1;
+  position: relative;
+  right: 48px;
+  top: -13px;
+}
+
+
 .kavT {
   border-top: 2px solid #c2bfbf;
   width: 15px;
   position: relative;
-  margin-top: 11px;
+  margin-top: -17px;
   left: 269px;
   bottom: -40px;
+
 }
 
 .kavB {
   border-top: 2px solid #c2bfbf;
   width: 15px;
   position: relative;
-  margin-top: 11px;
+  margin-top: 68px;
   left: 269px;
-  bottom: -5px;
+  bottom: 4px;
+  padding: 6px;
 }
 
 .kavTask {
-  display: -webkit-inline-box;
   border-left: 2px solid #c2bfbf;
   height: 57px;
   position: relative;
   margin-top: -0.5px;
-  left: 58px;
-  float: inherit;
+  left: -68px;
+  margin-left: 91px;
+  top: 24px;
+}
 
+.kavTask1 {
+  border-left: 2px solid #c2bfbf;
+  height: 57px;
+  position: relative;
+  margin-top: -0.5px;
+  left: -68px;
+  margin-left: 91px;
+  top: 24px;
 }
 
 .kavTask2 {
   border-left: 2px solid #c2bfbf;
-  height: 45px;
+  height: 70px;
   position: relative;
-  margin-top: -47.5px;
-  left: 47px;
+  margin-top: -108.5px;
+  left: 9px;
   float: inherit;
-
+  bottom: -27px;
 }
+
+.kavTask21 {
+  border-left: 2px solid #c2bfbf;
+  height: 59px;
+  position: relative;
+  margin-top: -149.5px;
+  left: 261px;
+  float: inherit;
+  bottom: -27px;
+}
+
+.kavTask3 {
+  border-left: 2px solid #c2bfbf;
+  height: 59px;
+  position: relative;
+  margin-top: -108.5px;
+  left: 9px;
+  float: inherit;
+  bottom: -27px;
+}
+
 
 
 /* .kavTop {
@@ -143,8 +188,18 @@
   width: 13px;
   position: relative;
   margin-top: -7px;
-  left: 33px;
-  top: 3px;
+  left: -4px;
+  top: 38px;
+}
+
+.newkavTaskTop {
+  border-top: 2px solid #c2bfbf;
+  width: 13px;
+  position: relative;
+  margin-top: -7px;
+  left: -4px;
+  top: 32px;
+
 }
 
 .kavTop {
@@ -188,7 +243,7 @@
 
 .Tasks {
   display: flex;
-  width: 230px;
+  width: 225px;
   margin: 13px;
   margin-left: 24px;
   padding: 20px;

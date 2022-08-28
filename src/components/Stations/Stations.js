@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { get } from "../../api/api";
-import { FcSearch } from "react-icons/fc";
-import { MdOutlineAdsClick } from "react-icons/md";
+// import { FcSearch } from "react-icons/fc";
+// import { MdOutlineAdsClick } from "react-icons/md";
 import './style.css';
-import Tasks_comp from "../Tasks_comp/Tasks_comp";
-import Modal_Stations from '../Modal/Modal_Stations'
-import TextField from "@mui/material/TextField";
+import TasksComp from "../Tasks_comp/Tasks_comp";
+import ModalStations from '../Modal/Modal_Stations'
+// import TextField from "@mui/material/TextField";
 import { baseUrl } from "../../config";
 import { AiOutlinePlus } from "react-icons/ai";
 // import Dot from "../Dot/Dot"
@@ -19,19 +19,19 @@ let tasks = [];
 let filteredData = []
 let inputText = ""
 let flagFirstTime = true;
-let myStation = { name: '', id: '' }
+let myStation = { name: '', id: '', flag: true }
 
 //-----------------------
 
 const Stations = (props) => {
     // console.log("station:", props.language.setFloatLang)
-    console.log("mySite:", props.mySite);
-    console.log("propsDataStations:", props.propsData);
+    // console.log("mySite:", props.mySite);
+    // console.log("propsDataStations:", props.propsData);
 
 
     // console.log(" props.allStations:", props.allStations)
     // console.log(" props.idTask:", props.idTask)
-    const [, set_obj] = useState(null);// for TextView
+    // const [, set_obj] = useState(null);// for TextView
     const [, setStateTask] = useState([]);
     const [loading, setLoading] = useState(false);
     const [modalOpen, setModalOpen] = useState(false)
@@ -91,8 +91,21 @@ const Stations = (props) => {
             });
     }
     const Display_The_Tasks = (e) => {
+        // console.log("myStation.idddddddddddddddddddddddd:", myStation.id)
+        // console.log(" e.iddddddddddddddddddddddddddddddd:", e.id)
+
+        if (myStation.id === e.id) {
+            setMyStation(myStation.flag = false)
+
+        }
+        else {
+            setMyStation(myStation.flag = true)
+
+        }
+        // console.log("myStation  flagssssssssssssssssssssssssssssssssssssssssssssss:", myStation.flag)
         setMyStation(myStation.name = e.name)
         setMyStation(myStation.id = e.id)
+
 
         // console.log("console myStat myStation:", myStation)
 
@@ -106,7 +119,7 @@ const Stations = (props) => {
                     tasks.push(element)
                 }
             }
-            console.log("Display_The_Tasks", tasks)
+            // console.log("Display_The_Tasks", tasks)
 
         })
 
@@ -128,7 +141,7 @@ const Stations = (props) => {
             {loading && (<div>Loading</div>)}
             {!loading && (
                 <>
-                    {modalOpen && <Modal_Stations setOpenModalPlaces={setModalOpen} idTasks={props.idTask} />}
+                    {modalOpen && <ModalStations setOpenModalPlaces={setModalOpen} idTasks={props.idTask} />}
                     <div className='Cover_Stations' style={{
                         float: props.language.setFloatLang,
                         marginRight: "-2%",
@@ -141,7 +154,7 @@ const Stations = (props) => {
                             //   background: linear-gradient(90deg, rgb(255, 234, 220) 95%, #e29e62 1%);
                         }}><h3>
 
-                                <BsThreeDotsVertical className='threeDotsVertical' />
+                                {/* <BsThreeDotsVertical className='threeDotsVertical' /> */}
 
                                 <div className='MyTitle'> {props.stationsName}</div></h3></div></> : <>
                             <div className='TitleStation' style={{
@@ -153,7 +166,7 @@ const Stations = (props) => {
 
                                     <div className='MyTitle'> {props.stationsName}</div>
 
-                                    <BsThreeDotsVertical className='threeDotsVerticalEngStation' />
+                                    {/* <BsThreeDotsVertical className='threeDotsVerticalEngStation' /> */}
                                 </h3>
                             </div></>}
                         <div className="search" style={{
@@ -162,6 +175,8 @@ const Stations = (props) => {
                         }}>
                             <input className='searchButton'
                                 dir="rtl"
+                                placeholder="חפש תחנה"
+
                                 label={<CgSearch style={{ fontSize: "x-large", }} />}
                                 onChange={inputHandler}
                             ></input>
@@ -173,8 +188,10 @@ const Stations = (props) => {
                                         <button className='Station'
                                             onClick={() => Display_The_Tasks(value)}
                                             key={index}>
-                                            <div className='penIcon' ></div>
-                                            <div className='eyeIcon' ></div>
+                                            {/* <div className='penIcon' ></div>
+                                            <div className='eyeIcon' ></div> */}
+                                            <BsThreeDotsVertical className='threeDotsVerticalEng' />
+
                                             <div className={"nameOfStation"}>{value.name}</div>
 
                                             {/* <Dot color="#F2AE69" /> */}
@@ -193,7 +210,7 @@ const Stations = (props) => {
                             </button>
                         </div>
                     </div>
-                    <Tasks_comp propsDataTask={tasks} allStations={props.allStations} language={props.language.setFloatLang}
+                    <TasksComp propsDataTask={tasks} allStations={props.allStations} language={props.language.setFloatLang}
                         myTasks={props.myTasks} drag={props.drag}
                         addMyTask={props.addMyTask} titleTaskCss={props.titleTaskCss} mySite={props.mySite} myStation={myStation}
                         flagHebrew={props.flagHebrew} tasksOfRoutes={props.tasksOfRoutes} myStations={props.propsData} />
