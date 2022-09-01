@@ -53,3 +53,9 @@ function LoginAPI(props) {
     )
 }
 export default LoginAPI
+// "start": "react-scripts start $env:NODE_OPTIONS=”–max-old-space-size=8192”",
+// "start": "react-scripts start $env:NODE_OPTIONS=”–max-old-space-size=8192”",
+// "start": "react-scripts start $env:NODE_OPTIONS=”–max-old-space-size=8192”",
+// "start": "react-scripts start $env:NODE_OPTIONS=”–max-old-space-size=8192”",
+// "start": "react-scripts start $env:NODE_OPTIONS=”–max-old-space-size=8192”",
+// "start": "react-scripts start $env:NODE_OPTIONS=”–max-old-space-size=8192”",
