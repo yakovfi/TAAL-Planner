@@ -226,8 +226,9 @@ const Cards = () => {
                                                                     src={value.acf.image.url}
                                                                     alt="new"
                                                                 />
-                                                            </> :
-                                                                <Card.Img src={profile} style={{ height: 237, width: '97%', borderRadius: "20px" }} />}
+                                                            </> : <>
+                                                                {/* <Card.Img src={profile} style={{ height: 237, width: '97%', borderRadius: "20px" }} /> */}
+                                                            </>}
                                                             <Card.Body src={logo}>
                                                                 <Card.Title >
 
@@ -256,12 +257,14 @@ const Cards = () => {
                                                         <Card style={{ color: "#000", marginBottom: 15, border: "1px solid #888888", borderRadius: "20px" }}>
                                                             {/* <Card.Img src={profile} style={{ height: 237, width: '97%' }} /> */}
                                                             {value.acf.image ? <>
-                                                                <Image style={{ height: 237, width: '97%', borderRadius: "20px" }}
+                                                                {/* <Image style={{ height: 237, width: '97%', borderRadius: "20px" }}
                                                                     src={value.acf.image.url}
                                                                     alt="new"
-                                                                />
-                                                            </> :
-                                                                <Card.Img src={profile} style={{ height: 237, width: '97%', borderRadius: "20px" }} />}
+                                                                /> */}
+                                                            </> : <>
+                                                                {/* <Card.Img src={profile} style={{ height: 237, width: '97%', borderRadius: "20px" }} /> */}
+                                                            </>
+                                                            }
 
                                                             <Card.Body>
                                                                 <Card.Title >
@@ -290,12 +293,13 @@ const Cards = () => {
                                                         <Card style={{ color: "#000", marginBottom: 15, border: "1px solid #888888", borderRadius: "20px" }}>
                                                             {/* <Card.Img src={profile} style={{ height: 237, width: '97%' }} /> */}
                                                             {value.acf.image ? <>
-                                                                <Image style={{ height: 237, width: '97%', borderRadius: "20px" }}
+                                                                {/* <Image style={{ height: 237, width: '97%', borderRadius: "20px" }}
                                                                     src={value.acf.image.url}
                                                                     alt="new"
-                                                                />
-                                                            </> :
-                                                                <Card.Img src={profile} style={{ height: 237, width: '97%', borderRadius: "20px" }} />}
+                                                                /> */}
+                                                            </> : <>
+                                                                {/* <Card.Img src={profile} style={{ height: 237, width: '97%', borderRadius: "20px" }} /> */}
+                                                            </>}
 
                                                             <Card.Body>
                                                                 <Card.Title >
@@ -325,12 +329,13 @@ const Cards = () => {
                                                         <Card style={{ color: "#000", marginBottom: 15, border: "1px solid #888888", borderRadius: "20px" }}>
                                                             {/* <Card.Img src={profile} style={{ height: 237, width: '97%' }} /> */}
                                                             {value.acf.image ? <>
-                                                                <Image style={{ height: 237, width: '97%', borderRadius: "20px" }}
+                                                                {/* <Image style={{ height: 237, width: '97%', borderRadius: "20px" }}
                                                                     src={value.acf.image.url}
                                                                     alt="new"
-                                                                />
-                                                            </> :
-                                                                <Card.Img src={profile} style={{ height: 237, width: '97%', borderRadius: "20px" }} />}
+                                                                /> */}
+                                                            </> : <>
+                                                                {/* <Card.Img src={profile} style={{ height: 237, width: '97%', borderRadius: "20px" }} /> */}
+                                                            </>}
                                                             <Card.Body>
                                                                 <Card.Title >
                                                                     <div className="text-center ">

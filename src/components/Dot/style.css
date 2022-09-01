@@ -1,7 +1,6 @@
 .dot {
-  height: 15px;
-  width: 15px;
   border-radius: 226%;
-  display: inline-block;
-
+  position: relative;
+  left: 115px;
+  top: -61px;
 }

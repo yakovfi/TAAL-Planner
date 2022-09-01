@@ -1,17 +1,86 @@
 .Tasks {
   display: flex;
   width: 225px;
-  margin: 20px;
   padding: 20px;
   justify-content: right;
-  top: 500px;
-  left: 1088px;
   height: 59px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 2px #00000080;
   border: 1px solid #D8D8D8;
   border-radius: 8px;
-  opacity: 1;
+  margin: 13px;
+  margin-left: 23px;
+}
+
+.stap1 {
+  background-color: #50595c;
+  width: 251.999986px;
+  padding: -30px;
+  position: relative;
+  left: -1px;
+  top: -82px;
+  height: 49px;
+  margin-bottom: 4px;
+}
+
+.stap2 {
+  background-color: #000507;
+  padding: -30px;
+  width: 255px;
+  margin-left: 4px;
+  margin-top: 28px;
+  scrollbar-color: #bfc4ce #dadbe2 !important;
+  scrollbar-width: thin !important;
+  overflow: auto;
+  height: 336px;
+}
+
+.stap3 {
+  background-color: #2f2f2f;
+  margin-left: 4px;
+  margin-top: -20px;
+  overflow: auto;
+  height: 32px;
+  border-radius: 0px 0px 20px 20px;
+}
+
+/* .stap2::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: #dadbe2;
+  height: 80px;
+}
+
+.stap2::-webkit-scrollbar {
+  width: 10px;
+  height: 20px;
+
+}
+
+.stap2::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #bfc4ce;
+  border: 1px solid rgb(235, 235, 235);
+  height: 20px;
+
+} */
+
+.stap2::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: #2f2f2f;
+  color: #2f2f2f;
+}
+
+.stap2::-webkit-scrollbar {
+  width: 4px;
+  background-color: #2f2f2f;
+  color: #2f2f2f;
+
+}
+
+.stap2::-webkit-scrollbar-thumb {
+  background-color: #2f2f2f;
+  border: 1px solid #2f2f2f;
+  color: #2f2f2f;
 }
 
 .dotBoard {
@@ -24,15 +93,51 @@
   border-radius: 200%;
 }
 
-.nameOfTask {
-  top: 432px;
-  left: 1635px;
-  width: 89px;
-  height: 24px;
+.borderTask {
+
+
+
+  height: 351px;
+  background: transparent url('../../Pictures/border_gig.svg') 0% 0% no-repeat padding-box;
+  position: relative;
+  top: 19px;
+  margin-left: 42px;
+  margin-top: -200px;
+  margin-bottom: -7px;
+}
+
+.listenIcon {
+  /* 
+  border: none;
+  height: 117.2px;
+  width: 36px;
+  background: transparent url('../../Pictures/ic_listen\ .svg') 0% 0% no-repeat padding-box;
+  position: relative;
+  top: -127px;
+  left: 56px; */
+
+
+  border: none;
+  height: 117.2px;
+  width: 36px;
+  background: transparent url('../../Pictures/ic_listen\ .svg') 0% 0% no-repeat padding-box;
+  position: relative;
+  top: -115px;
+  left: 56px;
+  margin-top: 51px;
+}
+
+
+.nameOfTaskPhone {
+  width: 160px;
   font: normal normal bold 15px/20px Assistant;
-  letter-spacing: 0px;
   color: #505050;
-  opacity: 1;
+  text-align: end;
+  position: relative;
+  top: 232px;
+  text-align: center;
+
+
 }
 
 /* .kav {
@@ -57,6 +162,35 @@
   float: inherit;
 }
 
+.kavPhone {
+  border-left: 2px solid #747474;
+  height: 139px;
+  position: relative;
+  margin-top: -262.5px;
+  left: -57px;
+  margin-left: 186px;
+  top: 65.9px;
+}
+
+.clock {
+  color: white;
+  position: relative;
+  top: -43px;
+  width: -52px;
+  font-size: 12px;
+  left: 9px;
+
+}
+
+.margin {
+  display: -webkit-inline-box;
+  height: 84px;
+  position: relative;
+  margin-top: -6.5px;
+  left: 275px;
+  float: inherit;
+}
+
 .nameStationBoard {
   width: 177px;
   position: relative;
@@ -67,6 +201,23 @@
   bottom: 42px;
   right: 185px;
   text-align-last: end;
+}
+
+.nameStationBoardPhone {
+  position: relative;
+  color: white;
+  text-align-last: center;
+  top: 19px;
+}
+
+.kavPhoneStationBoard {
+  border-left: 2px solid #747474;
+  height: 82px;
+  position: relative;
+  margin-top: -94.5px;
+  left: -56px;
+  margin-left: 186px;
+  top: 119px;
 }
 
 .kav2 {
@@ -232,31 +383,17 @@
 .nameOfTask {
   top: 432px;
   left: 1635px;
-  width: 89px;
+  width: 98px;
   height: 24px;
   font: normal normal bold 15px/20px Assistant;
   letter-spacing: 0px;
   color: #505050;
   opacity: 1;
+  text-align: end;
 }
 
 
-.Tasks {
-  display: flex;
-  width: 225px;
-  margin: 13px;
-  margin-left: 24px;
-  padding: 20px;
-  justify-content: right;
-  top: 500px;
-  left: 1088px;
-  height: 59px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 0px 2px 2px #00000080;
-  border: 1px solid #D8D8D8;
-  border-radius: 8px;
-  opacity: 1;
-}
+
 
 .dotBoard {
   top: 547px;
@@ -266,15 +403,4 @@
   border: 3px solid #C4CE9C;
   opacity: 1;
   border-radius: 200%;
-}
-
-.nameOfTask {
-  top: 432px;
-  left: 1635px;
-  width: 89px;
-  height: 24px;
-  font: normal normal bold 15px/20px Assistant;
-  letter-spacing: 0px;
-  color: #505050;
-  opacity: 1;
 }

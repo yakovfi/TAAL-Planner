@@ -11,7 +11,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 // import Dot from "../Dot/Dot"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { CgSearch } from "react-icons/cg";
-
+import "@fontsource/assistant";
 
 //-----------------------
 let allTasks = [];
@@ -152,11 +152,11 @@ const Stations = (props) => {
 
                             background: props.titleStationCss
                             //   background: linear-gradient(90deg, rgb(255, 234, 220) 95%, #e29e62 1%);
-                        }}><h3>
+                        }}>
 
-                                {/* <BsThreeDotsVertical className='threeDotsVertical' /> */}
+                            {/* <BsThreeDotsVertical className='threeDotsVertical' /> */}
 
-                                <div className='MyTitle'> {props.stationsName}</div></h3></div></> : <>
+                            <div className='MyTitle text'> {props.stationsName}</div></div></> : <>
                             <div className='TitleStation' style={{
 
                                 background: props.titleStationCss
@@ -192,7 +192,7 @@ const Stations = (props) => {
                                             <div className='eyeIcon' ></div> */}
                                             <BsThreeDotsVertical className='threeDotsVerticalEng' />
 
-                                            <div className={"nameOfStation"}>{value.name}</div>
+                                            <div className="nameOfStation">{value.name}</div>
 
                                             {/* <Dot color="#F2AE69" /> */}
                                         </button>

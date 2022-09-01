@@ -22,13 +22,19 @@
   scrollbar-width: thin !important;
 }
 
-.MyTitle {
+.text {
   font: normal normal bold 26px/34px Assistant;
-  margin-top: 6px;
+  color: #505050;
+}
+
+.MyTitle {
+  margin-top: 25px;
   position: relative;
   left: 83px;
   font-size: 23px;
+  text-align: center;
 }
+
 
 
 .MyRoutesTitle {
@@ -226,11 +232,11 @@
 .TitlePlaces {
   top: 301px;
   height: 34px;
-
   font: normal normal bold 26px/34px Assistant;
   letter-spacing: 0px;
   color: #505050;
   opacity: 1;
+  margin-top: 25px;
 }
 
 h3 {
@@ -252,13 +258,14 @@ h3 {
 
 .nameOfSite {
   top: 432px;
-  left: 1635px;
   width: 113px;
   height: 24px;
-  font: normal normal bold 15px/20px Assistant;
   letter-spacing: 0px;
   color: #505050;
   opacity: 1;
+
+  font: normal normal bold 16px/24px Assistant;
+  text-align: end;
 }
 
 .loading {

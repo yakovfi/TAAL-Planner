@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { get } from "../../api/api";
 import './style.css';
 import Tag from "../Tag/Tag.js";
+import Tag2 from "../Tag/Tag2.js";
+
 
 // import { MdOutlineAdsClick } from "react-icons/md";
 // import { FcAddDatabase, FcSearch } from "react-icons/fc";
@@ -13,7 +15,7 @@ import { baseUrl } from "../../config";
 import { AiOutlinePlus } from "react-icons/ai";
 // import Dot from "../Dot/Dot";
 import { BsThreeDotsVertical } from "react-icons/bs"
-import { CgSearch } from "react-icons/cg";
+import { CgSearch, CgZeit } from "react-icons/cg";
 // const { baseUrl } = require
 //-----------------------
 let places = [];
@@ -51,6 +53,8 @@ const Places = (props) => {
     const [, setFlagRoute] = useState(false);
     const [, setFlagButtonRoute] = useState(false);
     const [, setTasksOfRoutes] = useState([]);
+    const [board, setBoard] = useState([]);
+
 
     let inputHandler = (e) => {
         // console.log("eeeeeeeeeeeeeeee:", e.target.value)
@@ -133,12 +137,14 @@ const Places = (props) => {
         // setData_Loaded(true)
     }
     const DisplayTasks = (e) => {
+        console.log("check value routes:", tasksOfRoutes.length);
+
         setTasksOfRoutes(tasksOfRoutes = e);
         setFlagButtonRoute(flagRoute = true);
-
-        console.log("check value routes:", tasksOfRoutes);
+        console.log("check value routes:", tasksOfRoutes.acf.tasks);
     }
     const Display_The_Stations = (e) => {
+        console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee:", e)
 
         setFlagRoute(flagRoute = true);
         setThisIdTask(thisIdTask = e.id);
@@ -180,6 +186,9 @@ const Places = (props) => {
             }))
         })
     }
+    const clickOnhreeDotsVerticaIcont = () => {
+        alert("HI")
+    }
     // const foo = () => {
 
     //     alert("בדיקת כפתור")
@@ -204,11 +213,11 @@ const Places = (props) => {
                             {!props.flagHebrew ? <> <div className='TitlePlacesCover' style={{
                                 background: props.titlePlacesCss
 
-                            }}><h3 className='TitlePlaces'>
+                            }}>
 
-                                    {/* <BsThreeDotsVertical className='threeDotsVertical' /> */}
-                                    <div className='MyTitle'>{props.sites}</div>
-                                </h3>
+                                {/* <BsThreeDotsVertical className='threeDotsVertical' /> */}
+                                <div className='MyTitle text'>{props.sites}</div>
+
 
 
                             </div></> : <>
@@ -246,7 +255,7 @@ const Places = (props) => {
                                             <BsThreeDotsVertical className='threeDotsVerticalEng' />
 
 
-                                            <div className='nameOfSite'>{value.name}</div>
+                                            <div className='nameOfSite text'>{value.name}</div>
                                             {/* <Dot color="rgb(161, 147, 229)" /> */}
                                             {/* <Dot color={'#7A78B7 '} /> */}
                                         </button>
@@ -311,7 +320,7 @@ const Places = (props) => {
                                             className='Place'
                                             onClick={() => DisplayTasks(value)}
                                             key={index}>
-                                            <BsThreeDotsVertical className='threeDotsVerticalEng' />
+                                            <BsThreeDotsVertical className='threeDotsVerticalEng' onClick={() => clickOnhreeDotsVerticaIcont()} />
 
                                             {/* <div className='penIcon' onClick={foo}></div>
                                             <div className='linkIcon' ></div>
@@ -324,16 +333,15 @@ const Places = (props) => {
                                     )
                                 })}
 
+
                             </div>
-                            {flagRoute && tasksOfRoutes.length > 1 ? <>
-                                {tasksOfRoutes.acf.tasks.for((tag, keyCount) => {
-
-                                    return <Tag />;
-
+                            {/* {tasksOfRoutes.length !== 0 ? <>
+                                {tasksOfRoutes.acf.tasks.map((tag, keyCount) => {
+                                    alert("WDF")
+                                    return <Tag2 />;
                                 })}
+                            </> : <></>} */}
 
-
-                            </> : <></>}
                             <div className='addPlaceCover' style={{ background: '#256FA11F' }}>
                                 <button
                                     className='AddPlace'
@@ -352,7 +360,9 @@ const Places = (props) => {
                             addStation={props.addStation} addMyTask={props.addMyTask}
                             titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss}
                             mySite={mySite} flagHebrew={props.flagHebrew} tasksOfRoutes={tasksOfRoutes} />
-                    </>}
+                    </>
+
+                    }
                 </>
             }
         </>

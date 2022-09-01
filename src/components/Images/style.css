@@ -1,18 +1,7 @@
-.images {
-  display: flex;
-  width: 340px;
-  height: 100px;
-  width: 256px;
-  height: 139px;
-  margin: -1%;
-  padding: 3%;
-  margin-left: 56px;
-}
-
 img {
-
-  width: 600px;
-  height: 140px;
-  margin: 2%;
-  padding: 2%;
+  width: 133px;
+  height: 89px;
+  position: relative;
+  top: -115px;
+  left: 4px;
 }

@@ -246,7 +246,7 @@ const Cards = () => {
                                                     <header key={index}>
                                                         <Card style={{ color: "#000", marginBottom: 15, boxShadow: "1px 2px #888888", borderRadius: "30px" }}>
                                                             {/* display_name */}
-                                                            <Card.Img src={img1} style={{ height: 237, borderRadius: "30px" }} />
+                                                            {/* <Card.Img src={img1} style={{ height: 237, borderRadius: "30px" }} /> */}
                                                             <Card.Body src={logo}>
                                                                 <Card.Title >
                                                                     <div className="text-center ">
@@ -284,7 +284,7 @@ const Cards = () => {
                                                 <div key={index} className='App'>
                                                     <header key={index} >
                                                         <Card style={{ color: "#000", marginBottom: 15, boxShadow: "1px 2px #888888", borderRadius: "30px" }}>
-                                                            <Card.Img src={img2} style={{ height: 237, borderRadius: "30px" }} />
+                                                            {/* <Card.Img src={img2} style={{ height: 237, borderRadius: "30px" }} /> */}
                                                             <Card.Body>
                                                                 <Card.Title >
                                                                     <div className="text-center ">
@@ -322,7 +322,7 @@ const Cards = () => {
                                                     <header key={index}>
                                                         <Card style={{ color: "#000", marginBottom: 15, boxShadow: "1px 2px #888888", borderRadius: "30px" }}>
                                                             {/* display_name */}
-                                                            <Card.Img src={img3} style={{ height: 237, borderRadius: "30px" }} />
+                                                            {/* <Card.Img src={img3} style={{ height: 237, borderRadius: "30px" }} /> */}
                                                             <Card.Body src={logo}>
                                                                 <Card.Title >
                                                                     <div className="text-center ">
@@ -361,7 +361,7 @@ const Cards = () => {
                                                     <header key={index} >
                                                         <Card style={{ color: "#000", marginBottom: 15, boxShadow: "1px 2px #888888", borderRadius: "30px" }}>
 
-                                                            <Card.Img src={img4} style={{ height: 237, borderRadius: "30px" }} />
+                                                            {/* <Card.Img src={img4} style={{ height: 237, borderRadius: "30px" }} /> */}
                                                             <Card.Body>
                                                                 <Card.Title >
                                                                     <div className="text-center ">

@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@fontsource/assistant": "^4.5.10",
     "@mui/material": "^5.7.0",
     "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -13,6 +14,7 @@
     "acf": "^0.2.1",
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
+    "font": "^0.0.4",
     "jquery": "^3.6.0",
     "jwt-decode": "^3.1.2",
     "mobx": "^6.4.2",
@@ -33,6 +35,7 @@
     "react-to-print": "^2.14.7",
     "reactjs-popup": "^2.0.5",
     "redux": "^4.1.2",
+    "typeface-assistant": "^1.1.13",
     "web-vitals": "^1.0.1",
     "wpapi": "^1.2.2"
   },

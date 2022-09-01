@@ -44,7 +44,6 @@
   opacity: 1;
 }
 
-
 .tree {
   top: 235px;
   width: 21px;
@@ -79,6 +78,60 @@
   top: -18px;
 }
 
+.phoneCover {
+  background-color: #2f2f2f;
+  width: 261px;
+  padding: -30px;
+  position: relative;
+  left: 27px;
+  top: -18px;
+  height: 442px;
+  border-radius: 21px;
+}
+
+.phoneHeaderCover {
+  background-color: #000000;
+  width: 204px;
+  padding: -30px;
+  position: relative;
+  left: 30px;
+  top: 5px;
+  height: 49px;
+  border-radius: 26px;
+  margin-top: 38px;
+}
+
+
+.hederPhone {
+
+  height: 98px;
+  background: transparent url('../../Pictures/headerPhone.svg') 0% 0% no-repeat padding-box;
+  top: -23.5px;
+  margin-left: -26px;
+  position: relative;
+  width: 252px;
+}
+
+
+.cellInfo {
+  height: 20px;
+  background: transparent url('../../Pictures/Cell_info.svg') 0% 0% no-repeat padding-box;
+  position: relative;
+  left: -17px;
+  width: 260px;
+  top: -26px;
+}
+
+.stress {
+  border: none;
+  height: 45px;
+  width: 40px;
+  background: transparent url('../../Pictures/ic_stress.svg') 0% 0% no-repeat padding-box;
+  position: relative;
+  top: 52px;
+  left: 12px;
+}
+
 .tablet {
   width: 64px;
   height: 42px;
@@ -100,7 +153,6 @@
   left: 130px;
   margin-left: -146px;
 }
-
 
 .kavIconsTree {
   border-left: 2px solid #c2bfbf;
@@ -139,7 +191,6 @@
   float: inherit;
   top: 24px;
 }
-
 
 .addTaskCover {
   background-color: #F8F9F3;
@@ -181,7 +232,7 @@
 
 .MyTasks {
   width: 313px;
-  height: 431px;
+  height: 482px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   border: 1px solid #6A6865;
   border-radius: 0px 0px 6px 6px;
@@ -205,6 +256,14 @@
   top: 6px;
 }
 
+.mySiteChoisPhoneCover {
+  text-align: -7px;
+  color: white;
+  position: relative;
+  top: 6px;
+  text-align: end;
+}
+
 .my_Buttons_icons {
   position: relative;
   left: 43px;
@@ -224,7 +283,6 @@
   color: rgb(185, 168, 197);
   animation: blink 1s linear infinite;
 } */
-
 @keyframes blink {
   99.9999% {
     opacity: 0;
