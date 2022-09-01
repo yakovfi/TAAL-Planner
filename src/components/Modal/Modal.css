@@ -258,19 +258,15 @@
   background-color: aliceblue;
   border: 2.5px solid rgb(86, 160, 225);
   border-radius: 5px;
-  /* border: 3px solid green; */
   box-shadow: rgb(136 136 136) 1px 2px;
   position: fixed;
   z-index: 10;
   width: 500px;
   height: -200px;
-  /* margin: -25% auto; */
-  margin: -190px;
   margin-left: 500px;
   padding: 10px;
   width: 520px;
   height: 635px;
-  /* overflow: scroll; */
   text-align: right;
   align-self: center;
 }

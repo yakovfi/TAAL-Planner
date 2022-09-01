@@ -44,7 +44,6 @@ const Stations = (props) => {
     if (flagFirstTime === true) {
         filteredData = props.propsData
     }
-
     // console.log("filtered Data 1:", filteredData)
 
     let inputHandler = (e) => {
@@ -87,6 +86,7 @@ const Stations = (props) => {
             }
         })
             .then(res => {
+                console.log("res task:", res)
                 allTasks = res;
             });
     }
