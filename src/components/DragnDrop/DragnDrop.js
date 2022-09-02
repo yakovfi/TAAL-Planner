@@ -32,6 +32,7 @@ let kavTaskTopMarginTop = "-7px";
 let borderLeft = "2px solid #c2bfbf";
 let flagPhone = false;
 let flagTree = true;
+let flagPhoneOne = false;
 //-------------------------
 function DragnDrop(props) {
     console.log("props mySite:", props.mySite)
@@ -50,6 +51,7 @@ function DragnDrop(props) {
     const [get_Name,] = useState(null);// for TextView
     const [, setFlagTree] = useState(true);
     const [, setFlagPhone] = useState(false);
+    const [, setFlagPhoneOne] = useState(false);
 
     const [, setWidth] = useState("-13px");
     const [, setHeight] = useState("70px");
@@ -154,6 +156,7 @@ function DragnDrop(props) {
         thisId = id;
         if (saveTag.props !== undefined) {
             if (saveTag.props.myLastStation === saveTag.props.myStation) {
+                setFlagPhoneOne(flagPhoneOne = true)
                 setWidth(width = "-84px");
                 setBorderLeft(borderLeft = "2x solid #c2bfbf")
                 setHeight(height = "86px");
@@ -165,6 +168,8 @@ function DragnDrop(props) {
 
             }
             else {
+                setFlagPhoneOne(flagPhoneOne = false)
+
                 setBorderLeft(borderLeft = "0x solid #c2bfbf");
                 setWidth(width = "-13px");
                 setHeight(height = "70px");
@@ -381,9 +386,9 @@ function DragnDrop(props) {
                                     <div className='kavIconsPhone'></div>
                                 </button>
                                 <button className='tablet' onClick={() => { tabletFunction() }}>
-                                    <button className='computer' >
+                                    <div className='computer' >
                                         <div className='kavIconsTablet' ></div>
-                                    </button>
+                                    </div>
                                 </button>
                             </div>
                             <div className='MyTasks'>
@@ -480,12 +485,18 @@ function DragnDrop(props) {
 
                                                     />;
                                                 })}
+
                                             </div>
                                             <div className="stap3"></div>
                                         </div>
                                     </> : <></>}
                                     </>}
-                                {/* <div className='kavB'></div> */}
+                                {flagPhoneOne ? <><div className='kavB'></div>
+                                </> : <>
+                                    <div className='kavBOne'></div>
+
+
+                                </>}
 
                             </div>
                             {/* <Images idImg={thisId} dataImg={saveProps.propDataTask} /> */}
