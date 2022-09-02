@@ -100,18 +100,16 @@ const Planner = () => {
             {!get_logged_in ? <div style={{ color: "white" }}>Please connect properly !</div> :
                 <>
 
+                    <div className="Planner" >
 
-                    {loading && <div>Loading</div>}
-                    {!loading && (
+                        {loading && <div>Loading</div>}
+                        {!loading && (
 
-                        <div className="Planner" style={{
-                            backgroundColor: '#FFFFFF',
-                            overflow: "hidden",
-                        }}>
-                            <div className="Actions" >
-                                {flagHebrew ?
-                                    <>
-                                        {/* <button className="AddRoute" type="submit"
+                            < >
+                                <div className="Actions" >
+                                    {flagHebrew ?
+                                        <>
+                                            {/* <button className="AddRoute" type="submit"
                                             onClick={() => {
                                                 setModalOpen(true);
                                             }}
@@ -121,7 +119,7 @@ const Planner = () => {
                                             {saveButton}
                                         </button> */}
 
-                                        {/* &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;
+                                            {/* &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;
                                         <button className="AddRoute" type="submit"
                                             onClick={() => {
                                                 setModalOpen(true);
@@ -132,9 +130,9 @@ const Planner = () => {
                                             Help
                                         </button> */}
 
-                                    </> :
-                                    <>
-                                        {/* <button className="AddRoute" type="submit" style={{
+                                        </> :
+                                        <>
+                                            {/* <button className="AddRoute" type="submit" style={{
                                             position: 'absolute',
                                             right: '70px',
 
@@ -147,25 +145,26 @@ const Planner = () => {
                                             &nbsp;&nbsp;
                                             <AiFillCheckCircle className='icon' />
                                         </button> */}
-                                    </>}
+                                        </>}
 
-                                <button className="language" style={{ marginLeft: marginHebrew }}
-                                    onClick={() => {
-                                        if (Hebrew !== false)
-                                            hebrew();
-                                        else
-                                            english();
-                                    }}>{language}</button>
-                            </div>
+                                    <button className="language" style={{ marginLeft: marginHebrew }}
+                                        onClick={() => {
+                                            if (Hebrew !== false)
+                                                hebrew();
+                                            else
+                                                english();
+                                        }}>{language}</button>
+                                </div>
 
-                            {modalOpen && <Modal setOpenModal={setModalOpen} setText={get_Name} />}
-                            <div>
-                                <Places setFloatLang={floatLan} sites={sites} stations={stations} myTasks={myTasks} drag={drag}
-                                    addSite={addSite} addStation={addStation} addMyTask={addMyTask} titlePlacesCss={titlePlacesCss}
-                                    titleStationCss={titleStationCss} titleTaskCss={titleTaskCss} flagHebrew={flagHebrew} />
-                            </div>
-                        </div>
-                    )}
+                                {modalOpen && <Modal setOpenModal={setModalOpen} setText={get_Name} />}
+                                <div>
+                                    <Places setFloatLang={floatLan} sites={sites} stations={stations} myTasks={myTasks} drag={drag}
+                                        addSite={addSite} addStation={addStation} addMyTask={addMyTask} titlePlacesCss={titlePlacesCss}
+                                        titleStationCss={titleStationCss} titleTaskCss={titleTaskCss} flagHebrew={flagHebrew} />
+                                </div>
+                            </>
+                        )}
+                    </div>
                 </>
             }
         </>

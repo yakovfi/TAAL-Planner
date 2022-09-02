@@ -15,7 +15,7 @@ import { Switch, Route } from "react-router-loading";
 function App() {
   return (
     <>
-      <div>
+      <div  >
         <Provider store={store}>
           <Router>
             <div>

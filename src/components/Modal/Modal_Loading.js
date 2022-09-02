@@ -7,15 +7,15 @@ const Modal_Loading = (props) => {
         <>
             {props.props === false ? <>
                 <div className="modalContainerLittleLoading">
-                    <h2 float={'right'} style={{ color: 'white' }}>Loading</h2>
-                    < ReactLoading type={"bars"} className='loading' color={"rgb(180, 175, 199)"} height={'52%'} width={'52%'} />
+                    <h2 style={{ color: 'white' }}>Loading</h2>
+                    < ReactLoading />
                 </div>
 
             </> : <>
                 <div className="modalContainerLoading">
 
                     <div >
-                        <h1 float={'right'} style={{ color: '' }}>Loading</h1>
+                        <h1 style={{ color: '' }}>Loading</h1>
                         < ReactLoading type={"bars"} className='loading' color={"rgb(180, 175, 199)"} height={'12%'} width={'12%'} />
                     </div>
                 </div></>}

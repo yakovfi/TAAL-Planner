@@ -433,9 +433,9 @@ function DragnDrop(props) {
                                                 <div className='hederPhone'>
                                                     <button className='stress'></button>
                                                     <div className='cellInfo'></div>
+                                                    <Dot className="Dotcamera" color="#2f2f2f" />
 
                                                     <Clock />
-                                                    <Dot color="#2f2f2f" />
 
 
                                                 </div>

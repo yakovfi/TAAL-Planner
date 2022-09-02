@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import "@fontsource/assistant";
+
+
 
 ReactDOM.render(
   <React.StrictMode>
