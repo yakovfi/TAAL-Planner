@@ -11,12 +11,12 @@ let idListen = 0;
 let dataListen = {};
 
 // import { useState, } from 'react';
-function Tag({ title, id, flagBoard, myStation, myMarginTop, count, myLastStation, width, height, kavTopWidth, bottom, nameStation, kavTaskTopMarginTop, borderLeft, flagPhone, idImg, dataImg }) {
-    localStorage.setItem('myLastStation', JSON.stringify(myLastStation))
+function Tag({ title, id, flagBoard, myStation, myMarginTop, count, myLastStation, width, height, kavTopWidth, bottom, nameStation, kavTaskTopMarginTop, borderLeft, flagPhone, idImg, dataImg, data }) {
 
+    localStorage.setItem('myLastStation', JSON.stringify(myLastStation))
+    console.log("title in Tag:", title)
     console.log("myLastStation:", myLastStation)
     console.log("width width width widthwidthwidth:", kavTaskTopMarginTop)
-
     console.log("myStation:", myStation)
     console.log("countcountcountcount:", count)
     console.log("id:", id)
@@ -38,9 +38,21 @@ function Tag({ title, id, flagBoard, myStation, myMarginTop, count, myLastStatio
 
         setIdListen(idListen = idImg);
         setDataListen(dataListen = dataImg)
-        console.log("dataListen:", dataListen)
+        // console.log("dataListen:", dataListen)
+
 
     }
+    const listenMyStation = () => {
+        data.map((val) => {
+            if (nameStation === val.name)
+                setIdListen(idListen = val.id);
+        })
+        setDataListen(dataListen = data)
+        console.log("idListen:", idListen)
+        console.log("dataListen", dataListen)
+
+    }
+
     return (
         <>
             {flagBoard && !flagPhone ? <>
@@ -66,7 +78,13 @@ function Tag({ title, id, flagBoard, myStation, myMarginTop, count, myLastStatio
                     <div className="stap1">
                         <div className="nameStationBoardPhone">{nameStation}
 
+
                         </div>
+                        <button className="listenIconStation" onClick={() => listenMyStation()}>
+
+                        </button>
+
+
                         <div className="kavPhoneStationBoard"></div>
 
                     </div></> : <></>}

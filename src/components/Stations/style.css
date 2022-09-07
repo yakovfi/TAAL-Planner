@@ -31,6 +31,8 @@
 
 }
 
+
+
 .Station,
 .AddStation {
   display: flex;
@@ -51,6 +53,7 @@
   background: linear-gradient(90deg, #fffbf7 0, #efe3d6);
   /* font-size: medium; */
   transition: 0.4s;
+
 }
 
 

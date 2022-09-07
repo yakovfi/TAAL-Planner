@@ -7,9 +7,10 @@ import Tag2 from "../Tag/Tag2.js";
 
 // import { MdOutlineAdsClick } from "react-icons/md";
 // import { FcAddDatabase, FcSearch } from "react-icons/fc";
-import Stations from '../Stations/Stations'
-import ModalPlaces from '../Modal/Model_Places'
-import ModalLoading from '../Modal/Modal_Loading'
+import Stations from '../Stations/Stations';
+import ModalPlaces from '../Modal/Model_Places';
+import ModalLoading from '../Modal/Modal_Loading';
+import Modal from '../Modal/Modal';
 // import TextField from "@mui/material/TextField";
 import { baseUrl } from "../../config";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -32,6 +33,7 @@ let mySite = { name: '', id: '' }
 let flagRoute = false;
 // let flagButtonRoute = false;
 let tasksOfRoutes = [];
+let clickAddRoute = false
 
 //-----------------------
 const Places = (props) => {
@@ -40,6 +42,10 @@ const Places = (props) => {
     const [, setLoading] = useState(false);
     const [, setStateStation] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
+    const [, setClickAddRoute] = useState(false);
+
+    const [flagStudent, setFlagStudent] = useState(false);
+
     const [, setThisIdTask] = useState(0)
     const [, setOnlyAllStation] = useState([]);
     const [, setPlaces] = useState([]);
@@ -57,7 +63,6 @@ const Places = (props) => {
 
 
     let inputHandler = (e) => {
-        // console.log("eeeeeeeeeeeeeeee:", e.target.value)
 
         //convert input text to lower case
         setInputText(inputText = e.target.value.toLowerCase());
@@ -75,7 +80,6 @@ const Places = (props) => {
         }))
     };
     let inputHandlerRoutes = (e) => {
-        // console.log("eeeeeeeeeeeeeeee:", e.target.value)
         //convert input text to lower case
         setInputTextRouts(inputTextRouts = e.target.value.toLowerCase());
 
@@ -144,7 +148,6 @@ const Places = (props) => {
         console.log("check value routes:", tasksOfRoutes.acf.tasks);
     }
     const Display_The_Stations = (e) => {
-        console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee:", e)
 
         setFlagRoute(flagRoute = true);
         setThisIdTask(thisIdTask = e.id);
@@ -253,8 +256,6 @@ const Places = (props) => {
                                             {/* <div className='penIcon' ></div>
                                             <div className='eyeIcon' ></div> */}
                                             <BsThreeDotsVertical className='threeDotsVerticalEng' />
-
-
                                             <div className='nameOfSite text'>{value.name}</div>
                                             {/* <Dot color="rgb(161, 147, 229)" /> */}
                                             {/* <Dot color={'#7A78B7 '} /> */}
@@ -277,10 +278,11 @@ const Places = (props) => {
                         <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
                             language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
                             addStation={props.addStation} addMyTask={props.addMyTask}
-                            titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} mySite={mySite} flagHebrew={props.flagHebrew} />
+                            titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss} mySite={mySite}
+                            flagHebrew={props.flagHebrew} clickAddRoute={clickAddRoute} />
                     </> : <>
                         {/* routs */}
-                        {modalOpen && <ModalPlaces setOpenModalPlaces={setModalOpen} />}
+                        {modalOpen && <Modal setOpenModal={setModalOpen} setFlagStudent={setFlagStudent} />}
 
                         <div className='Cover_Places' style={{
                             float: props.setFloatLang,
@@ -321,35 +323,25 @@ const Places = (props) => {
                                             onClick={() => DisplayTasks(value)}
                                             key={index}>
                                             <BsThreeDotsVertical className='threeDotsVerticalEng' onClick={() => clickOnhreeDotsVerticaIcont()} />
-
-                                            {/* <div className='penIcon' onClick={foo}></div>
-                                            <div className='linkIcon' ></div>
-                                            <div className='duplicateIcon'></div>
-                                            <div className="shareIcon"></div> */}
                                             <div className='nameOfSite'>{value.title.rendered.replace("&#8211;", "-").replace("&#8217;", "'")}</div>
-                                            {/* <Dot color="rgb(161, 147, 229)" /> */}
-                                            {/* <Dot color={'#7A78B7 '} /> */}
                                         </button>
                                     )
                                 })}
 
 
                             </div>
-                            {/* {tasksOfRoutes.length !== 0 ? <>
-                                {tasksOfRoutes.acf.tasks.map((tag, keyCount) => {
-                                    alert("WDF")
-                                    return <Tag2 />;
-                                })}
-                            </> : <></>} */}
+
 
                             <div className='addPlaceCover' style={{ background: '#256FA11F' }}>
                                 <button
                                     className='AddPlace'
                                     onClick={() => {
                                         setModalOpen(true);
+                                        setFlagStudent(true);
+                                        setClickAddRoute(clickAddRoute = true)
+
                                     }}>
                                     <AiOutlinePlus className='plus' />
-
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </button>
@@ -359,7 +351,9 @@ const Places = (props) => {
                             language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
                             addStation={props.addStation} addMyTask={props.addMyTask}
                             titleStationCss={props.titleStationCss} titleTaskCss={props.titleTaskCss}
-                            mySite={mySite} flagHebrew={props.flagHebrew} tasksOfRoutes={tasksOfRoutes} />
+                            mySite={mySite} flagHebrew={props.flagHebrew} tasksOfRoutes={tasksOfRoutes}
+                            clickAddRoute={clickAddRoute}
+                        />
                     </>
 
                     }

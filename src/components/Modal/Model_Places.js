@@ -101,25 +101,25 @@ function Modal_Plases({ setOpenModalPlaces }) {
                         </button>
                     </div>
                     <div className="title">
-                        <h3><b>Add site</b></h3>
+                        <h3><b>שמור אתר</b></h3>
                     </div>
                     <div className="body">
                         <form id="IPU" className="w3-container">
-                            <h6 style={{ textAlign: "left" }}><RiAsterisk style={{ color: 'red' }} />Write down the name of the site:</h6>
+                            <h6 style={{ textAlign: "right" }}>רשום את שם האתר  <RiAsterisk style={{ color: 'red' }} /></h6>
                             <p><input required={true} type="text" onChange={handleTitleInput} style={{
                                 textAlign: 'right',
                                 width: '420px'
                             }}></input></p>
                         </form>
                         <form id="IPU" className="w3-container">
-                            <h6 style={{ textAlign: "left" }}><RiAsterisk style={{ color: 'red' }} /> Describe the site in a sentence:</h6>
+                            <h6 style={{ textAlign: "right" }}> תאר את האתר במשפט:<RiAsterisk style={{ color: 'red' }} /> </h6>
                             <p><input type="text" onChange={handleDescriptionInput} style={{
                                 textAlign: 'right',
                                 width: '420px'
                             }}></input></p>
                         </form>
                         <form id="IPU" className="w3-container">
-                            <h6 style={{ textAlign: "left" }}><FcMultipleInputs />Add a photo of the site:</h6>
+                            <h6 style={{ textAlign: "right" }}>צרף תמונה של האתר:<FcMultipleInputs /></h6>
                             <div className="input-group mb-3">
                                 <input required={true} accept=".png, .jpg, .jpeg" className='form-control' type="file" onChange={handleFileInput} style={{
                                     textAlign: 'right',
@@ -128,7 +128,7 @@ function Modal_Plases({ setOpenModalPlaces }) {
                             </div>
                         </form>
                         <form id="IPU" className="w3-container">
-                            <h6 style={{ textAlign: "left" }}><FcMultipleInputs /> Add a soundtrack describing the site:</h6>
+                            <h6 style={{ textAlign: "right" }}>צרף קטע קול המתאר את האתר:<FcMultipleInputs /> </h6>
                             <p><input required={true} accept='.mp3' type="file" className='form-control' onChange={handleFileInput} style={{
                                 textAlign: 'right',
                                 width: '96%'

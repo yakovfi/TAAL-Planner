@@ -301,6 +301,20 @@
   overflow: scroll;
 }
 
+.titleCloseBtnPlases {
+  background-color: #c4ce9c;
+
+
+}
+
+.list-group-item {
+  text-align: right;
+}
+
+
+
+
+
 .BackgroundPlasesNoClick {
   border: 2.5px solid rgb(86, 160, 225);
   border-radius: 5px;
@@ -311,7 +325,6 @@
   position: fixed;
   width: 500px;
   /* margin: -25% auto; */
-  margin: -190px;
   margin-left: 500px;
   padding: 10px;
   width: 520px;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, } from 'react';
 import Tag from "../Tag/Tag.js";
+import Tag2 from "../Tag/Tag2.js";
 import { useDrop } from "react-dnd";
 import "./style.css";
 import Audios from "../Audios/Audios";
@@ -35,24 +36,25 @@ let flagTree = true;
 let flagPhoneOne = false;
 //-------------------------
 function DragnDrop(props) {
+    if (props.tasksOfRoutes && props.tasksOfRoutes.acf)
+        props.tasksOfRoutes.acf.tasks.forEach(element => {
+            console.log("element:", element.post_title)
+        });
     console.log("props mySite:", props.mySite)
     // console.log("JSON.parse(localStorage.getItem('New_Routes')):", JSON.parse(localStorage.getItem('New_Routes')))
     // console.log("propsDataTask:", props.propDataTask)
     // nameStation = props.myStation.name
-
     // const [, setFlagFirst] = useState(true)
     const [, setLoading] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [modalOpenAddRoute, setModalOpenAddRoute] = useState(false);
     // const [, setHelpFlag] = useState(false);
     const [board, setBoard] = useState([]);
-
     const [, setCount] = useState(0);
     const [get_Name,] = useState(null);// for TextView
     const [, setFlagTree] = useState(true);
     const [, setFlagPhone] = useState(false);
     const [, setFlagPhoneOne] = useState(false);
-
     const [, setWidth] = useState("-13px");
     const [, setHeight] = useState("70px");
     const [, setNameStation] = useState("");
@@ -61,25 +63,14 @@ function DragnDrop(props) {
     const [, setNewkavTaskTop] = useState("100px");
     const [, setKavTaskTopMarginTop] = useState("-7px");
     const [, setBorderLeft] = useState("2px solid #c2bfbf");
-
-
     // const [, setNameStation] = useState(props.myStation.name);
-
-
-
     const [, setSaveTag] = useState({});
-
     // const [, setMarginTop] = useState("");
-
-
     // let inputHandler = (e) => {
     //     console.log("eeeeeeeeeeeeeeee:", e.target.value)
-
     //     setInputText(inputText = e.target.value.toLowerCase());
-
     //     setFilteredData(filteredData = Route.filter((el) => {
     //         // setInputText(lowerCase);
-
     //         if (inputText === '') {
     //             return el;
     //         }
@@ -89,41 +80,31 @@ function DragnDrop(props) {
     //         }
     //     }))
     // };
-
-
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             try {
-
             } catch (error) {
                 console.error(error.message);
             }
-
             setLoading(false);
         }
-
-
         fetchData();
     }, []);
     saveProps = props;
-
     // console.log("props,", saveProps.propDataTask)
-
     // alert("hi")
-
     dndArray = (props.propDataTask).map((element) => {
         if (count1 === 0) {
             nameStation = props.myStation.name
             count1++
         }
-
-
         return {
             id: element.id,
             title: element.title.rendered.replace("&#8211;", "-").replace("&#8217;", "' "),
             mySite: props.mySite,
             myStation: props.myStation.name,
+            data: props.myStation.data,
             nameStation: nameStation,
             width: width,
             borderLeft: borderLeft,
@@ -134,17 +115,11 @@ function DragnDrop(props) {
             newkavTaskTop: newkavTaskTop,
             idImg: thisId,
             dataImg: saveProps.propDataTask,
-
-
         }
     })
     console.log("dndArray:", dndArray);
-
-
-
     //---------------------------------------------------------
     const [, drop] = useDrop(() => ({
-
         accept: "image",
         drop: (item) => addImageToBoard(item.id),
         collect: (monitor) => ({
@@ -169,7 +144,6 @@ function DragnDrop(props) {
             }
             else {
                 setFlagPhoneOne(flagPhoneOne = false)
-
                 setBorderLeft(borderLeft = "0x solid #c2bfbf");
                 setWidth(width = "-13px");
                 setHeight(height = "70px");
@@ -179,31 +153,22 @@ function DragnDrop(props) {
                 // setNameStation(nameStation = props.myStation.name)
                 setNameStation(nameStation = props.myStation.name);
                 setKavTaskTopMarginTop(kavTaskTopMarginTop = "-7px");
-
-
-
-
             }
         }
         setCount(count++);
         // alert(count)
         // setFlagFirst(flagFirst = false)
-
         Route = dndArray.filter((tag) => id === tag.id);
         setBoard((board) => [...board, Route[0]]);
-
         // thisIdArray.push(thisId);
         myTask = saveProps.propDataTask.filter((item) => item.id === id)
         // console.log("myTAsk:", myTask[0])
         thisIdArray.push(myTask[0]);
         // console.log("thisIdArray:", thisIdArray)
         // console.log("dndArray:", dndArray)
-
         localStorage.setItem('New_Routes', JSON.stringify(thisIdArray))
         localStorage.setItem('MySite', JSON.stringify(props.mySite))
-
     };
-
     // const help = () => {
     //     setHelpFlag(helpFlag = true)
     //     setModalOpen(true);
@@ -236,11 +201,9 @@ function DragnDrop(props) {
     //     setFlagTree(false);
     //     alert("computer")
     // }
-
     //---------------------------------------------------------
     return (
         <>
-
             {modalOpen && <ModalTasks setOpenModalPlases={setModalOpen} allStations={props.allStations} help={helpFlag} />}
             {modalOpenAddRoute && <Modal setOpenModal={setModalOpenAddRoute} setText={get_Name} />}
             <div className='Cover_Tasks' style={{
@@ -255,7 +218,6 @@ function DragnDrop(props) {
                     }}>
                         {/* <BsThreeDotsVertical className='threeDotsVertical' /> */}
                         <div className='MyTitle text'>{props.myTasks}</div>
-
                     </div>
                         <div className="search" style={{
                             backgroundColor: "#F8F9F3", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
@@ -263,19 +225,16 @@ function DragnDrop(props) {
                             <input className='searchButton'
                                 dir="rtl"
                                 placeholder="חפש משימה"
-
                                 label={<CgSearch style={{ fontSize: "x-large", }} />}
                             // onChange={inputHandler}
                             ></input>
                         </div></> : <>
-
                         <div className='TitleTasks' style={{
                             background: props.titleTaskCss
                         }}><h3>
                                 &nbsp;
                                 <div className='MyTitle'>{props.myTasks}</div>
                                 {/* <BsThreeDotsVertical className='threeDotsVerticalEng' /> */}
-
                             </h3></div>
                         <div className="search" style={{
                             backgroundColor: "#F8F9F3", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
@@ -290,10 +249,9 @@ function DragnDrop(props) {
                 <div className='TasksCover'>
                     {dndArray.length === 0 ? null : dndArray.map((tag) => {
                         return <Tag title={tag.title} id={tag.id} key={tag.id} idImg={tag.idImg}
-                            dataImg={tag.dataImg} flagBoard={false} myStation={tag.myStation} myLastStation={props.myStation.name} count={count} />;
+                            dataImg={tag.dataImg} flagBoard={false} myStation={tag.myStation} myLastStation={props.myStation.name} count={count} data={tag.data} />;
                     })}
                 </div>
-
                 <div className='addTaskCover'>
                     <button
                         className='AddStation'
@@ -301,7 +259,6 @@ function DragnDrop(props) {
                             setModalOpen(true);
                         }}>
                         <AiOutlinePlus className='plus_station' />
-
                     </button>
                 </div>
             </div>
@@ -330,7 +287,7 @@ function DragnDrop(props) {
                         <div className='MyTasks'>
                             {props.mySite.name}
                             {board.map((tag, keyCount) => {
-                                return <Tag title={tag.title} idImg={tag.idImg}
+                                return <Tag title={tag.title} idImg={tag.idImg} data={tag.data}
                                     dataImg={tag.dataImg} id={tag.id} key={keyCount} flagBoard={true} myStation={tag.myStation} myMarginTop={'-68px'} myLastStation={props.myStation.name} count={count} />;
                             })}
                         </div>
@@ -361,19 +318,14 @@ function DragnDrop(props) {
                             {/* <div className='my_Buttons_icons'>
                                 <button className='tree'></button>
                                 <div className='kavIconsTree'></div>
-
                                 <button className='watch'></button>
                                 <div className='kavIconsWatch'></div>
-
                                 <button className='phone'></button>
                                 <div className='kavIconsPhone'></div>
-
                                 <button className='tablet'></button>
                                 <div className='kavIconsTablet'></div>
-
                                 <button className='computer'></button>
                             </div> */}
-
                             <div className='my_Buttons_icons'>
                                 <button className='tree' onClick={() => { treeFunction() }}>
                                     <div className='kavIconsTree'></div>
@@ -381,7 +333,6 @@ function DragnDrop(props) {
                                 <button className='watch' onClick={() => { watchFunction() }}>
                                     <div className='kavIconsWatch'></div>
                                 </button>
-
                                 <button className='phone' onClick={() => { phoneFunction() }}>
                                     <div className='kavIconsPhone'></div>
                                 </button>
@@ -392,20 +343,33 @@ function DragnDrop(props) {
                                 </button>
                             </div>
                             <div className='MyTasks'>
-
-
-
                                 {flagTree ? <>
                                     <div className='kavT'></div>
-
                                     {props.mySite.name ? <> <div className='mySiteChois'>
                                         {props.mySite.name}
+                                        &nbsp;&nbsp; </div>
+                                        {props.tasksOfRoutes && props.tasksOfRoutes.acf ? <>
+                                            {props.tasksOfRoutes.acf.tasks.map((element, keyCount) => {
+                                                return <Tag2
+                                                    key={keyCount}
+                                                    title={element.post_title}
+                                                    id={element.ID}
+                                                    flagBoard={true}
+                                                    myLastStation={props.myStation.name}
 
-                                        &nbsp;&nbsp; </div></> : <></>}
+                                                    myMarginTop={'-68px'}
+                                                    count={count}
+                                                    flagTree={flagTree}
+                                                />;
+
+                                            })}
+                                        </> : <></>}
+                                    </> : <></>}
                                     {board.map((tag, keyCount) => {
                                         return saveTag = <Tag
                                             title={tag.title}
                                             id={tag.id}
+                                            data={tag.data}
                                             idImg={tag.idImg}
                                             dataImg={tag.dataImg}
                                             key={keyCount}
@@ -425,12 +389,12 @@ function DragnDrop(props) {
                                             nameStation={tag.nameStation}
                                             flagPhone={flagPhone}
                                             flagTree={flagTree}
-
                                         />;
                                     })}
-
-
-
+                                    {flagPhoneOne ? <><div className='kavB'></div>
+                                    </> : <>
+                                        <div className='kavBOne'></div>
+                                    </>}
                                 </> :
                                     <>  {flagPhone ? <>
                                         <div className="phoneCover">
@@ -439,23 +403,15 @@ function DragnDrop(props) {
                                                     <button className='stress'></button>
                                                     <div className='cellInfo'></div>
                                                     <Dot className="Dotcamera" color="#2f2f2f" />
-
                                                     <Clock />
-
-
                                                 </div>
                                             </div>
                                             <div className="stap2">
-
                                                 {/* <div className="stap1">
                                             {props.mySite.name ? <> <div className='mySiteChoisPhoneCover'>
                                                 {props.mySite.name}
-
                                                 &nbsp;&nbsp; </div></> : <></>}
-
                                         </div> */}
-
-
                                                 {board.map((tag, keyCount) => {
                                                     return saveTag = <Tag
                                                         title={tag.title}
@@ -470,6 +426,7 @@ function DragnDrop(props) {
                                                         myStation={tag.myStation}
                                                         myMarginTop={'-68px'}
                                                         count={count}
+                                                        data={props.myStation.data}
                                                         flag={tag.flag}
                                                         width={tag.width}
                                                         borderLeft={tag.borderLeft}
@@ -481,28 +438,16 @@ function DragnDrop(props) {
                                                         nameStation={tag.nameStation}
                                                         flagPhone={flagPhone}
                                                         flagTree={flagTree}
-
-
                                                     />;
                                                 })}
-
                                             </div>
                                             <div className="stap3"></div>
                                         </div>
                                     </> : <></>}
                                     </>}
-                                {flagPhoneOne ? <><div className='kavB'></div>
-                                </> : <>
-                                    <div className='kavBOne'></div>
-
-
-                                </>}
-
                             </div>
-                            {/* <Images idImg={thisId} dataImg={saveProps.propDataTask} /> */}
 
                         </div></>}
-
             </>
         </>
     );

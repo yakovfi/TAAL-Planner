@@ -18,7 +18,7 @@
   padding: -30px;
   position: relative;
   left: -1px;
-  top: -82px;
+  top: -83px;
   height: 49px;
   margin-bottom: 4px;
 }
@@ -94,9 +94,6 @@
 }
 
 .borderTask {
-
-
-
   height: 351px;
   background: transparent url('../../Pictures/border_gig.svg') 0% 0% no-repeat padding-box;
   position: relative;
@@ -107,18 +104,8 @@
 }
 
 .listenIcon {
-  /* 
   border: none;
-  height: 117.2px;
-  width: 36px;
-  background: transparent url('../../Pictures/ic_listen\ .svg') 0% 0% no-repeat padding-box;
-  position: relative;
-  top: -127px;
-  left: 56px; */
-
-
-  border: none;
-  height: 117.2px;
+  height: 167.2px;
   width: 36px;
   background: transparent url('../../Pictures/ic_listen\ .svg') 0% 0% no-repeat padding-box;
   position: relative;
@@ -127,6 +114,17 @@
   margin-top: 51px;
 }
 
+.listenIconStation {
+  border: none;
+  height: 117.2px;
+  width: 36px;
+  background: transparent url('../../Pictures/ic_listen\ .svg') 0% 0% no-repeat padding-box;
+  position: relative;
+  top: -75px;
+  left: 6px;
+  margin-top: 51px;
+
+}
 
 .nameOfTaskPhone {
   width: 160px;
@@ -164,22 +162,12 @@
 
 .kavPhone {
   border-left: 2px solid #747474;
-  height: 139px;
+  height: 95px;
   position: relative;
   margin-top: -262.5px;
   left: -59px;
   margin-left: 186px;
-  top: 65.9px;
-}
-
-.clock {
-  color: white;
-  position: relative;
-  top: -59px;
-  width: -52px;
-  font-size: 12px;
-  left: 14px;
-
+  top: 14.9px;
 }
 
 .margin {
@@ -206,18 +194,19 @@
 .nameStationBoardPhone {
   position: relative;
   color: white;
-  text-align-last: center;
-  top: 19px;
+  text-align-last: right;
+  top: 13px;
+  left: -3px;
 }
 
 .kavPhoneStationBoard {
   border-left: 2px solid #747474;
-  height: 82px;
+  height: 51px;
   position: relative;
   margin-top: -94.5px;
   left: -58px;
   margin-left: 186px;
-  top: 119px;
+  top: -54px;
 }
 
 .kav2 {

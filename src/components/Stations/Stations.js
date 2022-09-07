@@ -19,7 +19,7 @@ let tasks = [];
 let filteredData = []
 let inputText = ""
 let flagFirstTime = true;
-let myStation = { name: '', id: '', flag: true }
+let myStation = { name: '', id: '', flag: true, data: [] }
 
 //-----------------------
 
@@ -91,9 +91,6 @@ const Stations = (props) => {
             });
     }
     const Display_The_Tasks = (e) => {
-        // console.log("myStation.idddddddddddddddddddddddd:", myStation.id)
-        // console.log(" e.iddddddddddddddddddddddddddddddd:", e.id)
-
         if (myStation.id === e.id) {
             setMyStation(myStation.flag = false)
 
@@ -102,9 +99,11 @@ const Stations = (props) => {
             setMyStation(myStation.flag = true)
 
         }
-        // console.log("myStation  flagssssssssssssssssssssssssssssssssssssssssssssss:", myStation.flag)
+        setMyStation(myStation.data = props.propsData)
         setMyStation(myStation.name = e.name)
         setMyStation(myStation.id = e.id)
+
+
 
 
         // console.log("console myStat myStation:", myStation)
@@ -182,8 +181,8 @@ const Stations = (props) => {
                             ></input>
                         </div>
                         <div className='Stations'>
-                            {
-                                filteredData.map((value, index) => {
+                            {props.clickAddRoute ? <>
+                                {filteredData.map((value, index) => {
                                     return (
                                         <button className='Station'
                                             onClick={() => Display_The_Tasks(value)}
@@ -198,6 +197,8 @@ const Stations = (props) => {
                                         </button>
                                     )
                                 })}
+                            </> : <></>
+                            }
                         </div>
                         <div className='addStationCover'>
                             <button

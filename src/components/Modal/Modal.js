@@ -14,9 +14,9 @@ let myStudents = [];
 let myStudentsChoice = [];
 let flagClickOK = false;
 //--------------------------
-function Modal({ setOpenModal, setText }) {
-    // console.log("setOpenModal:", setOpenModal())
-    console.log("setText:", setText)
+function Modal({ setOpenModal, setFlagStudent }) {
+    // console.log("setFlagStudentdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd:", setOpenModal())
+
 
     const [, set_obj] = useState(null);// for TextView
     const [, setDone] = useState(false);
@@ -158,6 +158,10 @@ function Modal({ setOpenModal, setText }) {
     function getName(val) {
         setName(val.target.value)
     }
+    const saveData = () => {
+        setFlagStudent(false)
+        setOpenModal(false);
+    }
     return (
         <>
             {
@@ -170,6 +174,7 @@ function Modal({ setOpenModal, setText }) {
                                     <button
                                         onClick={() => {
                                             setOpenModal(false);
+
                                         }}
                                     >
                                         X
@@ -197,56 +202,71 @@ function Modal({ setOpenModal, setText }) {
                     :
                     <div className="Background">
                         <div className="modalContainer">
-                            <div className="titleCloseBtn">
-                                <button
-                                    onClick={() => {
-                                        setOpenModal(false);
-                                    }}
-                                >
-                                    X
+
+                            {setFlagStudent ? <>
+                                <div className="titleCloseBtn">
+                                    <button
+                                        onClick={() => {
+                                            setOpenModal(false);
+                                        }}
+                                    >
+                                        X
+                                    </button>
+                                </div>
+                                <form id="IPU" className="w3-container">
+                                    <h6 style={{ textAlign: 'right' }}> :רשום את שם המסלול <RiAsterisk style={{ color: 'red' }} /></h6>
+                                    <p>
+                                        <input required={true} type="text" onChange={getName}
+                                            style={{
+                                                textAlign: 'right',
+                                                width: '390px',
+                                                height: '35px'
+                                            }}>
+
+                                        </input>
+                                    </p>
+                                </form>
+                                <h6 style={{ textAlign: "right" }}>בחר עובדים &nbsp;&nbsp;<FcLink className='icon' /></h6>
+                                <div className='allStudent' >
+                                    {student.map((value, index) => {
+                                        return (
+                                            <label key={index} className="list-group-item" >
+                                                {value.name}
+                                                <input onChange={() => saveCheckbox(value)} className="form-check-input me-1" type="checkbox" id={value.name} name={value.name} value=""></input>
+                                            </label>
+                                        )
+                                    })}
+                                </div>
+                                <button className='continueBtn'
+                                    onClick={
+
+
+                                        () => saveData()
+                                    }
+                                > אישור
                                 </button>
-                            </div>
-                            <form id="IPU" className="w3-container">
-                                <h6 style={{ textAlign: 'right' }}> :רשום את שם המסלול <RiAsterisk style={{ color: 'red' }} /></h6>
-                                <p><input required={true} type="text" onChange={getName} style={{
-                                    textAlign: 'right',
-                                    width: '390px',
-                                    height: '35px'
-                                }}></input></p>
-                            </form>
-                            <h6 ><FcLink className='icon' />&nbsp;&nbsp;Select employees:</h6>
-                            <div className='allStudent' >
-                                {student.map((value, index) => {
-                                    return (
-                                        <label key={index} className="list-group-item" >
 
-                                            <input onChange={() => saveCheckbox(value)} className="form-check-input me-1" type="checkbox" id={value.name} name={value.name} value=""></input>
-                                            {value.name}
-
-                                        </label>
-                                    )
-                                })}
-                            </div>
-                            <div className="body">
+                            </> : <>       <div className="body">
                                 <h5>Are you sure?</h5>
                             </div>
-                            <div className="footer">
+                                <div className="footer">
 
-                                <button className='continueBtn'
-                                    onClick={Post_Route}
-                                > Yes
-                                </button>
-                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                    <button className='continueBtn'
+                                        onClick={Post_Route}
+                                    > Yes
+                                    </button>
+                                    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
 
-                                <button className='cancelBtn'
-                                    onClick={() => {
-                                        setOpenModal(false);
-                                    }}
-                                >No
-                                </button>
-                                {flagClickOK ? <><Modal_Loading props={false} /></> : <></>}
+                                    <button className='cancelBtn'
+                                        onClick={() => {
+                                            setOpenModal(false);
+                                        }}
+                                    >No
+                                    </button>
+                                    {flagClickOK ? <><Modal_Loading props={false} /></> : <></>}
 
-                            </div>
+                                </div></>}
+
                         </div>
                     </div>
             }

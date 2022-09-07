@@ -1,9 +1,9 @@
 import './style.css';
 let audio = ""
 const Audios = ({ id, data }) => {
-    console.log("11111111111111111111111111111111111111111111111111")
-    console.log("idAudios:", id)
-    console.log("dataAudios:", data)
+    console.log("id   Audios:", id)
+    console.log("data   Audios :", data)
+    console.log("data   Audios length:", data.length)
 
     for (let index = 0; index < data.length; index++) {
         if (data[index].acf.audio)
@@ -11,6 +11,7 @@ const Audios = ({ id, data }) => {
                 audio = data[index].acf.audio.url;
             }
     }
+    console.log("audio:::::::::::", audio)
     return (
         <>
             <div className="audio">

@@ -378,3 +378,12 @@
   background-color: #bfc4ce;
   border: 1px solid rgb(235, 235, 235);
 }
+
+.clock {
+  color: white;
+  position: relative;
+  top: -59px;
+  width: -52px;
+  font-size: 12px;
+  left: 11px;
+}
