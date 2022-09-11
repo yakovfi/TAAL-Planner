@@ -204,7 +204,7 @@ function Modal({ setOpenModal, setFlagStudent }) {
                         <div className="modalContainer">
 
                             {setFlagStudent ? <>
-                                <div className="titleCloseBtn">
+                                {/* <div className="titleCloseBtn">
                                     <button
                                         onClick={() => {
                                             setOpenModal(false);
@@ -212,48 +212,59 @@ function Modal({ setOpenModal, setFlagStudent }) {
                                     >
                                         X
                                     </button>
+                                </div> */}
+
+                                <div className="headerNewRoute">
+                                    <div className='newRoutTitle'>
+                                        מסלול חדש
+                                    </div>
+
+
                                 </div>
                                 <form id="IPU" className="w3-container">
-                                    <h6 style={{ textAlign: 'right' }}> :רשום את שם המסלול <RiAsterisk style={{ color: 'red' }} /></h6>
+                                    <div className='nameRoutTitle'> :שם המסלול </div>
                                     <p>
-                                        <input required={true} type="text" onChange={getName}
-                                            style={{
-                                                textAlign: 'right',
-                                                width: '390px',
-                                                height: '35px'
-                                            }}>
+                                        <input dir='rtl' className='inputRouteName' required={true} type="text" onChange={getName}>
 
                                         </input>
                                     </p>
                                 </form>
-                                <h6 style={{ textAlign: "right" }}>בחר עובדים &nbsp;&nbsp;<FcLink className='icon' /></h6>
+                                <div className="AddStudentTitle">שייך מסלול לעובד &nbsp;&nbsp;<FcLink className='icon' /></div>
                                 <div className='allStudent' >
                                     {student.map((value, index) => {
                                         return (
                                             <label key={index} className="list-group-item" >
+
+                                                <input dir="ltr" onChange={() => saveCheckbox(value)} className="form-check-input me-1" type="checkbox" id={value.name} name={value.name} value=""></input>
                                                 {value.name}
-                                                <input onChange={() => saveCheckbox(value)} className="form-check-input me-1" type="checkbox" id={value.name} name={value.name} value=""></input>
                                             </label>
                                         )
                                     })}
                                 </div>
-                                <button className='continueBtn'
+                                <button className='saveAs'
                                     onClick={
-
-
                                         () => saveData()
                                     }
-                                > אישור
+                                >
+                                    <div style={{ color: "white" }}>שמירה בשם</div>
+                                </button>
+
+                                <button className='cancelSaveAs'
+                                    onClick={
+                                        () => saveData()
+                                    }
+
+                                > ביטול
                                 </button>
 
                             </> : <>       <div className="body">
-                                <h5>Are you sure?</h5>
+                                <h5>שמירת מסלול</h5>
                             </div>
                                 <div className="footer">
 
                                     <button className='continueBtn'
                                         onClick={Post_Route}
-                                    > Yes
+                                    > שמור מסלול
                                     </button>
                                     &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
 
@@ -261,7 +272,7 @@ function Modal({ setOpenModal, setFlagStudent }) {
                                         onClick={() => {
                                             setOpenModal(false);
                                         }}
-                                    >No
+                                    >ביטול
                                     </button>
                                     {flagClickOK ? <><Modal_Loading props={false} /></> : <></>}
 

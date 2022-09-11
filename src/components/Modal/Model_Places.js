@@ -89,58 +89,60 @@ function Modal_Plases({ setOpenModalPlaces }) {
     }
     return (
         <>
-            <div className="BackgroundPlases">
-                <div className="modalContainerPlases">
-                    <div className="titleCloseBtnPlases">
-                        <button
-                            onClick={() => {
-                                setOpenModalPlaces(false);
-                            }}
-                        >
-                            X
-                        </button>
-                    </div>
+
+            <div className="modalContainerPlases">
+                <div className="headerAddPlases">
                     <div className="title">
-                        <h3><b>שמור אתר</b></h3>
+                        <div className='newRoutTitle'>שמור אתר</div>
                     </div>
-                    <div className="body">
-                        <form id="IPU" className="w3-container">
-                            <h6 style={{ textAlign: "right" }}>רשום את שם האתר  <RiAsterisk style={{ color: 'red' }} /></h6>
-                            <p><input required={true} type="text" onChange={handleTitleInput} style={{
-                                textAlign: 'right',
-                                width: '420px'
-                            }}></input></p>
-                        </form>
-                        <form id="IPU" className="w3-container">
-                            <h6 style={{ textAlign: "right" }}> תאר את האתר במשפט:<RiAsterisk style={{ color: 'red' }} /> </h6>
-                            <p><input type="text" onChange={handleDescriptionInput} style={{
-                                textAlign: 'right',
-                                width: '420px'
-                            }}></input></p>
-                        </form>
-                        <form id="IPU" className="w3-container">
-                            <h6 style={{ textAlign: "right" }}>צרף תמונה של האתר:<FcMultipleInputs /></h6>
-                            <div className="input-group mb-3">
-                                <input required={true} accept=".png, .jpg, .jpeg" className='form-control' type="file" onChange={handleFileInput} style={{
-                                    textAlign: 'right',
-                                    width: '100%'
-                                }} ></input>
-                            </div>
-                        </form>
-                        <form id="IPU" className="w3-container">
-                            <h6 style={{ textAlign: "right" }}>צרף קטע קול המתאר את האתר:<FcMultipleInputs /> </h6>
-                            <p><input required={true} accept='.mp3' type="file" className='form-control' onChange={handleFileInput} style={{
-                                textAlign: 'right',
-                                width: '96%'
-                            }}></input></p>
-                        </form>
-                    </div>
-                    <div className="footer">
-                        <input type="submit" className='OK' value={ichour} onClick={Post_Place} />
-                    </div>
-                    {flagClickOK ? <><Modal_Loading props={false} /></> : <></>}
+                    <button
+                        className='closeModal'
+                        onClick={() => {
+                            setOpenModalPlaces(false);
+                        }}
+                    >
+                        X
+                    </button>
                 </div>
+
+                <div className="body">
+                    <form id="IPU" className="w3-container">
+                        <h6 style={{ textAlign: "right" }}>רשום את שם האתר  <RiAsterisk style={{ color: 'red' }} /></h6>
+                        <p><input required={true} type="text" onChange={handleTitleInput} style={{
+                            textAlign: 'right',
+                            width: '420px'
+                        }}></input></p>
+                    </form>
+                    <form id="IPU" className="w3-container">
+                        <h6 style={{ textAlign: "right" }}> תאר את האתר במשפט:<RiAsterisk style={{ color: 'red' }} /> </h6>
+                        <p><input type="text" onChange={handleDescriptionInput} style={{
+                            textAlign: 'right',
+                            width: '420px'
+                        }}></input></p>
+                    </form>
+                    <form id="IPU" className="w3-container">
+                        <h6 style={{ textAlign: "right" }}>צרף תמונה של האתר:<FcMultipleInputs /></h6>
+                        <div className="input-group mb-3">
+                            <input required={true} accept=".png, .jpg, .jpeg" className='form-control' type="file" onChange={handleFileInput} style={{
+                                textAlign: 'right',
+                                width: '100%'
+                            }} ></input>
+                        </div>
+                    </form>
+                    <form id="IPU" className="w3-container">
+                        <h6 style={{ textAlign: "right" }}>צרף קטע קול המתאר את האתר:<FcMultipleInputs /> </h6>
+                        <p><input required={true} accept='.mp3' type="file" className='form-control' onChange={handleFileInput} style={{
+                            textAlign: 'right',
+                            width: '96%'
+                        }}></input></p>
+                    </form>
+                </div>
+                <div className="footer">
+                    <input type="submit" className='OK' value={ichour} onClick={Post_Place} />
+                </div>
+                {flagClickOK ? <><Modal_Loading props={false} /></> : <></>}
             </div>
+
         </>
     );
 }

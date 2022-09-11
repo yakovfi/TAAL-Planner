@@ -26,21 +26,20 @@
 }
 
 .modalContainer {
-  border-radius: 5px;
+
   margin-left: 35%;
-  margin-right: auto;
-  width: 500px;
-  height: 500px;
-  background-color: aliceblue;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  display: flex;
+  background-color: white;
   flex-direction: column;
-  padding: 25px;
   position: fixed;
-  border: 2.5px solid rgb(86, 160, 225);
-  box-shadow: rgb(136 136 136) 1px 2px;
   z-index: 10;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #0000004d;
+  border-radius: 8px;
+  opacity: 1;
+  top: 105px;
+  left: -96px;
 }
+
 
 .modalMyTasksContainer {
   border: 2.5px solid rgb(86, 160, 225);
@@ -212,9 +211,16 @@
 }
 
 
-.continueBtn {
-  background-color: cornflowerblue;
-
+.saveAs {
+  width: 119px;
+  height: 36px;
+  background: #256FA1 0% 0% no-repeat padding-box;
+  border-radius: 6px;
+  opacity: 1;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin: 20px;
+  margin-left: 84px;
 }
 
 .continueBtn:hover {
@@ -223,17 +229,23 @@
 }
 
 .cancelBtn {
-  background-color: crimson;
-  float: right;
+  top: 733px;
+  left: 860px;
+  width: 119px;
+  height: 36px;
+  /* UI Properties */
+  border: 1px solid #99999B;
+  border-radius: 6px;
+  opacity: 1;
 }
 
 .cancelBtn:hover {
-  background-color: rgb(116, 12, 32);
+  border: 1px solid #99999B;
 }
 
-#cancelBtn:hover {
+/* #cancelBtn:hover {
   background-color: rgb(131, 14, 37);
-}
+} */
 
 
 .RouteName {
@@ -254,21 +266,27 @@
   background-color: #d0d8d8;
 }
 
-.BackgroundPlases {
-  background-color: aliceblue;
-  border: 2.5px solid rgb(86, 160, 225);
-  border-radius: 5px;
-  box-shadow: rgb(136 136 136) 1px 2px;
+.modalContainerPlases {
   position: fixed;
   z-index: 10;
-  width: 500px;
   height: -200px;
   margin-left: 500px;
-  padding: 10px;
   width: 520px;
-  height: 635px;
   text-align: right;
-  align-self: center;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #0000004d;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.cancelSaveAs {
+  top: 733px;
+  left: 860px;
+  width: 119px;
+  height: 36px;
+  border: 1px solid #99999B;
+  border-radius: 6px;
+  opacity: 1;
 }
 
 .BackgroundTasks {
@@ -296,22 +314,103 @@
   overflow: scroll;
 }
 
-.allStudent {
-  height: 635px;
-  overflow: scroll;
+.AddStudentTitle {
+  text-align: right;
+  position: relative;
+  right: 82px;
 }
 
-.titleCloseBtnPlases {
-  background-color: #c4ce9c;
+.nameRoutTitle {
+  text-align: right;
+  position: relative;
+  right: 65px;
+}
 
+.inputRouteName {
+  width: 579px;
+  position: relative;
+  left: 62px;
+  height: 40px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #C9C9C9;
+  border-radius: 4px;
+  opacity: 1;
+}
 
+.allStudent {
+  height: 255px;
+  overflow: scroll;
+  overflow-x: hidden;
+  direction: rtl;
+  position: relative;
+  left: 85px;
+  width: 582px;
+  border: 1px solid #C9C9C9;
+  border-radius: 4px;
+  opacity: 1;
+}
+
+.allStudent::-webkit-scrollbar-track {
+  padding: 2px 0;
+  background-color: #dadbe2;
+  border-radius: 10px;
+}
+
+.allStudent::-webkit-scrollbar {
+  width: 10px;
+}
+
+.allStudent::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #bfc4ce;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.newRoutTitle {
+  text-align: end;
+  position: relative;
+  left: -51px;
+  top: 19px;
+  font-size: 20px;
+  font: normal normal 20px/26px Assistant;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+.headerAddPlases {
+  width: 520px;
+  height: 65px;
+  background: #256FA1 0% 0% no-repeat padding-box;
+  border-radius: 8px 8px 0px 0px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+.closeModal {
+  position: relative;
+  top: -24px;
+  left: -488px;
+  border: none;
+  background-color: #256FA1;
+  color: white;
 }
 
 .list-group-item {
   text-align: right;
 }
 
+.headerNewRoute {
+  top: 307px;
+  left: 642px;
+  width: 750px;
+  height: 65px;
+  /* UI Properties */
+  background: #256FA1 0% 0% no-repeat padding-box;
+  border-radius: 8px 8px 0px 0px;
+  opacity: 1;
 
+}
 
 
 

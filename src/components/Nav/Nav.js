@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FcPlus, FcCalculator } from "react-icons/fc";
+import { RiHome4Line } from "react-icons/ri";
+
 import './style.css';
 import { FaUser, FaAddressCard, FaRoute } from "react-icons/fa";
 import { useState } from 'react';
@@ -45,6 +47,14 @@ const Nav = () => {
                 <Link to="/planner" className='link'>
                     <li><FcPlus style={{ fontSize: '24px' }} /> &nbsp;&nbsp;הוסף מסלול </li>
                 </Link> */}
+
+                <Link
+                    // to="/routes_cards"
+                    className='link'>
+                    <li>< RiHome4Line style={{ fontSize: '24px', position: 'relative', left: "-570" }} /></li>
+                </Link>
+
+
             </ul>
             <div className='userName'>{complete_name}</div>
             <div className='myUser'></div>

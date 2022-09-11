@@ -33,6 +33,7 @@
   left: 83px;
   font-size: 23px;
   text-align: center;
+
 }
 
 
@@ -320,6 +321,16 @@ h3 {
 
 .Places::-webkit-scrollbar {
   width: 10px;
+}
+
+.MyTitle .border {
+  display: inline-block;
+  /* Make the span inline-block */
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .Places::-webkit-scrollbar-thumb {
