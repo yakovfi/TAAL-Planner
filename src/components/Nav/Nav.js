@@ -48,11 +48,11 @@ const Nav = () => {
                     <li><FcPlus style={{ fontSize: '24px' }} /> &nbsp;&nbsp;הוסף מסלול </li>
                 </Link> */}
 
-                <Link
+                {/* <Link
                     // to="/routes_cards"
                     className='link'>
                     <li>< RiHome4Line style={{ fontSize: '24px', position: 'relative', left: "-570" }} /></li>
-                </Link>
+                </Link> */}
 
 
             </ul>

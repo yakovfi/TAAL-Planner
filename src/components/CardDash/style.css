@@ -1,0 +1,56 @@
+/* .CardDash {
+  width: 300px;
+  height: 125px;
+  border-bottom: 1px solid #fafafa;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.CardDash .headline {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.CardDash .add {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.CardDash .image_background {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgb(216, 216, 216);
+  top: 15%;
+  left: 70%;
+}
+
+.CardDash .cardPhoto {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: 18%;
+  left: 18%;
+}
+
+.CardDash .add:hover {
+  cursor: pointer;
+}
+
+.CardDash .addLabel {
+  font-size: 10px;
+}
+
+h4 {
+  font-weight: 100;
+} */

@@ -47,7 +47,7 @@ function LoginAPI(props) {
                     // console.log("token", user.token)
                     sessionStorage.setItem('jwt', user.token)
                     sessionStorage.setItem('logged_in', 1)
-                    window.location.replace('/planner')
+                    window.location.replace('/Dashboard')
 
 
                 }
