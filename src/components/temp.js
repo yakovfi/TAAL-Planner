@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 const temp = () => {
-    return (
-        <div>temp</div>
-    )
-}
+  return <div>temp-Eyal</div>;
+};
