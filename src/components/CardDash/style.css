@@ -43,14 +43,10 @@
   left: 18%;
 }
 
+.add {
+  color: black;
+}
+
 .CardDash .add:hover {
   cursor: pointer;
-}
-
-.CardDash .addLabel {
-  font-size: 10px;
-}
-
-h4 {
-  font-weight: 100;
 }
