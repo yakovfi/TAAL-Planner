@@ -1,4 +1,4 @@
-/* * {
+.Dashboard {
   margin: 0;
   font-family: "Quicksand";
   color: black;
@@ -9,6 +9,7 @@
   height: 90.9vh;
   display: flex;
   flex-direction: row;
+  background-color: white;
 }
 
 .navbar {
@@ -80,6 +81,7 @@
   margin-top: 100px;
   width: 55vw;
   gap: 80px;
+  background-color: white;
 }
 
 .cardsLine {
@@ -87,4 +89,4 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 100px;
-} */
+}
