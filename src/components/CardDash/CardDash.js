@@ -8,7 +8,7 @@ const CardDash = (props) => {
   const image = props.cards.image;
 
   const handleAddLink = (id) => {
-    console.log("done");
+    console.log("done add link");
     if (id === 1) {
       window.location.replace("/");
     } else if (id === 2) {
@@ -20,9 +20,30 @@ const CardDash = (props) => {
     } else console.log("fail");
   };
 
+  const handleHeadlineLink = (id) => {
+    console.log("done headline link");
+    if (id === 1) {
+      window.location.replace("/places");
+    } else if (id === 2) {
+      window.location.replace("/students");
+    } else if (id === 3) {
+      window.location.replace("/routes");
+    } else if (id === 4) {
+      window.location.replace("/subjects");
+    } else console.log("fail");
+  };
+
   return (
     <div className="CardDash">
-      <div className="headline">{headline}</div>
+      <a
+        className="headlineClick"
+        onClick={() => handleHeadlineLink(props.cards.id)}
+      >
+        <div className="headline">{headline}</div>
+        <div className="image_background">
+          <img className="cardPhoto" src={image} alt="Card Logo"></img>
+        </div>
+      </a>
       <a className="add" onClick={() => handleAddLink(props.cards.id)}>
         {addLabel}
         <AiOutlinePlus
@@ -33,9 +54,6 @@ const CardDash = (props) => {
           }}
         />
       </a>
-      <div className="image_background">
-        <img className="cardPhoto" src={image} alt="Card Logo"></img>
-      </div>
     </div>
   );
 };

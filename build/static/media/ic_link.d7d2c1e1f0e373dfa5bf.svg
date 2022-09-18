@@ -1,0 +1,6 @@
+<svg id="ic_link" xmlns="http://www.w3.org/2000/svg" width="24.208" height="18.695" viewBox="0 0 24.208 18.695">
+  <g id="icon_content_link_24px" data-name="icon/content/link_24px">
+    <rect id="Boundary" width="17.233" height="17.233" transform="translate(0)" fill="none"/>
+    <path id="_Color" data-name=" ↳Color" d="M18.156,10.232H13.314V8.288h4.842a3.5,3.5,0,0,0,3.752-3.172,3.5,3.5,0,0,0-3.752-3.173H13.314V0h4.842c3.337,0,6.051,2.3,6.051,5.117S21.493,10.232,18.156,10.232Zm-7.263,0H6.053C2.715,10.232,0,7.937,0,5.117S2.715,0,6.053,0h4.841V1.944H6.053A3.5,3.5,0,0,0,2.3,5.117,3.5,3.5,0,0,0,6.053,8.288h4.841v1.943ZM16.946,6.14H7.263V4.092h9.683V6.139Z" transform="translate(0 8.463)" fill="#505050"/>
+  </g>
+</svg>

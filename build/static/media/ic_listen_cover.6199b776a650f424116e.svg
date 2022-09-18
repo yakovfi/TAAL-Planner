@@ -1,0 +1,12 @@
+<svg id="ic_listen" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26.127" height="51.127" viewBox="0 0 51.127 51.127">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 63 57">
+      <image width="63" height="57" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAA5CAYAAACBBvPCAAAAAXNSR0IArs4c6QAABMJJREFUaAXlm4FV3DAMhqGvC7ACHeE6Ah2BjkBHoCPQEegIdAQ6Ah2BjtCOcNUXqpxQZMdH7Jg89J6JT3Ys/ZKs2E443e/3J53oTOTeSbkw8n9K/ZP53bT6vuno6cF30nQvBQN0o3cdJF+JzAcpXYGDe03wgL39X5DdndYK+3NByvwm3C39lR/dImANz5PQCHMPnOT2RUo3ag3+WpBFie2b8MnqeL4btQp7nd+XDhlgv0r57vhdfrYAT3iT2HyY/xbeZym/pLwKqh32PMYIcw+c+f1RSk3gRBe5hFXaoxSm2HHJkxVepXIj40QEPyXjwt1wn+nrx7h29/LzjxT4vm/4u4bnsTbexvKWmN9kc+Z4C4qSJbrcSImS7FSHUisl+u2Ej7U9PQqDttDihr/E84xNVEXyhT3wszrMKZdrv0JCQITumZTcvdq2FDzjIItQj4wAL2kAVeKYK8JupUSUm9+RjBrgdVz0uguUShpAb+TKzSj/EAwwx0IAkWDHK6nXBK/yokQIJvBpn+GqPy6lIQobYc9S6fxWWfZ6DHj6JkNY2uy4kQEmUckNDPhSCi0qg1lFcvVS8DYacRLT7nxGTjQ1kTfqQ4UE9RKaWFIGGQcurJeATzkHI+Se6YS5NZr8HLCOOlLxBKjJ/BDeeFPFegl4dMlNSTyc0s2PL133o/ejRQ6LkmgBMV0krMNBF3aAbIYivVhS+wWWsAZiWU2xdNhsYQpHKSu24HvPlCxvU8/0VDL0MoA7YIk8b630GuupswCWtRHheXaUljhgudgieECwO2R7bAlA55Zh6j9MnSq7zt1WwQMgP5/pcSDv+c2DB5pPZv4cQeF78Oz+zrbseYD5w5HUYUb0lDhpcYyl1n5N19BIbwU8ydDSEAlbD3sPynvYAp7Ut+x55jerO0s+sWmbT4RDvy2DZ1FjExyh7J/nCt4//zcNnrW89zorvzCrC/+wnn8yx/CI3JrnAQFoP9fxZOotEP19hAy5gYTnreXDSbp0J3Ti5YT/kgPF0J+lrsdBG+R3fAcjyQ4nOvFwG73wZ419v99xRbs6TmxSxD4/tZtj5xYdZ40nQHSYOyxICYbPSck4mNSP3fYuAY+hcrJp84cgzw4+VFmsx0HkSwgBgNCxjrmWgGc8ogzC2NRz3qZ/dISFns+MZRXlBsLEn3sJq4hy52lWjq2Xgrf3zNUj4ACY6Dc3UKpdPeGtQlghPHWf59cGnwLOywwvW1JowCzkpc76iZxSA9QEf7Q+S8BzL3MvmiZzWVjl1gAP6NTxe9YRqsSSK16O3pEJe/YV1hLwqRBHLoRBshFYY1eni4zoPXzL7+5YufkNy7CqkT/oMvvBUw3wKpC1dbTSQsm1vrhkzc7nL+gyTxIaS0I+updnaZQHoheaS8Ie2TxdCG+uc8/+ia4ThgxSg8dcQyFPJEL7Knsp+EW61gx7G2bkgeh7HHZX5IHUCwY7RvN6K/CqeOrtCjutso+GdKQG11MJwwbDTobE49H3eUSI3WuTsFb7Z4PWnlcrAJIsfNhLP7VY4Np3teta4BUQeaDrl9aqCNe1wSMT7xMFRENX6gEewJyhfZDi37XRthr1Ag9APE9y09UYv31OEFY76gm+HarCkd80+H9iOr46hVqZlQAAAABJRU5ErkJggg=="/>
+    </pattern>
+  </defs>
+  <g id="Ellipse_red" data-name="Ellipse red" fill="#45350a" stroke="#45350a" stroke-width="5">
+    <circle cx="25.564" cy="25.564" r="25.564" stroke="none"/>
+    <circle cx="25.564" cy="25.564" r="23.064" fill="none"/>
+  </g>
+  <!-- <rect id="listen" width="37" height="33" transform="translate(7.5 9.568)" stroke="#45350a" stroke-width="1"  fill="url(#pattern)"/> -->
+</svg>
