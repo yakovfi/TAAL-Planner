@@ -10,7 +10,7 @@ import { RiAsterisk } from "react-icons/ri";
 //--------------------------
 
 //--------------------------
-function Modal_Icons({ setOpenModalPlaces }) {
+function Modal_Icons({ setOpenModalPlaces, flagCategory }) {
 
     return (
         <>

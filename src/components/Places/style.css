@@ -71,6 +71,12 @@
   font-size: 18px;
 }
 
+/* .threeDotsVerticalEng:hover+.ModalIcons {
+  display: block;
+
+} */
+
+
 .threeDotsVerticalTasks {
   opacity: 1;
   position: relative;

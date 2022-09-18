@@ -476,6 +476,7 @@
   left: 81px;
   top: 16px;
   margin-left: -160px;
+  /* display: none; */
 }
 
 .penIcon {

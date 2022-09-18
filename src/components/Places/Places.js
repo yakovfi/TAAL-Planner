@@ -30,7 +30,8 @@ let mySite = { name: '', id: '' }
 let flagRoute = false;
 // let flagButtonRoute = false;
 let tasksOfRoutes = [];
-let clickAddRoute = false
+let clickAddRoute = false;
+let myCategory = false;
 //-----------------------
 const Places = (props) => {
     // console.log("setFloatLan:", props.setFloatLang)
@@ -57,7 +58,7 @@ const Places = (props) => {
     const [, setFlagRoute] = useState(false);
     const [, setFlagButtonRoute] = useState(false);
     const [, setTasksOfRoutes] = useState([]);
-
+    const [, setMyCategory] = useState("place")
     let inputHandler = (e) => {
         //convert input text to lower case
         setInputText(inputText = e.target.value.toLowerCase());
@@ -189,6 +190,7 @@ const Places = (props) => {
                 <>
                     {!flagRoute ? <>
                         {modalOpen && <ModalPlaces setOpenModalPlaces={setModalOpen} />}
+                        {modalIconsOpen && < ModalIcons setOpenModalPlaces={setModalIconsOpen} myCategory={myCategory} />}
 
 
                         <div className='Cover_Places' style={{
@@ -231,7 +233,9 @@ const Places = (props) => {
                                             key={index}>
                                             {/* <div className='penIcon' ></div>
                                             <div className='eyeIcon' ></div> */}
-                                            <BsThreeDotsVertical className='threeDotsVerticalEng' />
+                                            <BsThreeDotsVertical className='threeDotsVerticalEng'
+                                                onClick={() => clickOnhreeDotsVerticaIcont(value)}
+                                            />
                                             <div className='nameOfButton text'>{value.name}</div>
                                             {/* <Dot color="rgb(161, 147, 229)" /> */}
                                             {/* <Dot color={'#7A78B7 '} /> */}
@@ -302,7 +306,7 @@ const Places = (props) => {
                                                 onClick={() => clickOnhreeDotsVerticaIcont(value)}
                                             />
                                             {myRouteClick === value.id ? <>
-                                                {modalIconsOpen && < ModalIcons setOpenModalPlaces={setModalIconsOpen} />}
+                                                {modalIconsOpen && < ModalIcons setOpenModalPlaces={setModalIconsOpen} myCategory={myCategory} />}
 
                                             </> : <>
 
