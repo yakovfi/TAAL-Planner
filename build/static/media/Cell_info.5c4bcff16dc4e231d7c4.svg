@@ -1,0 +1,13 @@
+<svg id="Cell_info" xmlns="http://www.w3.org/2000/svg" width="261.661" height="25" viewBox="0 0 371.661 19">
+  <g id="Battery" transform="translate(347.333 4.333)">
+    <g id="Border" fill="#fff" stroke="#8ea2ab" stroke-width="1" opacity="0.35">
+      <rect width="22" height="11.333" rx="2.667" stroke="none"/>
+      <rect x="0.5" y="0.5" width="21" height="10.333" rx="2.167" fill="none"/>
+    </g>
+    <path id="Cap" d="M0,0V4A2.17,2.17,0,0,0,1.328,2,2.17,2.17,0,0,0,0,0" transform="translate(23 3.667)" fill="#fff" opacity="0.4"/>
+    <rect id="Capacity" width="18" height="7.333" rx="1.333" transform="translate(2 2)" fill="#fff"/>
+  </g>
+  <path id="Wifi" d="M7.445,10.907,5.439,8.885a.309.309,0,0,1-.094-.231.314.314,0,0,1,.1-.227,3.437,3.437,0,0,1,4.437,0,.315.315,0,0,1,.009.458L7.889,10.907a.313.313,0,0,1-.445,0Zm3.53-3.542a4.928,4.928,0,0,0-6.612,0,.311.311,0,0,1-.435-.005L2.768,6.189a.322.322,0,0,1,0-.46,7.193,7.193,0,0,1,9.791,0,.322.322,0,0,1,0,.46L11.409,7.36a.311.311,0,0,1-.435.005Zm2.669-2.7a8.68,8.68,0,0,0-11.955,0,.308.308,0,0,1-.435,0L.094,3.5a.323.323,0,0,1,0-.457,10.947,10.947,0,0,1,15.141,0,.323.323,0,0,1,0,.457l-1.161,1.17a.308.308,0,0,1-.435,0Z" transform="translate(327 4.331)" fill="#fff"/>
+  <path id="Cellular_Connection" data-name="Cellular Connection" d="M15,10.667a1,1,0,0,1-1-1V1a1,1,0,0,1,1-1h1a1,1,0,0,1,1,1V9.667a1,1,0,0,1-1,1Zm-4.667,0a1,1,0,0,1-1-1V3.334a1,1,0,0,1,1-1h1a1,1,0,0,1,1,1V9.667a1,1,0,0,1-1,1Zm-4.667,0a1,1,0,0,1-1-1v-4a1,1,0,0,1,1-1h1a1,1,0,0,1,1,1v4a1,1,0,0,1-1,1ZM1,10.667a1,1,0,0,1-1-1v-2a1,1,0,0,1,1-1H2a1,1,0,0,1,1,1v2a1,1,0,0,1-1,1Z" transform="translate(305 4.667)" fill="#fff"/>
+  <!-- <text id="_20:41" data-name="20:41" transform="translate(0 15)" fill="#fff" font-size="15" font-family="Montserrat-SemiBold, Montserrat" font-weight="600"><tspan x="0" y="0">20:41</tspan></text> -->
+</svg>
