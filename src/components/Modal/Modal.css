@@ -487,7 +487,9 @@
   position: relative;
   right: -14px;
   top: -6px;
+  /* border: none; */
   border: none;
+
 }
 
 
