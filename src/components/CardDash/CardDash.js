@@ -24,7 +24,7 @@ const CardDash = (props) => {
     <div className="CardDash">
       <div className="headline">{headline}</div>
       <a className="add" onClick={() => handleAddLink(props.cards.id)}>
-        <h4>{addLabel}</h4>
+        {addLabel}
         <AiOutlinePlus
           style={{
             marginTop: "6px",
