@@ -1,21 +1,13 @@
 import React, { useState, useEffect, } from 'react';
 import Tag from "../Tag/Tag.js";
-import Tag2 from "../Tag/Tag2.js";
 import { useDrop } from "react-dnd";
 import "./style.css";
-import Audios from "../Audios/Audios";
 import ModalTasks from '../Modal/Modal_Tasks';
 import Modal from '../Modal/Modal';
 import { AiOutlinePlus } from "react-icons/ai";
-// import { BsThreeDotsVertical } from "react-icons/bs";
 import { CgSearch } from "react-icons/cg";
 import { AiFillCheckCircle } from "react-icons/ai";
-import Clock from "../Clock/Clock"
-import Dot from "../Dot/Dot"
-import { MdBackup, MdOutlineSettingsBackupRestore } from "react-icons/md";
-
-
-
+import Phone from "../Phone/Phone"
 
 let Route = [];
 let dndArray = [];
@@ -53,7 +45,6 @@ function DragnDrop(props) {
     const [, setLoading] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [modalOpenAddRoute, setModalOpenAddRoute] = useState(false);
-    const [, setFlagStress] = useState(false)
     // const [, setHelpFlag] = useState(false);
     const [board, setBoard] = useState([]);
     const [, setCount] = useState(0);
@@ -70,7 +61,6 @@ function DragnDrop(props) {
     const [, setKavTaskTopMarginTop] = useState("-7px");
     const [, setBorderLeft] = useState("2px solid #c2bfbf");
     // const [, setNameStation] = useState(props.myStation.name);
-    const [, setSaveTag] = useState({});
     // const [, setMarginTop] = useState("");
     // let inputHandler = (e) => {
     //     console.log("eeeeeeeeeeeeeeee:", e.target.value)
@@ -102,8 +92,8 @@ function DragnDrop(props) {
     // alert("hi")
     dndArray = (props.propDataTask).map((element) => {
         if (count1 === 0) {
-            nameStation = props.myStation.name
-            count1++
+            nameStation = props.myStation.name;
+            count1++;
         }
         return {
             id: element.id,
@@ -146,7 +136,6 @@ function DragnDrop(props) {
                 setNewkavTaskTop(newkavTaskTop = "100px");
                 setNameStation(nameStation = "");
                 setKavTaskTopMarginTop(kavTaskTopMarginTop = "-27px");
-
             }
             else {
                 setFlagPhoneOne(flagPhoneOne = false)
@@ -188,33 +177,19 @@ function DragnDrop(props) {
     const watchFunction = () => {
         setFlagTree(flagTree = false);
         setFlagPhone(flagPhone = false)
-        // alert("watch");
-        // alert(flagPhone)
     }
     const phoneFunction = () => {
         setFlagTree(flagTree = false);
         setFlagPhone(flagPhone = true)
-        // alert("phone")
-        // alert(flagPhone)
     }
     const tabletFunction = () => {
         setFlagTree(flagTree = false);
         setFlagPhone(flagPhone = false)
-        // alert("tablet")
-        // alert(flagPhone)
     }
     // const computerFunction = () => {
     //     setFlagTree(false);
     //     alert("computer")
     // }
-
-    const stressFun = () => {
-        setFlagStress(flagStress = true)
-    }
-    const backup = () => {
-        setFlagStress(flagStress = false)
-
-    }
     //---------------------------------------------------------
     return (
         <>
@@ -356,27 +331,26 @@ function DragnDrop(props) {
                                     </div>
                                 </button>
                             </div>
-
                             <div className='MyTasks'>
                                 {flagTree ? <>
-                                    <div className='kavT'></div>
-                                    {props.mySite.name ? <> <div className='mySiteChois'>
-                                        {props.mySite.name}
-                                        &nbsp;&nbsp; </div>
+
+                                    {props.mySite.name ? <>
+                                        <div className='kavT'></div>
+                                        <div className='mySiteChois'>
+                                            {props.mySite.name}
+                                            &nbsp;&nbsp; </div>
                                         {props.tasksOfRoutes && props.tasksOfRoutes.acf ? <>
                                             {props.tasksOfRoutes.acf.tasks.map((element, keyCount) => {
-                                                return <Tag2
+                                                return <Tag
                                                     key={keyCount}
                                                     title={element.post_title}
                                                     id={element.ID}
                                                     flagBoard={true}
                                                     myLastStation={props.myStation.name}
-
                                                     myMarginTop={'-68px'}
                                                     count={count}
                                                     flagTree={flagTree}
                                                 />;
-
                                             })}
                                         </> : <></>}
                                     </> : <></>}
@@ -413,103 +387,21 @@ function DragnDrop(props) {
                                 </> :
                                     <>
                                         {/* flagPhone */}
-                                        {flagPhone ? <>
-                                            {!flagStress ? <>
-                                                <div className="phoneCover">
-                                                    <div className="phoneHeaderCover">
-                                                        <div className='hederPhone'>
-                                                            <button
-                                                                className='stress'
-                                                                onClick={() => stressFun()}>
-                                                            </button>
-                                                            <div className='cellInfo'></div>
-                                                            <Dot className="Dotcamera" color="#2f2f2f" />
-                                                            <Clock />
-                                                        </div>
-                                                    </div>
-                                                    <div className="stap2">
-
-                                                        {board.map((tag, keyCount) => {
-                                                            return saveTag = <Tag
-                                                                title={tag.title}
-                                                                id={tag.id}
-                                                                idImg={tag.idImg}
-                                                                dataImg={tag.dataImg}
-                                                                idAudio={tag.idAudio}
-                                                                dataAudio={tag.dataAudio}
-                                                                key={keyCount}
-                                                                flagBoard={true}
-                                                                myLastStation={props.myStation.name}
-                                                                myStation={tag.myStation}
-                                                                myMarginTop={'-68px'}
-                                                                count={count}
-                                                                data={props.myStation.data}
-                                                                flag={tag.flag}
-                                                                width={tag.width}
-                                                                borderLeft={tag.borderLeft}
-                                                                height={tag.height}
-                                                                setKavTaskTopMarginTop={tag.setKavTaskTopMarginTop}
-                                                                bottom={tag.bottom}
-                                                                kavTopWidth={tag.kavTopWidth}
-                                                                newkavTaskTop={tag.newkavTaskTop}
-                                                                nameStation={tag.nameStation}
-                                                                flagPhone={flagPhone}
-                                                                flagTree={flagTree}
-                                                            />;
-                                                        })}
-                                                    </div>
-                                                    <div className="stap3"></div>
-                                                </div>
-
-                                            </> : <>
-                                                {/* stress */}
-                                                <div className="phoneCoverStress">
-                                                    <div className="phoneHeaderCover">
-                                                        <div className='hederPhone'>
-                                                            <div className='grayStress'></div>
-                                                            <div className='cellInfo'></div>
-                                                            <Dot className="Dotcamera" color="#2f2f2f" />
-                                                            <Clock />
-                                                        </div>
-                                                        <div className='pleaseName'>,בבקשה</div>
-                                                        <button className="pleaseListenIcon" >
-                                                        </button>
-                                                    </div>
-                                                    <div className='positionTextStress'>
-                                                        <div className="textStress">.התקשתי במילוי המשימות שלי</div>
-                                                        <div className="textStress">אשמח לסיוע, ותודה על הרצון לעזור</div>
-                                                    </div>
-                                                    <div className='whiteCoverPhoneStress'>
-                                                        <div className='currentLocation'>:המיקום הנוכחי שלי</div>
-                                                        {props.mySite.name ? <> <div className='currentLocationName'> {props.mySite.name}</div></> :
-                                                            <>
-                                                                <div className='currentLocationName'>אין מיקום</div>
-                                                            </>}
-                                                    </div>
-                                                    <div>
-                                                        <div className='redCoverPhoneStress'>
-                                                            <button className='needHelp'></button>
-                                                            <div className='helpContinue'>ממשיך לבקש עזרה</div>
-                                                        </div>
-                                                        <div className='greenCoverPhoneStress'>
-                                                            <button style={{ border: "none", background: "#11B911" }} onClick={() => backup()}>
-                                                                <MdOutlineSettingsBackupRestore className='TempBackup' />
-                                                            </button>
-                                                            <div className='backup'>חזור למשימות שלי</div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="stap31"></div>
-
-                                                </div>
-                                            </>}
-
-                                        </> : <></>}
+                                        <Phone
+                                            flagPhone={flagPhone}
+                                            board={board}
+                                            saveTag={saveTag}
+                                            count={count}
+                                            myStation={props.myStation}
+                                            flagTree={flagTree}
+                                            flagStress={flagStress}
+                                            mySite={props.mySite} />
                                     </>}
                             </div>
-
                         </div></>}
             </>
         </>
     );
 }
 export default DragnDrop;
+

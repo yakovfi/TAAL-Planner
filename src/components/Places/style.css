@@ -30,20 +30,21 @@
 .MyTitle {
   margin-top: 25px;
   position: relative;
-  left: 83px;
+  top: 6px;
+  left: -24px;
   font-size: 23px;
-  text-align: center;
-
+  text-align: right;
+  align-items: center;
+  align-self: center;
+  align-content: center;
 }
 
-
-
 .MyRoutesTitle {
-  margin-top: 15px;
+  margin-top: 17px;
   margin-left: 25px;
   position: relative;
   bottom: 10px;
-  font-size: 23px
+  font-size: 23px;
 }
 
 .eyeIcon {
@@ -54,51 +55,10 @@
   position: relative;
   top: 2px;
   right: 15px;
-
-
-
 }
-
-.linkIcon {
-  width: 66px;
-  height: 32px;
-  background: transparent url('../../Pictures/ic_link.svg') 0% 0% no-repeat padding-box;
-  opacity: 1;
-  top: 0px;
-  position: relative;
-}
-
-.penIcon {
-  width: 30px;
-  height: 16px;
-  background: transparent url('../../Pictures/Ic_pen.svg') 0% 0% no-repeat padding-box;
-  opacity: 1;
-  position: relative;
-  right: 10px;
-  top: 4px;
-}
-
-.duplicateIcon {
-  width: 60px;
-  height: 24px;
-  background: transparent url('../../Pictures/ic_duplicate.svg') 0% 0% no-repeat padding-box;
-  opacity: 1;
-  position: relative;
-  top: 1px;
-}
-
-.shareIcon {
-  width: 60px;
-  height: 24px;
-  background: transparent url('../../Pictures/ic_share.svg') 0% 0% no-repeat padding-box;
-  opacity: 1;
-  position: relative;
-}
-
 
 .threeDotsVertical {
   width: 352px;
-
   opacity: 1;
   margin-left: -181px;
   margin-top: 15px;
@@ -117,7 +77,6 @@
   left: -85px;
   font-size: 18px;
 }
-
 
 .threeDotsVerticalEngStation {
   width: 274px;
@@ -144,16 +103,9 @@
 }
 
 .Place {
-  /* margin: 20px;
-  top: 412px;
-  left: 1471px;
-  width: 301px;
-  height: 64px; */
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 2px #00000080;
   border: 1px solid #D8D8D8;
-  /* border-radius: 8px;
-  opacity: 1; */
 }
 
 .Place,
@@ -169,13 +121,7 @@
   margin-right: 50;
   border-radius: 1.5ch;
   font-size: small;
-
 }
-
-/* .Place:focus {
-  background: linear-gradient(90deg, #f6f5ff 0, #bb98f3);
-  transition: 0.4s;
-} */
 
 .AddPlace {
   height: 56px;
@@ -184,33 +130,23 @@
   border: 2px dashed #9B9B9B;
   border-radius: 8px;
   opacity: 1;
-  /* margin: 20px; */
   width: 236px;
 }
 
 .plus {
-  top: 585px;
-  left: 1609px;
   width: 93px;
   height: 24px;
-  text-align: left;
-  font: normal normal normal 49px/64px Assistant;
-  letter-spacing: 0px;
   color: #9B9B9B;
   opacity: 1;
+  align-self: center;
 }
 
 .Place:hover {
-  /* background: linear-gradient(90deg, #1ed4da 0, #72ae7a); */
   background-color: #fbfbfb;
-  /* color: rgb(232, 238, 237) */
 }
 
 .AddPlace:hover {
-  /* background: linear-gradient(90deg, #f6f5ff 0, #dde2fa); */
   background-color: #fbfbfb;
-
-
 }
 
 .TitlePlacesCover {
@@ -223,11 +159,7 @@
 
 .name_of_site_title {
   color: #7A78B7;
-  font: normal normal bold 26px/34px Assistant;
-  letter-spacing: 0px;
-  opacity: 1;
-  margin-top: 14px;
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .TitlePlaces {
@@ -246,7 +178,6 @@ h3 {
   margin: 10px;
 }
 
-
 .dot {
   top: 524px;
   left: 1736px;
@@ -257,16 +188,15 @@ h3 {
   border-radius: 50%;
 }
 
-.nameOfSite {
-  top: 432px;
-  width: 113px;
-  height: 24px;
+.nameOfButton {
+  width: 115px;
+  font: normal normal bold 15px/20px Assistant;
   letter-spacing: 0px;
   color: #505050;
   opacity: 1;
-
-  font: normal normal bold 16px/24px Assistant;
   text-align: end;
+  padding: ce;
+  align-self: center;
 }
 
 .loading {
@@ -278,7 +208,6 @@ h3 {
 .search {
   text-align: right;
   width: 272px;
-
 }
 
 .searchRoute {
@@ -325,7 +254,6 @@ h3 {
 
 .MyTitle .border {
   display: inline-block;
-  /* Make the span inline-block */
   background-color: #111;
   color: #fff;
   padding: 20px;

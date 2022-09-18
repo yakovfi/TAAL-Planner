@@ -1,0 +1,46 @@
+.pleaseName {
+    color: rgb(232, 178, 33);
+    font-size: 21px;
+    margin-left: 149px;
+    font-weight: bold;
+}
+
+.pleaseListenIcon {
+    border: none;
+    height: 39.2px;
+    width: 36px;
+    background: transparent url('../../Pictures/ic_listen\ .svg') 0% 0% no-repeat padding-box;
+    position: relative;
+    top: -38px;
+    left: -15px;
+}
+
+.pleaseListenIconCover {
+    border: none;
+    height: 39.2px;
+    width: 36px;
+    background: transparent url('../../Pictures/ic_listen_cover.svg') 0% 0% no-repeat padding-box;
+    position: relative;
+    top: -38px;
+    left: -15px;
+}
+
+.borderTask {
+    height: 351px;
+    background: transparent url('../../Pictures/border_gig.svg') 0% 0% no-repeat padding-box;
+    position: relative;
+    top: 16px;
+    margin-left: 42px;
+    margin-top: -202px;
+    margin-bottom: -10px;
+}
+
+.kavPhone {
+    border-left: 2px solid #747474;
+    height: 48px;
+    position: relative;
+    margin-top: -262.5px;
+    left: -59px;
+    margin-left: 186px;
+    top: 14.9px;
+}

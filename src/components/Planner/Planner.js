@@ -146,14 +146,14 @@ const Planner = () => {
                                             <AiFillCheckCircle className='icon' />
                                         </button> */}
                                         </>}
-
-                                    <button className="language" style={{ marginLeft: marginHebrew }}
+                                    {/* כפתור שפות */}
+                                    {/* <button className="language" style={{ marginLeft: marginHebrew }}
                                         onClick={() => {
                                             if (Hebrew !== false)
                                                 hebrew();
                                             else
                                                 english();
-                                        }}>{language}</button>
+                                        }}>{language}</button> */}
                                 </div>
 
                                 {modalOpen && <Modal setOpenModal={setModalOpen} setText={get_Name} />}

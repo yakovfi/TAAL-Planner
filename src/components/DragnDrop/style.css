@@ -4,7 +4,6 @@
   height: 100vw;
   background: #F5F5F5 0% 0% no-repeat padding-box;
   opacity: 1;
-  margin-top: -30px;
 }
 
 .Cover_Tasks {
@@ -98,7 +97,6 @@
   top: -18px;
   height: 474px;
   border-radius: 21px;
-
 }
 
 .phoneHeaderCover {
@@ -113,9 +111,7 @@
   margin-top: 38px;
 }
 
-
 .hederPhone {
-
   height: 98px;
   background: transparent url('../../Pictures/headerPhone.svg') 0% 0% no-repeat padding-box;
   top: -23.5px;
@@ -166,9 +162,6 @@
 }
 
 .computer {
-
-
-
   width: 51px;
   height: 35px;
   background: transparent url('../../Pictures/ic_computer.svg') 0% 0% no-repeat padding-box;
@@ -339,19 +332,12 @@
 }
 
 .txt {
-  width: 368px;
   text-align: right;
-  font: normal normal bold 26px/34px Assistant;
+  font: normal normal bold 21px/34px Assistant;
   color: #505050;
   position: relative;
-  top: 34px;
-}
-
-.pleaseName {
-  color: rgb(232, 178, 33);
-  font-size: 21px;
-  margin-left: 149px;
-  font-weight: bold;
+  top: 33px;
+  right: 36px;
 }
 
 .helpBtn {
@@ -386,16 +372,6 @@
   border-radius: 10px;
   background-color: #bfc4ce;
   border: 1px solid rgb(235, 235, 235);
-}
-
-.pleaseListenIcon {
-  border: none;
-  height: 39.2px;
-  width: 36px;
-  background: transparent url('../../Pictures/ic_listen\ .svg') 0% 0% no-repeat padding-box;
-  position: relative;
-  top: -38px;
-  left: -15px;
 }
 
 .textStress {
@@ -474,13 +450,10 @@
   size: -22px;
   text-align: center;
   margin-top: 8px;
-
 }
 
 .rigthScrol {
   direction: rtl;
-
-
 }
 
 .stap31 {

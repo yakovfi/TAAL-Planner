@@ -12,7 +12,6 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { CgSearch } from "react-icons/cg";
 import "@fontsource/assistant";
-
 //-----------------------
 let allTasks = [];
 let tasks = [];
@@ -20,15 +19,11 @@ let filteredData = []
 let inputText = ""
 let flagFirstTime = true;
 let myStation = { name: '', id: '', flag: true, data: [] }
-
 //-----------------------
-
 const Stations = (props) => {
     // console.log("station:", props.language.setFloatLang)
     // console.log("mySite:", props.mySite);
     // console.log("propsDataStations:", props.propsData);
-
-
     // console.log(" props.allStations:", props.allStations)
     // console.log(" props.idTask:", props.idTask)
     // const [, set_obj] = useState(null);// for TextView
@@ -40,15 +35,12 @@ const Stations = (props) => {
     const [, setFlagFirstTime] = useState(false);
     const [, setMyStation] = useState(null);
 
-
     if (flagFirstTime === true) {
         filteredData = props.propsData
     }
     // console.log("filtered Data 1:", filteredData)
-
     let inputHandler = (e) => {
         setInputText(inputText = e.target.value.toLowerCase());
-
         setFlagFirstTime(flagFirstTime = false)
         //convert input text to lower case
         // setFilteredData(filteredData = [])
@@ -63,8 +55,6 @@ const Stations = (props) => {
             }
         }))
         // console.log("filtered Data 3:", filteredData)
-
-
     };
     useEffect(() => {
         const fetchData = async () => {
@@ -79,7 +69,6 @@ const Stations = (props) => {
         fetchData();
     }, []);
     const getingData = async () => {
-
         await get(`${baseUrl}/wp-json/wp/v2/tasks/`, {
             params: {
                 per_page: 99, 'Cache-Control': 'no-cache'
@@ -93,25 +82,17 @@ const Stations = (props) => {
     const Display_The_Tasks = (e) => {
         if (myStation.id === e.id) {
             setMyStation(myStation.flag = false)
-
         }
         else {
             setMyStation(myStation.flag = true)
-
         }
         setMyStation(myStation.data = props.propsData)
         setMyStation(myStation.name = e.name)
         setMyStation(myStation.id = e.id)
-
-
-
-
         // console.log("console myStat myStation:", myStation)
-
         if (tasks.length > 0) {
             tasks = [];
         }
-
         allTasks.forEach(element => {
             for (let i = 0; i < element.places.length; i++) {
                 if (element.places[i] === e.id) {
@@ -119,9 +100,7 @@ const Stations = (props) => {
                 }
             }
             // console.log("Display_The_Tasks", tasks)
-
         })
-
         setFilteredData(filteredData = props.propsData.filter((el) => {
             if (inputText === '') {
                 return el;
@@ -146,31 +125,24 @@ const Stations = (props) => {
                         marginRight: "-2%",
                         padding: "2%"
                     }}>
-
                         {!props.flagHebrew ? <><div className='TitleStation' style={{
 
                             background: props.titleStationCss
                             //   background: linear-gradient(90deg, rgb(255, 234, 220) 95%, #e29e62 1%);
                         }}>
-
                             {/* <BsThreeDotsVertical className='threeDotsVertical' /> */}
-
                             <div className='MyTitle text'> {props.stationsName}</div></div></> : <>
                             <div className='TitleStation' style={{
-
                                 background: props.titleStationCss
                                 //   background: linear-gradient(90deg, rgb(255, 234, 220) 95%, #e29e62 1%);
                             }}><h3>
                                     &nbsp;&nbsp;&nbsp;
-
                                     <div className='MyTitle'> {props.stationsName}</div>
-
                                     {/* <BsThreeDotsVertical className='threeDotsVerticalEngStation' /> */}
                                 </h3>
                             </div></>}
                         <div className="search" style={{
                             backgroundColor: "rgb(255, 242, 234)", borderStyle: 'none none solid none', borderColor: "#fff", borderWidth: "5px"
-
                         }}>
                             <input className='searchButton'
                                 dir="rtl"
@@ -190,9 +162,7 @@ const Stations = (props) => {
                                             {/* <div className='penIcon' ></div>
                                             <div className='eyeIcon' ></div> */}
                                             <BsThreeDotsVertical className='threeDotsVerticalEng' />
-
-                                            <div className="nameOfStation">{value.name}</div>
-
+                                            <div className="nameOfButton">{value.name}</div>
                                             {/* <Dot color="#F2AE69" /> */}
                                         </button>
                                     )
@@ -207,7 +177,6 @@ const Stations = (props) => {
                                     setModalOpen(true);
                                 }}>
                                 <AiOutlinePlus className='plus_station' />
-
                             </button>
                         </div>
                     </div>

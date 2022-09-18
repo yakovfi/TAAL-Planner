@@ -92,15 +92,7 @@
   border-radius: 200%;
 }
 
-.borderTask {
-  height: 351px;
-  background: transparent url('../../Pictures/border_gig.svg') 0% 0% no-repeat padding-box;
-  position: relative;
-  top: 19px;
-  margin-left: 42px;
-  margin-top: -200px;
-  margin-bottom: -7px;
-}
+
 
 .listenIcon {
   border: none;
@@ -159,15 +151,7 @@
   float: inherit;
 }
 
-.kavPhone {
-  border-left: 2px solid #747474;
-  height: 95px;
-  position: relative;
-  margin-top: -262.5px;
-  left: -59px;
-  margin-left: 186px;
-  top: 14.9px;
-}
+
 
 .margin {
   display: -webkit-inline-box;
@@ -362,14 +346,13 @@
 
 .nameOfTask {
   top: 432px;
-  left: 1635px;
   width: 98px;
-  height: 24px;
   font: normal normal bold 15px/20px Assistant;
   letter-spacing: 0px;
   color: #505050;
   opacity: 1;
   text-align: end;
+  align-self: center;
 }
 
 

@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { get } from "../../api/api";
 import './style.css';
-import Tag from "../Tag/Tag.js";
-import Tag2 from "../Tag/Tag2.js";
-
-
 // import { MdOutlineAdsClick } from "react-icons/md";
 // import { FcAddDatabase, FcSearch } from "react-icons/fc";
 import Stations from '../Stations/Stations';
 import ModalPlaces from '../Modal/Model_Places';
 import ModalLoading from '../Modal/Modal_Loading';
 import Modal from '../Modal/Modal';
+import ModalIcons from '../Modal/Modal_Icons'
 // import TextField from "@mui/material/TextField";
 import { baseUrl } from "../../config";
 import { AiOutlinePlus } from "react-icons/ai";
 // import Dot from "../Dot/Dot";
 import { BsThreeDotsVertical } from "react-icons/bs"
-import { CgSearch, CgZeit } from "react-icons/cg";
+import { CgSearch, } from "react-icons/cg";
 // const { baseUrl } = require
 //-----------------------
 let places = [];
@@ -34,7 +31,6 @@ let flagRoute = false;
 // let flagButtonRoute = false;
 let tasksOfRoutes = [];
 let clickAddRoute = false
-
 //-----------------------
 const Places = (props) => {
     // console.log("setFloatLan:", props.setFloatLang)
@@ -42,10 +38,12 @@ const Places = (props) => {
     const [, setLoading] = useState(false);
     const [, setStateStation] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
+    const [modalIconsOpen, setModalIconsOpen] = useState(false);
+    const [myRouteClick, setMyRouteClick] = useState(0);
+
+
     const [, setClickAddRoute] = useState(false);
-
-    const [flagStudent, setFlagStudent] = useState(false);
-
+    const [, setFlagStudent] = useState(false);
     const [, setThisIdTask] = useState(0)
     const [, setOnlyAllStation] = useState([]);
     const [, setPlaces] = useState([]);
@@ -59,17 +57,12 @@ const Places = (props) => {
     const [, setFlagRoute] = useState(false);
     const [, setFlagButtonRoute] = useState(false);
     const [, setTasksOfRoutes] = useState([]);
-    const [board, setBoard] = useState([]);
-
 
     let inputHandler = (e) => {
-
         //convert input text to lower case
         setInputText(inputText = e.target.value.toLowerCase());
-
         setFilteredData(filteredData = places.filter((el) => {
             // setInputText(lowerCase);
-
             if (inputText === '') {
                 return el;
             }
@@ -82,10 +75,8 @@ const Places = (props) => {
     let inputHandlerRoutes = (e) => {
         //convert input text to lower case
         setInputTextRouts(inputTextRouts = e.target.value.toLowerCase());
-
         setFilteredDataRouts(filteredDataRouts = myRoutes.filter((el) => {
             // setInputText(lowerCase);
-
             if (inputTextRouts === '') {
                 return el;
             }
@@ -118,7 +109,6 @@ const Places = (props) => {
             console.log("res places: ", res)
             setPlaces(places = res.filter((item) => item.parent === 0))
             setOnlyAllStation(onlyAllStation = res.filter((item) => item.parent > 0))
-
             Places_and_their_stations = places.map((element) => {
                 return {
                     parent: element,
@@ -142,13 +132,11 @@ const Places = (props) => {
     }
     const DisplayTasks = (e) => {
         console.log("check value routes:", tasksOfRoutes.length);
-
         setTasksOfRoutes(tasksOfRoutes = e);
         setFlagButtonRoute(flagRoute = true);
         console.log("check value routes:", tasksOfRoutes.acf.tasks);
     }
     const Display_The_Stations = (e) => {
-
         setFlagRoute(flagRoute = true);
         setThisIdTask(thisIdTask = e.id);
         if (stationArray.length > 0) {
@@ -176,9 +164,7 @@ const Places = (props) => {
             // console.log("mySite.id:", mySite.id)
             setRoutes(myRoutes = res.filter((item) => item.acf.my_site == mySite.id))
             // console.log("myRoutesssssssssssss:", myRoutes);
-
             setFilteredDataRouts(filteredDataRouts = myRoutes.filter((el) => {
-
                 if (inputTextRouts === '') {
                     return el;
                 }
@@ -189,13 +175,10 @@ const Places = (props) => {
             }))
         })
     }
-    const clickOnhreeDotsVerticaIcont = () => {
-        alert("HI")
+    const clickOnhreeDotsVerticaIcont = (value) => {
+        setMyRouteClick(value.id)
+        setModalIconsOpen(true);
     }
-    // const foo = () => {
-
-    //     alert("בדיקת כפתור")
-    // }
     //----------------------------------------------------------------------
     return (
         <>
@@ -207,6 +190,7 @@ const Places = (props) => {
                     {!flagRoute ? <>
                         {modalOpen && <ModalPlaces setOpenModalPlaces={setModalOpen} />}
 
+
                         <div className='Cover_Places' style={{
                             float: props.setFloatLang,
                             padding: "2%",
@@ -215,23 +199,16 @@ const Places = (props) => {
                         }}>
                             {!props.flagHebrew ? <> <div className='TitlePlacesCover' style={{
                                 background: props.titlePlacesCss
-
                             }}>
-
                                 {/* <BsThreeDotsVertical className='threeDotsVertical' /> */}
                                 <div className='MyTitle text'>{props.sites}</div>
-
-
-
                             </div></> : <>
                                 <div className='TitlePlacesCover' style={{
                                     background: props.titlePlacesCss
 
                                 }}><h3 className='TitlePlaces'>
                                         &nbsp;&nbsp;&nbsp;
-
                                         <div className='MyTitle'>{props.sites}</div>
-
                                         {/* <BsThreeDotsVertical className='threeDotsVerticalEng' /> */}
                                     </h3>
                                 </div></>}
@@ -252,11 +229,10 @@ const Places = (props) => {
                                             className='Place'
                                             onClick={() => Display_The_Stations(value)}
                                             key={index}>
-
                                             {/* <div className='penIcon' ></div>
                                             <div className='eyeIcon' ></div> */}
                                             <BsThreeDotsVertical className='threeDotsVerticalEng' />
-                                            <div className='nameOfSite text'>{value.name}</div>
+                                            <div className='nameOfButton text'>{value.name}</div>
                                             {/* <Dot color="rgb(161, 147, 229)" /> */}
                                             {/* <Dot color={'#7A78B7 '} /> */}
                                         </button>
@@ -282,8 +258,8 @@ const Places = (props) => {
                             flagHebrew={props.flagHebrew} clickAddRoute={clickAddRoute} />
                     </> : <>
                         {/* routs */}
-                        {modalOpen && <Modal setOpenModal={setModalOpen} setFlagStudent={setFlagStudent} />}
 
+                        {modalOpen && <Modal setOpenModal={setModalOpen} setFlagStudent={setFlagStudent} />}
                         <div className='Cover_Places' style={{
                             float: props.setFloatLang,
                             padding: "2%",
@@ -310,27 +286,35 @@ const Places = (props) => {
                                 <input className='searchButton'
                                     dir="rtl"
                                     placeholder="חפש מסלול"
-
                                     label={<CgSearch style={{ fontSize: "x-large", }} />}
                                     onChange={inputHandlerRoutes}
                                 ></input>
                             </div>
                             <div className='routs'>
+
                                 {filteredDataRouts.map((value, index) => {
                                     return (
-                                        <button
+                                        <div
                                             className='Place'
-                                            onClick={() => DisplayTasks(value)}
+                                            // onClick={() => DisplayTasks(value)}//הצגת המסלול
                                             key={index}>
-                                            <BsThreeDotsVertical className='threeDotsVerticalEng' onClick={() => clickOnhreeDotsVerticaIcont()} />
-                                            <div className='nameOfSite'>{value.title.rendered.replace("&#8211;", "-").replace("&#8217;", "'")}</div>
-                                        </button>
+                                            <BsThreeDotsVertical className='threeDotsVerticalEng'
+                                                onClick={() => clickOnhreeDotsVerticaIcont(value)}
+                                            />
+                                            {myRouteClick === value.id ? <>
+                                                {modalIconsOpen && < ModalIcons setOpenModalPlaces={setModalIconsOpen} />}
+
+                                            </> : <>
+
+                                            </>}
+
+                                            <div className='nameOfButton'>{value.title.rendered.replace("&#8211;", "-").replace("&#8217;", "'")}</div>
+                                        </div>
+
                                     )
+
                                 })}
-
-
                             </div>
-
 
                             <div className='addPlaceCover' style={{ background: '#256FA11F' }}>
                                 <button
@@ -339,7 +323,6 @@ const Places = (props) => {
                                         setModalOpen(true);
                                         setFlagStudent(true);
                                         setClickAddRoute(clickAddRoute = true)
-
                                     }}>
                                     <AiOutlinePlus className='plus' />
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -347,6 +330,7 @@ const Places = (props) => {
                                 </button>
                             </div>
                         </div>
+
                         <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
                             language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
                             addStation={props.addStation} addMyTask={props.addMyTask}
@@ -355,7 +339,6 @@ const Places = (props) => {
                             clickAddRoute={clickAddRoute}
                         />
                     </>
-
                     }
                 </>
             }
