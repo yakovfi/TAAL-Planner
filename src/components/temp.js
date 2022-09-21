@@ -98,3 +98,8 @@ const temp = () => {
 //     </>}
 //   </> : <></>
 // }
+
+
+
+
+//$env:NODE_OPTIONS=”–max-old-space-size=8192”//הקצאת זיכרון (תוספת לNPM START)
