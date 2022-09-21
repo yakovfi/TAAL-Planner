@@ -107,12 +107,9 @@ const Phone = (props) => {
                                 </div>
                                 <div className='greenCoverPhoneStress' style={{ backgroundColor: "#053705" }}>
                                     <div style={{ border: "none", background: "#11B911" }} >
-                                        <MdOutlineSettingsBackupRestore className='TempBackup' />
+                                        {/* <MdOutlineSettingsBackupRestore className='TempBackup' /> */}
                                     </div>
-                                    {
 
-
-                                    }
                                     <div className='backup' style={{ color: "#3d453e" }}>חזור למשימות שלי</div>
                                 </div>
                             </> : <>

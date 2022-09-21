@@ -41,8 +41,6 @@ const Places = (props) => {
     const [modalOpen, setModalOpen] = useState(false);
     const [modalIconsOpen, setModalIconsOpen] = useState(false);
     const [myRouteClick, setMyRouteClick] = useState(0);
-
-
     const [, setClickAddRoute] = useState(false);
     const [, setFlagStudent] = useState(false);
     const [, setThisIdTask] = useState(0)
@@ -184,15 +182,13 @@ const Places = (props) => {
     return (
         <>
             {!done ? <>
-                {<ModalLoading />}
+                {/* {<ModalLoading />} */}
             </>
                 :
                 <>
                     {!flagRoute ? <>
                         {modalOpen && <ModalPlaces setOpenModalPlaces={setModalOpen} />}
                         {modalIconsOpen && < ModalIcons setOpenModalPlaces={setModalIconsOpen} myCategory={myCategory} />}
-
-
                         <div className='Cover_Places' style={{
                             float: props.setFloatLang,
                             padding: "2%",
@@ -228,7 +224,7 @@ const Places = (props) => {
                                 {filteredData.map((value, index) => {
                                     return (
                                         <button
-                                            className='Place'
+                                            className='buttons'
                                             onClick={() => Display_The_Stations(value)}
                                             key={index}>
                                             {/* <div className='penIcon' ></div>
@@ -245,13 +241,11 @@ const Places = (props) => {
                             </div>
                             <div className='addPlaceCover'>
                                 <button
-                                    className='AddPlace'
+                                    className='AddButton'
                                     onClick={() => {
                                         setModalOpen(true);
                                     }}>
                                     <AiOutlinePlus className='plus' />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </button>
                             </div>
                         </div>
@@ -281,6 +275,7 @@ const Places = (props) => {
                                     background: props.titlePlacesCss
                                 }}><h3 className='TitlePlaces'>
                                         &nbsp;&nbsp;&nbsp;
+
                                         <div className='MyTitle'>{props.sites}</div>
                                     </h3>
                                 </div></>}
@@ -299,7 +294,7 @@ const Places = (props) => {
                                 {filteredDataRouts.map((value, index) => {
                                     return (
                                         <div
-                                            className='Place'
+                                            className='buttons'
                                             // onClick={() => DisplayTasks(value)}//הצגת המסלול
                                             key={index}>
                                             <BsThreeDotsVertical className='threeDotsVerticalEng'
@@ -307,34 +302,26 @@ const Places = (props) => {
                                             />
                                             {myRouteClick === value.id ? <>
                                                 {modalIconsOpen && < ModalIcons setOpenModalPlaces={setModalIconsOpen} myCategory={myCategory} />}
-
                                             </> : <>
 
                                             </>}
-
                                             <div className='nameOfButton'>{value.title.rendered.replace("&#8211;", "-").replace("&#8217;", "'")}</div>
                                         </div>
-
                                     )
-
                                 })}
                             </div>
-
                             <div className='addPlaceCover' style={{ background: '#256FA11F' }}>
                                 <button
-                                    className='AddPlace'
+                                    className='AddButton'
                                     onClick={() => {
                                         setModalOpen(true);
                                         setFlagStudent(true);
                                         setClickAddRoute(clickAddRoute = true)
                                     }}>
                                     <AiOutlinePlus className='plus' />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 </button>
                             </div>
                         </div>
-
                         <Stations propsData={stationArray} idTask={thisIdTask} allStations={onlyAllStation}
                             language={props} stationsName={props.stations} myTasks={props.myTasks} drag={props.drag}
                             addStation={props.addStation} addMyTask={props.addMyTask}

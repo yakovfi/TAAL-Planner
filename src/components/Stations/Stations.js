@@ -12,6 +12,8 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { CgSearch } from "react-icons/cg";
 import "@fontsource/assistant";
+import ModalIcons from '../Modal/Modal_Icons'
+
 //-----------------------
 let allTasks = [];
 let tasks = [];
@@ -19,6 +21,8 @@ let filteredData = []
 let inputText = ""
 let flagFirstTime = true;
 let myStation = { name: '', id: '', flag: true, data: [] }
+let myCategory = "stationCategory";
+
 //-----------------------
 const Stations = (props) => {
     // console.log("station:", props.language.setFloatLang)
@@ -34,7 +38,8 @@ const Stations = (props) => {
     const [, setInputText] = useState("");
     const [, setFlagFirstTime] = useState(false);
     const [, setMyStation] = useState(null);
-
+    const [modalIconsOpen, setModalIconsOpen] = useState(false);
+    const [myRouteClick, setMyRouteClick] = useState(0);
     if (flagFirstTime === true) {
         filteredData = props.propsData
     }
@@ -113,6 +118,11 @@ const Stations = (props) => {
         // console.log("filteredData from st:", filteredData)
         setStateTask({ data: tasks })//Updating the state
     }
+
+    const clickOnhreeDotsVerticaIcont = (value) => {
+        setMyRouteClick(value.id)
+        setModalIconsOpen(true);
+    }
     //----------------------------------------------------------
     return (
         <>
@@ -156,12 +166,19 @@ const Stations = (props) => {
                             {props.clickAddRoute ? <>
                                 {filteredData.map((value, index) => {
                                     return (
-                                        <button className='Station'
+                                        <button className='buttons'
                                             onClick={() => Display_The_Tasks(value)}
                                             key={index}>
                                             {/* <div className='penIcon' ></div>
                                             <div className='eyeIcon' ></div> */}
-                                            <BsThreeDotsVertical className='threeDotsVerticalEng' />
+                                            <BsThreeDotsVertical className='threeDotsVerticalEng'
+                                                onClick={() => clickOnhreeDotsVerticaIcont(value)}
+                                            />
+                                            {myRouteClick === value.id ? <>
+                                                {modalIconsOpen && < ModalIcons setOpenModalPlaces={setModalIconsOpen} myCategory={myCategory} />}
+                                            </> : <>
+
+                                            </>}
                                             <div className="nameOfButton">{value.name}</div>
                                             {/* <Dot color="#F2AE69" /> */}
                                         </button>
@@ -172,11 +189,11 @@ const Stations = (props) => {
                         </div>
                         <div className='addStationCover'>
                             <button
-                                className='AddStation'
+                                className='AddButton'
                                 onClick={() => {
                                     setModalOpen(true);
                                 }}>
-                                <AiOutlinePlus className='plus_station' />
+                                <AiOutlinePlus className='plus' />
                             </button>
                         </div>
                     </div>

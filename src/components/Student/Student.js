@@ -139,7 +139,7 @@ const Cards = () => {
             }).then(res => {
 
                 setDone(true)
-                // console.log("Users:", res)
+                console.log("Users:", res)
                 size = res.length / number;
                 setDataCards(dataCards = res.filter((item) => item.acf.risk_profile > 0))
                 // console.log("dataCards:", dataCards)

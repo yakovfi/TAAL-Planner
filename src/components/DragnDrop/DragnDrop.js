@@ -243,11 +243,11 @@ function DragnDrop(props) {
                 </div>
                 <div className='addTaskCover'>
                     <button
-                        className='AddStation'
+                        className='AddButton'
                         onClick={() => {
                             setModalOpen(true);
                         }}>
-                        <AiOutlinePlus className='plus_station' />
+                        <AiOutlinePlus className='plus' />
                     </button>
                 </div>
             </div>
@@ -333,7 +333,6 @@ function DragnDrop(props) {
                             </div>
                             <div className='MyTasks'>
                                 {flagTree ? <>
-
                                     {props.mySite.name ? <>
                                         <div className='kavT'></div>
                                         <div className='mySiteChois'>
@@ -396,7 +395,8 @@ function DragnDrop(props) {
                                             flagTree={flagTree}
                                             flagStress={flagStress}
                                             mySite={props.mySite} />
-                                    </>}
+                                    </>
+                                }
                             </div>
                         </div></>}
             </>

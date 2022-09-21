@@ -5,9 +5,6 @@
   padding-bottom: 1px;
   height: 345px;
   overflow: auto;
-  width: 272px;
-  scrollbar-color: #bfc4ce #dadbe2 !important;
-  scrollbar-width: thin !important;
 }
 
 .routs {
@@ -71,11 +68,9 @@
   font-size: 18px;
 }
 
-/* .threeDotsVerticalEng:hover+.ModalIcons {
+.threeDotsVerticalEng:hover+.ModalIcons {
   display: block;
-
-} */
-
+}
 
 .threeDotsVerticalTasks {
   opacity: 1;
@@ -108,14 +103,10 @@
   z-index: 1;
 }
 
-.Place {
+.buttons {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 2px #00000080;
   border: 1px solid #D8D8D8;
-}
-
-.Place,
-.AddPlace {
   display: flex;
   width: 85%;
   height: 59px;
@@ -129,7 +120,7 @@
   font-size: small;
 }
 
-.AddPlace {
+.AddButton {
   height: 56px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 4px 10px #00000033;
@@ -137,6 +128,10 @@
   border-radius: 8px;
   opacity: 1;
   width: 236px;
+  position: relative;
+  left: 20px;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
 
 .plus {
@@ -151,7 +146,7 @@
   background-color: #fbfbfb;
 }
 
-.AddPlace:hover {
+.AddButton:hover {
   background-color: #fbfbfb;
 }
 
@@ -213,31 +208,16 @@ h3 {
 
 .search {
   text-align: right;
-  width: 272px;
-}
-
-.searchRoute {
-  top: 322px;
-  left: 1468px;
-  width: 300px;
-  height: 35px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 0px 2px 2px #00000080;
-  border-radius: 21px;
-  opacity: 1;
 }
 
 .searchButton {
-  top: 322px;
-  left: 1468px;
-  width: 233px;
+  width: 231px;
   height: 29px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 2px #00000080;
   border-radius: 21px;
-  opacity: 1;
   border: #dde2fa;
-  margin-right: 17px;
+  margin-right: 19px;
   background-image: url('../../Pictures/Search.svg');
   background-position: 202px 5px;
   padding: 12px 50px 12px 40px;

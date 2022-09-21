@@ -468,7 +468,7 @@
 
 .ModalIcons {
   width: 160px;
-  height: 31px;
+  height: 33px;
   background: transparent url('../../Pictures/Component\ Icons.svg') 0% 0% no-repeat padding-box;
   border: 0px solid white;
   opacity: 1;
@@ -476,7 +476,24 @@
   left: 81px;
   top: 16px;
   margin-left: -160px;
-  /* display: none; */
+}
+
+.ModalIcons:hover {
+
+  display: none;
+
+}
+
+.ModalIconsStation {
+  width: 160px;
+  height: 33px;
+  background: transparent url('../../Pictures/Component\ Icons.svg') 0% 0% no-repeat padding-box;
+  border: 0px solid white;
+  opacity: 1;
+  position: relative;
+  left: 81px;
+  top: 16px;
+  margin-left: -160px;
 }
 
 .penIcon {
@@ -491,6 +508,15 @@
 
 }
 
+.penIconStation {
+  height: 16px;
+  width: 16px;
+  background: transparent url('../../Pictures/Ic_pen.svg') 0% 0% no-repeat padding-box;
+  opacity: 1;
+  position: relative;
+  right: 41px;
+  border: none;
+}
 
 .linkIcon {
   height: 32px;
@@ -503,8 +529,6 @@
   border: none;
 }
 
-
-
 .duplicateIcon {
   height: 24px;
   background: transparent url('../../Pictures/ic_duplicate.svg') 0% 0% no-repeat padding-box;
@@ -515,6 +539,18 @@
   width: 20px;
   border: none;
 }
+
+.duplicateIconStation {
+  height: 24px;
+  background: transparent url('../../Pictures/ic_duplicate.svg') 0% 0% no-repeat padding-box;
+  opacity: 1;
+  position: relative;
+  top: 5px;
+  left: 41px;
+  width: 20px;
+  border: none;
+}
+
 
 .shareIcon {
   height: 24px;

@@ -21,6 +21,16 @@
     margin-top: -71px;
 }
 
+.home {
+    width: 51px;
+    height: 35px;
+    background: transparent url('../../Pictures/ic_home.svg') 0% 0% no-repeat padding-box;
+    border: 0px solid white;
+    position: relative;
+    top: 12px;
+    margin-left: -583px;
+}
+
 .link {
     color: rgb(255, 255, 255);
     text-decoration: none;
