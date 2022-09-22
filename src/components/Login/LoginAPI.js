@@ -49,7 +49,7 @@ function LoginAPI(props) {
           // console.log("token", user.token)
           sessionStorage.setItem("jwt", user.token);
           sessionStorage.setItem("logged_in", 1);
-          window.location.replace("/Dashboard");
+          window.location = "https://taal-planner-v2z2.onrender.com/Dashboard";
         }
       });
   }
