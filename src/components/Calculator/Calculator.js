@@ -314,7 +314,7 @@ const Calculator = () => {
   };
   //--------------------------------------------------------------
   const reset = () => {
-    window.location = "/Calculator";
+    window.location.replace("/Calculator");
   };
   const help = () => {
     setHelpFlag((helpFlag = true));
