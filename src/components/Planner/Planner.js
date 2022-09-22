@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
-import { AiFillCheckCircle } from "react-icons/ai";
-import { MdHelpOutline } from "react-icons/md";
+// import { AiFillCheckCircle } from "react-icons/ai";
+// import { MdHelpOutline } from "react-icons/md";
 import Places from '../Places/Places';
 import 'reactjs-popup/dist/index.css';
 import Modal from '../Modal/Modal';
@@ -10,7 +10,7 @@ import Modal from '../Modal/Modal';
 let marginHebrew = '0px';
 const Planner = () => {
     const [get_logged_in, setLogged_in] = useState(false);// for TextView
-    const [get_Name, setName] = useState(null);// for TextView
+    const [get_Name, ] = useState(null);// for TextView
     const [loading, setLoading] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [Hebrew, setHebrew] = useState(false);
@@ -22,14 +22,14 @@ const Planner = () => {
     const [addStation, setAddStation] = useState("add stations");
     const [myTasks, setTasks] = useState("Tasks");
     const [addMyTask, setAddTask] = useState("Add tasks");
-    const [saveButton, setSaveButton] = useState("Save route");
-    const [routeWrite, setRouteWrite] = useState("Write down the name of the route");
+    const [, setSaveButton] = useState("Save route");
+    const [, setRouteWrite] = useState("Write down the name of the route");
     const [drag, setRDrag] = useState("route view");
 
     const [titlePlacesCss, setTitlePlacesCss] = useState("linear-gradient(90deg, #7A78B7  5%, #7A78B71F 1%)");
     const [titleStationCss, setTitleStationCss] = useState("linear-gradient(90deg, #F2AE69 5%, #FEF5ED 1%)");
     const [titleTaskCss, setTitleTaskCss] = useState("linear-gradient(90deg, #C4CE9C 5%, #F8F9F3 1%)");
-    const [inputSide, setInputSide] = useState("left");
+    const [, setInputSide] = useState("left");
     const [flagHebrew, setflagHebrew] = useState(false);
 
 
@@ -44,7 +44,7 @@ const Planner = () => {
             }
             setLoading(false);
         }
-        english();
+        // english();
         fetchData();
     }, []);
 
@@ -147,13 +147,13 @@ const Planner = () => {
                                         </button> */}
                                         </>}
                                     {/* כפתור שפות */}
-                                    {/* <button className="language" style={{ marginLeft: marginHebrew }}
+                                    <button className="language" style={{ marginLeft: marginHebrew }}
                                         onClick={() => {
                                             if (Hebrew !== false)
                                                 hebrew();
                                             else
                                                 english();
-                                        }}>{language}</button> */}
+                                        }}>{language}</button>
                                 </div>
 
                                 {modalOpen && <Modal setOpenModal={setModalOpen} setText={get_Name} />}

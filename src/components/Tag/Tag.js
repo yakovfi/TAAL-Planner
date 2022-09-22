@@ -1,4 +1,4 @@
-import React, { useState, useEffect, } from 'react';
+import React, { useState} from 'react';
 import { useDrag } from "react-dnd";
 // import { RiDragMove2Line } from "react-icons/ri";
 import "./style.css";
@@ -43,9 +43,10 @@ function Tag({ title, id, flagBoard, myStation, myMarginTop, count, myLastStatio
 
     }
     const listenMyStation = () => {
-        data.map((val) => {
+        data.forEach((val) => {
             if (nameStation === val.name)
-                setIdListen(idListen = val.id);
+               setIdListen(idListen = val.id);
+            
         })
         setDataListen(dataListen = data)
         console.log("idListen:", idListen)
@@ -74,7 +75,7 @@ function Tag({ title, id, flagBoard, myStation, myMarginTop, count, myLastStatio
                 </>}
             {flagBoard && flagPhone ? <>
                 <div className='margin'></div>
-                {nameStation != "" ? <>
+                {nameStation !== "" ? <>
                     <div className="stap1">
                         <div className="nameStationBoardPhone">{nameStation}
 
