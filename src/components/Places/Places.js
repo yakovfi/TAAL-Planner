@@ -124,7 +124,6 @@ const Places = (props) => {
                     return el.name.toLowerCase().includes(inputText)
                 }
             }))
-
         });
         setDone(true)
         // setData_Loaded(true)
