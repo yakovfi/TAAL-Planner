@@ -5,6 +5,8 @@
   padding-bottom: 1px;
   height: 345px;
   overflow: auto;
+  scrollbar-color: #bfc4ce #dadbe2 !important;
+  scrollbar-width: thin !important;
 }
 
 .routs {
