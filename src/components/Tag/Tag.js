@@ -108,7 +108,7 @@ function Tag({ title, id, flagBoard, myStation, myMarginTop, count, myLastStatio
 
             </> :
                 <>
-                    <div className='Tasks' style={{ marginTop: myMarginTop }} ref={drag} src={title}>
+                    <div className='buttons' style={{ marginTop: myMarginTop }} ref={drag} src={title}>
                         <BsThreeDotsVertical className='threeDotsVerticalTasks' />
                         <div className='nameOfTask'> {title}</div>
                     </div>
