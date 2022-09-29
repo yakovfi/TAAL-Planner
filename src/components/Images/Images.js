@@ -1,7 +1,7 @@
 import './style.css';
 import Image from 'react-bootstrap/Image'
 let image = ""
-const Images = ({ id, data }) => {
+const Images = ({ id, data, flag }) => {
 
     for (let index = 0; index < data.length; index++) {
         if (data[index].acf.image)
@@ -12,14 +12,35 @@ const Images = ({ id, data }) => {
 
     return (
         <>
-            {image !== "" ? <><div className="" >
-                <Image
-                    src={image}
-                    alt="new"
-                />
-            </div></> :
-                null
-            }
+            {flag ? <>
+
+                {image !== "" ? <><div className="imgTablet" >
+                    <Image style={{
+                        width: '60px',
+                        height: '69px'
+                    }}
+                        src={image}
+                        alt="new"
+                    />
+                </div></> :
+                    null
+                }
+
+            </> : <>
+
+
+                {image !== "" ? <><div className="img" >
+                    <Image style={{
+                        width: '133px',
+                        height: '89px'
+                    }}
+                        src={image}
+                        alt="new"
+                    />
+                </div></> :
+                    null
+                }</>}
+
         </>
     );
 }

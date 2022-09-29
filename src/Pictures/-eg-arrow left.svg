@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40.38" height="74.38" viewBox="0 0 74.38 74.38">
+  <defs>
+    <filter id="Ellipse_red">
+      <feOffset dy="-6" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feFlood flood-opacity="0.302" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="_-eg-arrow_left" data-name="-eg-arrow left" transform="translate(-81.59 -1353.81)">
+    <g data-type="innerShadowGroup">
+      <circle id="Ellipse_red-2" data-name="Ellipse red" cx="37.19" cy="37.19" r="37.19" transform="translate(81.59 1353.81)" fill="#256fa1"/>
+      <g transform="matrix(1, 0, 0, 1, 81.59, 1353.81)" filter="url(#Ellipse_red)">
+        <circle id="Ellipse_red-3" data-name="Ellipse red" cx="37.19" cy="37.19" r="37.19" fill="#fff"/>
+      </g>
+      <g id="Ellipse_red-4" data-name="Ellipse red" transform="translate(81.59 1353.81)" fill="none" stroke="#256fa1" stroke-width="5">
+        <circle cx="37.19" cy="37.19" r="37.19" stroke="none"/>
+        <circle cx="37.19" cy="37.19" r="34.69" fill="none"/>
+      </g>
+    </g>
+    <path id="arrow_left" data-name="arrow left" d="M127.45,1408.275a1.478,1.478,0,0,1-.451,1.042l-2.253,2.264a1.413,1.413,0,0,1-2.073,0l-21-21.1a1.429,1.429,0,0,1,0-2.083l21-21.1a1.413,1.413,0,0,1,2.073,0l2.253,2.264a1.429,1.429,0,0,1,0,2.083l-17.711,17.8,17.711,17.8A1.564,1.564,0,0,1,127.45,1408.275Z" fill="#fff"/>
+  </g>
+</svg>

@@ -45,4 +45,11 @@
     top: 14.9px;
 }
 
-.backup {}
+.clock {
+    color: white;
+    position: relative;
+    top: -59px;
+    width: -52px;
+    font-size: 12px;
+    left: 11px;
+}

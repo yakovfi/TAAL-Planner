@@ -17,7 +17,6 @@
   padding-bottom: 1px;
 }
 
-
 .Station:focus {
   background: linear-gradient(90deg, #fffbf7 0, #efe3d6);
   transition: 0.4s;

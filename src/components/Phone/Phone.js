@@ -30,12 +30,16 @@ const Phone = (props) => {
                                 </button>
                                 <div className='cellInfo'></div>
                                 <Dot className="Dotcamera" color="#2f2f2f" />
-                                <Clock />
+                                <div className="clock">
+                                    <Clock />
+                                </div>
+
                             </div>
                         </div>
                         <div className="stap2">
                             {props.board.map((tag, keyCount) => {
                                 return <Tag
+                                    modalFlagTablet={props.modalFlagTablet}
                                     title={tag.title}
                                     id={tag.id}
                                     idImg={tag.idImg}

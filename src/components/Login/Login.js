@@ -75,7 +75,7 @@ function Login(props) {
                   </div>
                 </div>
               </div>
-              <img
+              <img 
                 src={logo}
                 className="App-logo"
                 alt="logo"

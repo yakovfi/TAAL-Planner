@@ -8,6 +8,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { CgSearch } from "react-icons/cg";
 import { AiFillCheckCircle } from "react-icons/ai";
 import Phone from "../Phone/Phone"
+import Tablet from "../Tablet/Tablet"
 
 let Route = [];
 let dndArray = [];
@@ -29,8 +30,10 @@ let kavTaskTopMarginTop = "-7px";
 let borderLeft = "2px solid #c2bfbf";
 let flagPhone = false;
 let flagTree = true;
+// let flagTablet = false;
 let flagPhoneOne = false;
 let flagStress = false;
+let modalFlagTablet = false
 //-------------------------
 function DragnDrop(props) {
     if (props.tasksOfRoutes && props.tasksOfRoutes.acf)
@@ -45,12 +48,15 @@ function DragnDrop(props) {
     const [, setLoading] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [modalOpenAddRoute, setModalOpenAddRoute] = useState(false);
+    const [, setModalFlagTablet] = useState(false);
+
     // const [, setHelpFlag] = useState(false);
     const [board, setBoard] = useState([]);
     const [, setCount] = useState(0);
     const [get_Name,] = useState(null);// for TextView
     const [, setFlagTree] = useState(true);
     const [, setFlagPhone] = useState(false);
+    // const [, setFlagTablet] = useState(false);
     const [, setFlagPhoneOne] = useState(false);
     const [, setWidth] = useState("-13px");
     const [, setHeight] = useState("70px");
@@ -169,22 +175,32 @@ function DragnDrop(props) {
     //     setModalOpen(true);
     // }
     const treeFunction = () => {
-        setFlagPhone(flagPhone = false)
+        setFlagPhone(flagPhone = false);
+        // setFlagTablet(flagTablet = false)
+        setModalFlagTablet(modalFlagTablet = false)
         setFlagTree(flagTree = true);
         // alert("tree")
         // alert(flagPhone)
     }
     const watchFunction = () => {
         setFlagTree(flagTree = false);
-        setFlagPhone(flagPhone = false)
+        // setFlagTablet(flagTablet = false);
+        setModalFlagTablet(modalFlagTablet = false)
+
+        setFlagPhone(flagPhone = false);
     }
     const phoneFunction = () => {
         setFlagTree(flagTree = false);
-        setFlagPhone(flagPhone = true)
+        setFlagPhone(flagPhone = true);
+        setModalFlagTablet(modalFlagTablet = false)
+
     }
     const tabletFunction = () => {
         setFlagTree(flagTree = false);
-        setFlagPhone(flagPhone = false)
+        setFlagPhone(flagPhone = false);
+        setModalFlagTablet(modalFlagTablet = true)
+
+
     }
     // const computerFunction = () => {
     //     setFlagTree(false);
@@ -332,6 +348,7 @@ function DragnDrop(props) {
                                 </button>
                             </div>
                             <div className='MyTasks'>
+                                {/* flagTree   */}
                                 {flagTree ? <>
                                     {props.mySite.name ? <>
                                         <div className='kavT'></div>
@@ -355,6 +372,7 @@ function DragnDrop(props) {
                                     </> : <></>}
                                     {board.map((tag, keyCount) => {
                                         return saveTag = <Tag
+                                            modalFlagTablet={modalFlagTablet}
                                             title={tag.title}
                                             id={tag.id}
                                             data={tag.data}
@@ -385,16 +403,48 @@ function DragnDrop(props) {
                                     </>}
                                 </> :
                                     <>
+
                                         {/* flagPhone */}
-                                        <Phone
-                                            flagPhone={flagPhone}
-                                            board={board}
-                                            saveTag={saveTag}
-                                            count={count}
-                                            myStation={props.myStation}
-                                            flagTree={flagTree}
-                                            flagStress={flagStress}
-                                            mySite={props.mySite} />
+                                        {flagPhone ? <>
+                                            <Phone
+                                                modalFlagTablet={modalFlagTablet}
+                                                flagPhone={flagPhone}
+                                                board={board}
+                                                saveTag={saveTag}
+                                                count={count}
+                                                myStation={props.myStation}
+                                                flagTree={flagTree}
+                                                flagStress={flagStress}
+                                                mySite={props.mySite} />
+
+                                        </> : <>
+                                            {/* {modalFlagTablet ? <>
+                                                <Tablet
+                                                    flagPhone={flagPhone}
+                                                    board={board}
+                                                    saveTag={saveTag}
+                                                    count={count}
+                                                    myStation={props.myStation}
+                                                    flagTree={flagTree}
+                                                    flagStress={flagStress}
+                                                    mySite={props.mySite} />
+
+                                            </> : <></>} */}
+                                            {modalFlagTablet ? <>
+                                                <Tablet
+                                                    modalFlagTablet={modalFlagTablet}
+                                                    flagPhone={flagPhone}
+                                                    board={board}
+                                                    saveTag={saveTag}
+                                                    count={count}
+                                                    myStation={props.myStation}
+                                                    flagTree={flagTree}
+                                                    flagStress={flagStress}
+                                                    mySite={props.mySite} />
+                                            </> : <></>}
+                                        </>
+                                        }
+
                                     </>
                                 }
                             </div>

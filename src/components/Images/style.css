@@ -1,7 +1,12 @@
-img {
-  width: 133px;
-  height: 89px;
+.img {
   position: relative;
   top: -115px;
   left: 4px;
+}
+
+img {}
+
+.imgTablet {
+  position: relative;
+
 }

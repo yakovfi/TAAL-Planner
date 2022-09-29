@@ -1,5 +1,3 @@
-
-
 .stap1 {
   background-color: #50595c;
   width: 251.999986px;
@@ -61,7 +59,6 @@
   width: 4px;
   background-color: #2f2f2f;
   color: #2f2f2f;
-
 }
 
 .stap2::-webkit-scrollbar-thumb {
@@ -100,7 +97,6 @@
   top: -75px;
   left: 6px;
   margin-top: 51px;
-
 }
 
 .nameOfTaskPhone {
@@ -203,7 +199,6 @@
   margin-top: -17px;
   left: 269px;
   bottom: -40px;
-
 }
 
 .kavTask {
@@ -304,9 +299,6 @@
   align-self: center;
 }
 
-
-
-
 .dotBoard {
   top: 547px;
   left: 356px;
@@ -316,3 +308,11 @@
   opacity: 1;
   border-radius: 200%;
 }
+
+.imagesTablet {
+  position: relative;
+  top: -23px;
+  left: 4px;
+}
+
+.imagesPositionPhone {}

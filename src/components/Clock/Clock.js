@@ -2,15 +2,20 @@ import React, { useEffect, useState } from "react";
 
 function Clock() {
     const [clockState, setClockState] = useState();
-
     useEffect(() => {
-        setInterval(() => {
-            const date = new Date();
-            setClockState(date.toLocaleTimeString());
-        }, 1000);
+        const fetchData = async () => {
+            try {
+                const date = new Date();
+                setClockState(date.toLocaleTimeString());
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+        fetchData();
     }, []);
 
-    return <div className="clock">{clockState}</div>;
+
+    return < >{clockState}</>;
 }
 
 export default Clock;
