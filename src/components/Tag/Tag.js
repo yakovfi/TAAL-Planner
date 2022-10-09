@@ -14,7 +14,7 @@ let dataListen = {};
 
 // import { useState, } from 'react';
 function Tag({ title, id, flagBoard, myStation, myMarginTop, count, myLastStation, width, height, kavTopWidth, bottom, nameStation, kavTaskTopMarginTop, borderLeft, flagPhone, idImg, dataImg, data, modalFlagTablet }) {
-    console.log("set Modal Flag Tablettttttttttttttttttttttttttttttttttttttt", modalFlagTablet)
+    // console.log("set Modal Flag Tablettttttttttttttttttttttttttttttttttttttt", modalFlagTablet)
     localStorage.setItem('myLastStation', JSON.stringify(myLastStation))
     console.log("title in Tag:", title)
     console.log("myLastStation:", myLastStation)

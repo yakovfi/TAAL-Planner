@@ -5,7 +5,7 @@ import './style.css';
 // import { FcAddDatabase, FcSearch } from "react-icons/fc";
 import Stations from '../Stations/Stations';
 import ModalPlaces from '../Modal/Model_Places';
-import ModalLoading from '../Modal/Modal_Loading';
+// import ModalLoading from '../Modal/Modal_Loading';
 import Modal from '../Modal/Modal';
 import ModalIcons from '../Modal/Modal_Icons'
 // import TextField from "@mui/material/TextField";
@@ -54,9 +54,9 @@ const Places = (props) => {
     const [, setMySite] = useState(null);
     // const [get_logged_in, setLogged_in] = useState(false);// for TextView
     const [, setFlagRoute] = useState(false);
-    const [, setFlagButtonRoute] = useState(false);
-    const [, setTasksOfRoutes] = useState([]);
-    const [, setMyCategory] = useState("place")
+    // const [, setFlagButtonRoute] = useState(false);
+    // const [, setTasksOfRoutes] = useState([]);
+    // const [, setMyCategory] = useState("place")
     let inputHandler = (e) => {
         //convert input text to lower case
         setInputText(inputText = e.target.value.toLowerCase());
@@ -128,12 +128,12 @@ const Places = (props) => {
         setDone(true)
         // setData_Loaded(true)
     }
-    const DisplayTasks = (e) => {
-        console.log("check value routes:", tasksOfRoutes.length);
-        setTasksOfRoutes(tasksOfRoutes = e);
-        setFlagButtonRoute(flagRoute = true);
-        console.log("check value routes:", tasksOfRoutes.acf.tasks);
-    }
+    // const DisplayTasks = (e) => {
+    //     console.log("check value routes:", tasksOfRoutes.length);
+    //     setTasksOfRoutes(tasksOfRoutes = e);
+    //     setFlagButtonRoute(flagRoute = true);
+    //     console.log("check value routes:", tasksOfRoutes.acf.tasks);
+    // }
     const Display_The_Stations = (e) => {
         setFlagRoute(flagRoute = true);
         setThisIdTask(thisIdTask = e.id);
@@ -160,7 +160,7 @@ const Places = (props) => {
         }).then(res => {
             // console.log("resssssssssss ", res)
             // console.log("mySite.id:", mySite.id)
-            setRoutes(myRoutes = res.filter((item) => item.acf.my_site == mySite.id))
+            setRoutes(myRoutes = res.filter((item) => item.acf.my_site === String(mySite.id)))
             // console.log("myRoutesssssssssssss:", myRoutes);
             setFilteredDataRouts(filteredDataRouts = myRoutes.filter((el) => {
                 if (inputTextRouts === '') {

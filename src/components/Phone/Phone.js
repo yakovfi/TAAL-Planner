@@ -73,12 +73,15 @@ const Phone = (props) => {
                 </> : <>
                     {/* stress */}
                     <div className="phoneCoverStress">
+
                         <div className="phoneHeaderCover">
                             <div className='hederPhone'>
                                 <div className='grayStress'></div>
                                 <div className='cellInfo'></div>
                                 <Dot className="Dotcamera" color="#2f2f2f" />
-                                <Clock />
+                                <div className="clock">
+                                    <Clock />
+                                </div>
                             </div>
                             {
                                 modalOpen ? <>
@@ -129,10 +132,7 @@ const Phone = (props) => {
                                     <button style={{ border: "none", background: "#11B911" }} onClick={() => backup()}>
                                         <MdOutlineSettingsBackupRestore className='TempBackup' />
                                     </button>
-                                    {
 
-
-                                    }
                                     <div className='backup' >חזור למשימות שלי</div>
                                 </div>
                             </>}

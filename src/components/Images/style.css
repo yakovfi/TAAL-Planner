@@ -4,9 +4,8 @@
   left: 4px;
 }
 
-img {}
-
 .imgTablet {
   position: relative;
-
+  top: -23px;
+  left: 5px;
 }

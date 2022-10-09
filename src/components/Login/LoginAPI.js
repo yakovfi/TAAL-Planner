@@ -9,12 +9,8 @@ let flag = false;
 //---------------------
 
 function LoginAPI(props) {
-  // console.log()
-  // alert(props.getFlagLoading)
   const [, login_token] = useState("");
   const [, setFlag] = useState(false);
-  // const [, setMyStatus] = useState(0)
-
   if (props.APIDetailsLogin.user.length > 0) {
     const url = `${baseUrl}/wp-json/jwt-auth/v1/token/`;
     fetch(url, {
