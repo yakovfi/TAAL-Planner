@@ -336,14 +336,3 @@ const Places = (props) => {
     );
 }
 export default Places;
-
-
-
-
-// {dndArray.map((tag, keyCount) => {
-
-//     return <Tag title={tag.title} id={tag.id} idImg={thisId} dataImg={saveProps.propDataTask} key={keyCount} flagBoard={true} myLastStation={props.myStation.name} myStation={tag.myStation} myMarginTop={'-68px'} count={count} />;
-
-// })}
-//זה בשביל להציג את המסלול
-//נ.ב צריך להוסיף למערך את המסלול
