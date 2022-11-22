@@ -1,9 +1,12 @@
 .Board {
+ 
   left: 0px;
   width: 400px;
   height: 100vw;
   background: #F5F5F5 0% 0% no-repeat padding-box;
   opacity: 1;
+  margin-top: -28px;
+
 }
 
 .Cover_Tasks {

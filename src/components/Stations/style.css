@@ -9,7 +9,9 @@
   scrollbar-color: #bfc4ce #dadbe2 !important;
   scrollbar-width: thin !important;
 }
-
+.characters{
+  margin-left: -34px;
+}
 .addStationCover {
   background-color: rgb(255, 242, 234);
   margin: -0.5px;

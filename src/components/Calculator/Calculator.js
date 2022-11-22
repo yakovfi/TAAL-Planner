@@ -135,10 +135,10 @@ const Calculator = () => {
       }).then((res) => {
         setDone(true);
         // console.log("resCAlc:", res)
-        size = res.length / number;
+        size = res.data.length / number;
 
         setDataCards(
-          (dataCards = res.map((value) => {
+          (dataCards = res.data.map((value) => {
             return {
               myUsers: value.acf.users,
               myTitle: value.title.rendered
@@ -200,7 +200,9 @@ const Calculator = () => {
         "Cache-Control": "no-cache",
       },
     }).then((res) => {
-      setStudent((student = res.filter((item) => item.description !== "")));
+      setStudent(
+        (student = res.data.filter((item) => item.description !== ""))
+      );
       setUsers(
         (getUsers = student.map((r) => {
           return r.name;
