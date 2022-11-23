@@ -126,10 +126,6 @@ const Cards = () => {
     if (flag_show_page === true) setDone(true);
     if (flag_show_page === false)
       get(`${baseUrl}/wp-json/wp/v2/routes/`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
-        },
         params: {
           per_page: 99,
           "Cache-Control": "no-cache",

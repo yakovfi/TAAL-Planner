@@ -187,10 +187,6 @@ const Places = (props) => {
     setStateStation({ data: stationArray });
 
     get(`${baseUrl}/wp-json/wp/v2/routes/`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
-      },
       params: {
         per_page: 99,
         "Cache-Control": "no-cache",
