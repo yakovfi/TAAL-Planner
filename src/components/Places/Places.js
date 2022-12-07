@@ -33,6 +33,7 @@ let flagRoute = false;
 let tasksOfRoutes = [];
 let clickAddRoute = false;
 let myCategory = false;
+let flagTest = false;
 
 //-----------------------
 const Places = (props) => {
@@ -58,6 +59,7 @@ const Places = (props) => {
   const [, setFlagRoute] = useState(false);
   const [, setFlagButtonRoute] = useState(false);
   const [, setTasksOfRoutes] = useState([]);
+  const [, setFlagTest] = useState(false);
 
   // const [, setMyCategory] = useState("place")
   let inputHandler = (e) => {
@@ -187,6 +189,10 @@ const Places = (props) => {
     setStateStation({ data: stationArray });
 
     get(`${baseUrl}/wp-json/wp/v2/routes/`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
+      },
       params: {
         per_page: 99,
         "Cache-Control": "no-cache",
@@ -216,6 +222,8 @@ const Places = (props) => {
   const clickOnhreeDotsVerticaIcont = (value) => {
     setMyRouteClick(value.id);
     setModalIconsOpen(true);
+    setFlagTest((flagTest = true));
+    setModalOpen(true);
   };
   //----------------------------------------------------------------------
   return (
@@ -331,6 +339,7 @@ const Places = (props) => {
                                             <div className='eyeIcon' ></div> */}
                         <BsThreeDotsVertical
                           className="threeDotsVerticalEng"
+                          //        setModalOpen(true)
                           onClick={() => clickOnhreeDotsVerticaIcont(value)}
                         />
                         <div className="nameOfButton text">{value.name}</div>
@@ -376,6 +385,7 @@ const Places = (props) => {
                 <Modal
                   setOpenModal={setModalOpen}
                   setFlagStudent={setFlagStudent}
+                  flagTest={flagTest}
                 />
               )}
               <div

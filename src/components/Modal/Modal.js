@@ -14,12 +14,14 @@ let myStudents = [];
 let myStudentsChoice = [];
 let flagClickOK = false;
 //--------------------------
-function Modal({ setOpenModal, setFlagStudent }) {
+function Modal({ setOpenModal, setFlagStudent, flagTest }) {
+  console.log("flagTest:", flagTest);
   const [, set_obj] = useState(null); // for TextView
   const [, setDone] = useState(false);
   const [, setLoading] = useState(false);
   const [, setStudent] = useState([]);
   const [, setMyStudents] = useState([]);
+
   const [, setMyStudentsChoice] = useState([]);
   const [, setFlagClickOK] = useState(false);
   const [get_Name, setName] = useState(null); // for TextView
@@ -158,44 +160,48 @@ function Modal({ setOpenModal, setFlagStudent }) {
   };
   return (
     <>
-      {false ? (
-        // setText === null || setText === ""
+      {flagTest ? (
         <>
-          <div className="Background">
-            <div className="modalContainer">
-              <div className="titleCloseBtn">
-                <button
-                  onClick={() => {
-                    setOpenModal(false);
-                  }}
-                >
-                  X
-                </button>
+          {false ? (
+            // setText === null || setText === ""
+            <>
+              <div className="Background">
+                <div className="modalContainer">
+                  <div className="titleCloseBtn">
+                    <button
+                      onClick={() => {
+                        setOpenModal(false);
+                      }}
+                    >
+                      X
+                    </button>
+                  </div>
+                  <div className="title">
+                    <h3> Please type in the route name</h3>
+                    <BsExclamationLg
+                      style={{ color: "red", fontSize: "80px" }}
+                    />
+                  </div>
+                  <div className="body"></div>
+                  <div className="footer">
+                    <button
+                      className="cancelBtn"
+                      onClick={() => {
+                        setOpenModal(false);
+                      }}
+                    >
+                      closed
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="title">
-                <h3> Please type in the route name</h3>
-                <BsExclamationLg style={{ color: "red", fontSize: "80px" }} />
-              </div>
-              <div className="body"></div>
-              <div className="footer">
-                <button
-                  className="cancelBtn"
-                  onClick={() => {
-                    setOpenModal(false);
-                  }}
-                >
-                  closed
-                </button>
-              </div>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="Background">
-          <div className="modalContainer">
-            {setFlagStudent ? (
-              <>
-                {/* <div className="titleCloseBtn">
+            </>
+          ) : (
+            <div className="Background">
+              <div className="modalContainer">
+                {setFlagStudent ? (
+                  <>
+                    {/* <div className="titleCloseBtn">
                                     <button
                                         onClick={() => {
                                             setOpenModal(false);
@@ -205,22 +211,143 @@ function Modal({ setOpenModal, setFlagStudent }) {
                                     </button>
                                 </div> */}
 
-                <div className="headerNewRoute">
-                  <div className="newRoutTitle">מסלול חדש</div>
+                    <div className="headerNewRoute">
+                      <div className="newRoutTitle"> שייך מסלול לעובד </div>
+                    </div>
+
+                    <div className="AddStudentTitle">
+                      &nbsp;&nbsp;
+                      <FcLink className="icon" />
+                    </div>
+                    <div className="allStudent">
+                      {student.map((value, index) => {
+                        return (
+                          <label key={index} className="list-group-item">
+                            <input
+                              dir="ltr"
+                              onChange={() => saveCheckbox(value)}
+                              className="form-check-input me-1"
+                              type="checkbox"
+                              id={value.name}
+                              name={value.name}
+                              value=""
+                            ></input>
+                            {value.name}
+                          </label>
+                        );
+                      })}
+                    </div>
+                    <button className="saveAs" onClick={() => saveData()}>
+                      <div style={{ color: "white" }}>שייך</div>
+                    </button>
+
+                    <button className="cancelSaveAs" onClick={() => saveData()}>
+                      {" "}
+                      ביטול
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <div className="body">
+                      <h5>שמירת מסלול</h5>
+                    </div>
+                    <div className="footer">
+                      <button className="continueBtn" onClick={Post_Route}>
+                        {" "}
+                        שמור מסלול
+                      </button>
+                      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                      <button
+                        className="cancelBtn"
+                        onClick={() => {
+                          setOpenModal(false);
+                        }}
+                      >
+                        ביטול
+                      </button>
+                      {flagClickOK ? (
+                        <>
+                          <Modal_Loading props={false} />
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+          {false ? (
+            // setText === null || setText === ""
+            <>
+              <div className="Background">
+                <div className="modalContainer">
+                  <div className="titleCloseBtn">
+                    <button
+                      onClick={() => {
+                        setOpenModal(false);
+                      }}
+                    >
+                      X
+                    </button>
+                  </div>
+                  <div className="title">
+                    <h3> Please type in the route name</h3>
+                    <BsExclamationLg
+                      style={{ color: "red", fontSize: "80px" }}
+                    />
+                  </div>
+                  <div className="body"></div>
+                  <div className="footer">
+                    <button
+                      className="cancelBtn"
+                      onClick={() => {
+                        setOpenModal(false);
+                      }}
+                    >
+                      closed
+                    </button>
+                  </div>
                 </div>
-                <form id="IPU" className="w3-container">
-                  <div className="nameRoutTitle"> :שם המסלול </div>
-                  <p>
-                    <input
-                      dir="rtl"
-                      className="inputRouteName"
-                      required={true}
-                      type="text"
-                      onChange={getName}
-                    ></input>
-                  </p>
-                </form>
-                <div className="AddStudentTitle">
+              </div>
+            </>
+          ) : (
+            <div className="Background">
+              <div className="modalContainer">
+                {setFlagStudent ? (
+                  <>
+                    {/* <div className="titleCloseBtn">
+                                    <button
+                                        onClick={() => {
+                                            setOpenModal(false);
+                                        }}
+                                    >
+                                        X
+                                    </button>
+                                </div> */}
+
+                    <div className="headerNewRoute">
+                      <div className="newRoutTitle">מסלול חדש</div>
+                    </div>
+                    <form id="IPU" className="w3-container">
+                      <div className="nameRoutTitle"> :שם המסלול </div>
+                      <p>
+                        <input
+                          dir="rtl"
+                          className="inputRouteName"
+                          required={true}
+                          type="text"
+                          onChange={getName}
+                        ></input>
+                      </p>
+                    </form>
+                    {/* <div className="AddStudentTitle">
                   שייך מסלול לעובד &nbsp;&nbsp;
                   <FcLink className="icon" />
                 </div>
@@ -241,49 +368,51 @@ function Modal({ setOpenModal, setFlagStudent }) {
                       </label>
                     );
                   })}
-                </div>
-                <button className="saveAs" onClick={() => saveData()}>
-                  <div style={{ color: "white" }}>שמירה בשם</div>
-                </button>
+                </div> */}
+                    <button className="saveAs" onClick={() => saveData()}>
+                      <div style={{ color: "white" }}>שמירה בשם</div>
+                    </button>
 
-                <button className="cancelSaveAs" onClick={() => saveData()}>
-                  {" "}
-                  ביטול
-                </button>
-              </>
-            ) : (
-              <>
-                {" "}
-                <div className="body">
-                  <h5>שמירת מסלול</h5>
-                </div>
-                <div className="footer">
-                  <button className="continueBtn" onClick={Post_Route}>
+                    <button className="cancelSaveAs" onClick={() => saveData()}>
+                      {" "}
+                      ביטול
+                    </button>
+                  </>
+                ) : (
+                  <>
                     {" "}
-                    שמור מסלול
-                  </button>
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                  <button
-                    className="cancelBtn"
-                    onClick={() => {
-                      setOpenModal(false);
-                    }}
-                  >
-                    ביטול
-                  </button>
-                  {flagClickOK ? (
-                    <>
-                      <Modal_Loading props={false} />
-                    </>
-                  ) : (
-                    <></>
-                  )}
-                </div>
-              </>
-            )}
-          </div>
-        </div>
+                    <div className="body">
+                      <h5>שמירת מסלול</h5>
+                    </div>
+                    <div className="footer">
+                      <button className="continueBtn" onClick={Post_Route}>
+                        {" "}
+                        שמור מסלול
+                      </button>
+                      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                      <button
+                        className="cancelBtn"
+                        onClick={() => {
+                          setOpenModal(false);
+                        }}
+                      >
+                        ביטול
+                      </button>
+                      {flagClickOK ? (
+                        <>
+                          <Modal_Loading props={false} />
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
+        </>
       )}
     </>
   );
