@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: "https://s83.bfa.myftpupload.com",
+  baseUrl: "https://taal.tech",
 };
 
 //'https://taal.tech' // prodaction
