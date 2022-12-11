@@ -13,6 +13,7 @@ const CardDash = (props) => {
       window.location.replace("/");
     } else if (id === 2) {
       window.location("www.facebook.com");
+      window.location.replace("/routes_cards");
     } else if (id === 3) {
       window.location.replace("/planner");
     } else if (id === 4) {
@@ -25,9 +26,9 @@ const CardDash = (props) => {
     if (id === 1) {
       window.location.replace("/places");
     } else if (id === 2) {
-      window.location.replace("/students");
+      window.location.replace("/student");
     } else if (id === 3) {
-      window.location.replace("/routes");
+      window.location.replace("/routes_cards");
     } else if (id === 4) {
       window.location.replace("/subjects");
     } else console.log("fail");

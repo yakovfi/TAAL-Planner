@@ -36,7 +36,7 @@ const Nav = () => {
   return (
     <div className="nav">
       <ul className="nav-links">
-        <Link to="/Calculator" className="link">
+        {/* <Link to="/Calculator" className="link">
           <li>
             <FcCalculator style={{ fontSize: "24px" }} />
             &nbsp;&nbsp; פעולות נוספות
@@ -58,7 +58,7 @@ const Nav = () => {
           <li>
             <FcPlus style={{ fontSize: "24px" }} /> &nbsp;&nbsp;הוסף מסלול{" "}
           </li>
-        </Link>
+        </Link> */}
         <Link to="/Dashboard">
           <div className="home"></div>
         </Link>
