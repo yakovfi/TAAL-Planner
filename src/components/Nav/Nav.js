@@ -35,7 +35,11 @@ const Nav = () => {
   });
   return (
     <div className="nav">
-      <ul className="nav-links"></ul>
+      <ul className="nav-links">
+        <Link to="/Dashboard">
+          <div className="home"></div>
+        </Link>
+      </ul>
       <div className="userName">{complete_name}</div>
       <div className="myUser"></div>
     </div>
