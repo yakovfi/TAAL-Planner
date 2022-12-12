@@ -35,29 +35,7 @@ const Nav = () => {
   });
   return (
     <div className="nav">
-      <ul className="nav-links">
-        {/* <Link to="/Calculator" className="link"></Link>
-        <Link to="/student" className="link">
-          <li>
-            <FaAddressCard style={{ fontSize: "24px" }} />
-            &nbsp;&nbsp;עובדים{" "}
-          </li>
-        </Link>
-        <Link to="/routes_cards" className="link">
-          <li>
-            <FaRoute style={{ fontSize: "24px" }} />
-            &nbsp;&nbsp;מסלולים{" "}
-          </li>
-        </Link>
-        <Link to="/planner" className="link">
-          <li>
-            <FcPlus style={{ fontSize: "24px" }} /> &nbsp;&nbsp;הוסף מסלול{" "}
-          </li>
-        </Link> */}
-        <Link to="/Dashboard">
-          <div className="home"></div>
-        </Link>
-      </ul>
+      <ul className="nav-links"></ul>
       <div className="userName">{complete_name}</div>
       <div className="myUser"></div>
     </div>
