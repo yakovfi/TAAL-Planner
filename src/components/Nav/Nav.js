@@ -36,12 +36,7 @@ const Nav = () => {
   return (
     <div className="nav">
       <ul className="nav-links">
-        {/* <Link to="/Calculator" className="link">
-          <li>
-            <FcCalculator style={{ fontSize: "24px" }} />
-            &nbsp;&nbsp; פעולות נוספות
-          </li>
-        </Link>
+        {/* <Link to="/Calculator" className="link"></Link>
         <Link to="/student" className="link">
           <li>
             <FaAddressCard style={{ fontSize: "24px" }} />

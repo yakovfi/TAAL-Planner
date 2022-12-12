@@ -138,7 +138,7 @@ const Cards = () => {
         },
       }).then((res) => {
         setDone(true);
-        console.log("Users:", res);
+        console.log("Users:", res.data.data);
         size = res.data.length / number;
         setDataCards(
           (dataCards = res.data.filter((item) => item.acf.risk_profile > 0))
