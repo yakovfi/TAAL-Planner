@@ -20,10 +20,11 @@ const TimeData = () => {
 
     // sara levy's Id
     const reqId = 20;
+    //sadfasd
     console.log("ressssssssssss:" + res.data[0].acf.user_id);
 
     result = res.data.filter((user) => user.acf.user_id == 20);
-    console.log("result: " + result[0].acf.route_title);
+    // console.log("result: " + result[0].acf.route_title);
 
     const diff = result[0].acf.end_time - result[0].acf.start_time;
     console.log("diff: " + diff);
