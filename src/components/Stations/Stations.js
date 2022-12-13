@@ -98,7 +98,7 @@ const Stations = (props) => {
       allTasks = res.data;
       if (max_pages > 1) {
         for (let i = 2; i <= max_pages; i++) {
-          console.log("max_pages: ", max_pages);
+          console.log("max_pages stations: ", max_pages);
           get(`${baseUrl}/wp-json/wp/v2/tasks/`, {
             params: {
               per_page: 100,

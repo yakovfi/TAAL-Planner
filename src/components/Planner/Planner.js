@@ -121,8 +121,6 @@ const Planner = () => {
         <div style={{ color: "white" }}>Please connect properly !</div>
       ) : (
         <>
-          <TimeData />
-
           <div className="Planner">
             {loading && <div>Loading</div>}
             {!loading && (
@@ -199,6 +197,7 @@ const Planner = () => {
                     titleTaskCss={titleTaskCss}
                     flagHebrew={flagHebrew}
                   />
+                  <TimeData />
                 </div>
               </>
             )}
