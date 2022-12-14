@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { get } from "../../api/api";
 
 let result = [];
+let dataResultArray = [];
 // https://s83.bfa.myftpupload.com/wp-json/wp/v2/time_data
 const TimeData = () => {
   const [, setResult] = useState([]);
   let arrayTemp = [];
-  let dataResultArray = [];
+
+  const [, setDataResultArray] = useState([]);
+  // let dataResultArray = [];
 
   useEffect(() => {
     (async () => {
@@ -14,7 +17,7 @@ const TimeData = () => {
     })();
   }, []);
 
-  // get: user_id, task_id, route_id, date_range(day, week, month, year, range)
+  // get: user_id, task_id, route_id, date_range(day, week, month, year, range, select 2 days (no range))
   const gettingData = async () => {
     await get(`https://s83.bfa.myftpupload.com/wp-json/wp/v2/time_data/`, {
       // headers: {
@@ -54,18 +57,26 @@ const TimeData = () => {
 
       // sara levy's Id - should be taken from DB / action
       const reqUserId = 51;
-      const reqTaskId = 20;
-      const currDate = new Date().toJSON().slice(0, 10);
+      const reqTaskId = 1883;
+      const currDate = new Date();
+      currDate.setDate(currDate.getDate() - 1);
 
-      console.log("currDate: " + currDate);
+      const yesterdayDate = currDate.toJSON().slice(0, 10);
+
+      console.log("yesterdayDate: " + yesterdayDate);
+
+      currDate.setDate(currDate.getDate() + 1);
+      const currDateString = currDate.toJSON().slice(0, 10);
+      console.log("currDate: " + currDateString);
+
       result = res.data.filter(
         (user) =>
           // example for specific user
           user.acf.user_id == reqUserId &&
           // // example for specific task
-          // user.acf.task_id == reqTaskId &&
+          user.acf.task_id == reqTaskId &&
           // example for traget time range
-          user.acf.start_time.slice(0, 10) == currDate
+          user.acf.start_time.slice(0, 10) == yesterdayDate
       );
 
       for (let i = 0; i < result.length; i++) {
@@ -97,14 +108,28 @@ const TimeData = () => {
           seconds
         );
 
-        if (i === 1) {
-          dataResultArray = resultTimeAndDateOnTask;
-        } else {
-          Array.prototype.push.apply(dataResultArray, resultTimeAndDateOnTask);
-        }
+        // dataResultArray.push(resultTimeAndDateOnTask.toString().slice(0, 24));
+
+        dataResultArray.push(
+          JSON.stringify({
+            day: resultTimeAndDateOnTask.toString().slice(0, 3),
+            date: resultTimeAndDateOnTask.toString().slice(4, 15),
+            time: resultTimeAndDateOnTask.toString().slice(16, 24),
+          })
+        );
       }
 
-      console.log("final result: " + dataResultArray);
+      for (let i = 0; i < dataResultArray.length; i++)
+        console.log(
+          "Task time number " +
+            i +
+            ": " +
+            JSON.parse(dataResultArray[i]).day +
+            " " +
+            JSON.parse(dataResultArray[i]).date +
+            " " +
+            JSON.parse(dataResultArray[i]).time
+        );
     });
   };
   return <div className=""></div>;
